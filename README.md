@@ -1,6 +1,7 @@
 # ServeMe System(SMS)
 
 TODO: add a logo and some bandges.
+
 ServeMe System helps users **initiate “service request” for their home or small business**. This will help users (i.e. customers that require service) to be put in contact with service providers. You will make money by collecting commission from each service request fulfilled by the service provider. The categories of services (displayed graphically by an icon) can be expanded to cover more service areas in the future.
 
 ## Components
@@ -82,8 +83,10 @@ Vendor is for one or more of the above service categories (i.e. Service Provider
 5. TODO:
 
 ## Agile organization and activities
+
 Agile organization and activities:
 Each team consists of 7 members with revolving roles as follows:
+
 - We will use Scrum methodology in this class. Each increment (i.e. sprint) in scrum could be 2 to 4 weeks. Please pick 2 weeks for your sprints.
 - Project is divided into a number of increments, i.e. Sprints, each to be completed in no more than 2 weeks. If a story is going to take longer than 2 weeks, break it down further.
 - Since the semester is finite and we will end during the first week in May, we cannot complete more than 5 sprints (5 x 2 = 10 weeks).
