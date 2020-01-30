@@ -80,8 +80,10 @@ Vendor is for one or more of the above service categories (i.e. Service Provider
 5. TODO:
 
 ## Agile organization and activities
+
 Agile organization and activities:
 Each team consists of 7 members with revolving roles as follows:
+
 - We will use Scrum methodology in this class. Each increment (i.e. sprint) in scrum could be 2 to 4 weeks. Please pick 2 weeks for your sprints.
 - Project is divided into a number of increments, i.e. Sprints, each to be completed in no more than 2 weeks. If a story is going to take longer than 2 weeks, break it down further.
 - Since the semester is finite and we will end during the first week in May, we cannot complete more than 5 sprints (5 x 2 = 10 weeks).
@@ -97,6 +99,12 @@ Each team consists of 7 members with revolving roles as follows:
   - Any issues?
 - Test-first” strategy: Before any development, test cases must be written of how to test the functionality. Test cases will be discussed briefly during DSMs. The exact format of test cases will be discussed later in class. In ideal situations, Junit should be used.
 - “Refactoring”: Sufficient time will be devoted to refactoring (i.e. continuous optimization and simplification) and documenting the changes due to refactoring.
+
+## Develop Backlog
+
+- 2020/01/28: First online meeting and talked about the requirements
+- 2020/01/30: Choose ionic5/angular8 as develop tools and build the basic framework
+  - [New members should start here for setting environments](https://ionicframework.com/getting-started): ionic(5.4.15) & node.js(13.7.0)
 
 ## Contributor
 
