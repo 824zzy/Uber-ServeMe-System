@@ -103,6 +103,12 @@ Each team consists of 7 members with revolving roles as follows:
 - Test-first” strategy: Before any development, test cases must be written of how to test the functionality. Test cases will be discussed briefly during DSMs. The exact format of test cases will be discussed later in class. In ideal situations, Junit should be used.
 - “Refactoring”: Sufficient time will be devoted to refactoring (i.e. continuous optimization and simplification) and documenting the changes due to refactoring.
 
+## Develop Backlog
+
+- 2020/01/28: First online meeting and talked about the requirements
+- 2020/01/30: Choose ionic5/angular8 as develop tools and build the basic framework
+  - [New members should start here for setting environments](https://ionicframework.com/getting-started): ionic(5.4.15) & node.js(13.7.0)
+
 ## Contributor
 
 1. [Zhengyuan Zhu](zzy824.cn)
