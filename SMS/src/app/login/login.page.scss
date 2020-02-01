@@ -3,11 +3,11 @@
     margin: 0px auto;
 }
 .lanch{
-    margin-top: 15%;
+    margin-top: 18%;
 }
 .bg-login{
     border-radius: 20px;
-    margin-top: 36px;
+    margin-top: 40px;
     margin-left: 40px;
     margin-right: 40px;
 }
@@ -31,8 +31,13 @@ ion-grid{
         }
     }
 }
+.login-row{
+    margin-top: 10px;
+}
+.auth-row{
+    margin-top: 12%;
+}
 .tplogin{
-    margin-top: 18px;
     ion-icon{
         margin: 0px;
     }

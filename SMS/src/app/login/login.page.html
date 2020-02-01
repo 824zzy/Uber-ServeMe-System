@@ -19,7 +19,7 @@
   </ion-card>
 
   <ion-grid>
-    <ion-row>
+    <ion-row class="login-row">
       <!-- login button -->
       <ion-col>
         <ion-button class="lgrg" shape="round" fill="solid" color="dark" [routerLink]="['/tabs/tab1']">login</ion-button>
@@ -33,7 +33,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="auth-row">
       <ion-col>
         <!-- google login auth -->
         <ion-button class="tplogin" fill='clear' color="danger" (click)="doGoogleLogin()">
