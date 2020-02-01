@@ -1,0 +1,52 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>initlanch</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <!-- logo -->
+  <div class="lanch">
+    <ion-img class="lanchlogo" alt="fail" src="/assets/image/lanuch_page_logo.png"></ion-img>
+  </div>
+
+  <ion-card class="bg-login">
+    <ion-item class="itemuser">
+      <ion-label class="mylabel" position="floating">Username</ion-label>
+      <ion-input class="myinput" type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+  <!-- </ion-card>
+
+  <ion-card class="bg-login"> -->
+    <ion-item lines="none">
+      <ion-label class="mylabel" position="floating">Password</ion-label>
+      <ion-input type="Password" [(ngModel)]="Password"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button class="lgrg" shape="round" fill="solid" color="dark" [routerLink]="['../login']">Login</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="lgrg" shape="round" fill="outline" color="dark" [routerLink]="['../register']">Register</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="tplogin" fill='clear' color="dark">
+          <ion-icon size="large" name="logo-google"></ion-icon>
+        </ion-button>
+        <ion-button class="tplogin" fill='clear' color="dark">
+          <ion-icon size="large" name="logo-facebook"></ion-icon>  
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+
+</ion-content>
