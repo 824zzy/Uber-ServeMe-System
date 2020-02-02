@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "630083676350",
+    "firebase_url": "https://first-sms-login-test.firebaseio.com",
+    "project_id": "first-sms-login-test",
+    "storage_bucket": "first-sms-login-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630083676350:android:3d817539968b6285ead6ef",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630083676350-8grl9a03k5pi1fcerlf4mkdc4kmi2sis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "d22bafab79ff9697f1452635c40bb380e9b8c69a"
+          }
+        },
+        {
+          "client_id": "630083676350-ij2h2p191bpf8ofptf4if3ia54uaa341.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG6M65WRvDjdYGklkgvVSvPwIVVDW-tgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630083676350-ij2h2p191bpf8ofptf4if3ia54uaa341.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "630083676350-bjv2gt7dt70cd3hidg6g503pq8n1ffma.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ionic.starter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

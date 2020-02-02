@@ -1,11 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-button expand='full' routerLink="/menu/home/feed">
-    Place Holder
-  </ion-button>
+  <!-- logo -->
+  <div class="lanch">
+    <ion-img class="lanchlogo" alt="fail" src="/assets/image/lanuch_page_logo.png"></ion-img>
+  </div>
+
+  <ion-card class="bg-login">
+    <!-- user input -->
+    <ion-item class="itemuser">
+      <ion-label class="mylabel" position="floating">Username</ion-label>
+      <ion-input class="myinput" type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <!-- password input -->
+    <ion-item lines="none">
+      <ion-label class="mylabel" position="floating">Password</ion-label>
+      <ion-input type="Password" [(ngModel)]="Password"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row class="login-row">
+      <!-- login button -->
+      <ion-col>
+        <!-- <ion-button class="lgrg" shape="round" fill="solid" color="dark" [routerLink]="['/tabs/tab1']">login</ion-button> -->
+        <ion-button class="lgrg" shape="round" fill="solid" color="dark" routerLink="/menu/home/feed">login</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <!-- sign in button -->
+      <ion-col>
+        <ion-button class="lgrg" shape="round" fill="outline" color="dark" [routerLink]="['../register']">sign up</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="auth-row">
+      <ion-col>
+        <!-- google login auth -->
+        <ion-button class="tplogin" fill='clear' color="danger" (click)="doGoogleLogin()">
+          <ion-icon size="large" name="logo-google"></ion-icon>
+        </ion-button>
+        <!-- facebook login auth -->
+        <ion-button class="tplogin" fill='clear' color="primary">
+          <ion-icon size="large" name="logo-facebook"></ion-icon>  
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+
 </ion-content>

@@ -6,10 +6,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule)
   },
-  // {
-  //   path: 'home', 
-  //   loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  // },
   {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuPageModule)
@@ -17,6 +13,10 @@ const routes: Routes = [
   {
     path: 'review',
     loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
 ];
 @NgModule({
