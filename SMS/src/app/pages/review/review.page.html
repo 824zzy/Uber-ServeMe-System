@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="customForm">
+    <ionic4-star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#488aff" 
+    defaultColor = "#f4f4f4"
+    readonly="false"
+    rating="3"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+  </form>
+</ion-content>
