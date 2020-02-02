@@ -2,6 +2,14 @@
 
 TODO: add a logo and some bandges.
 
+## Setup
+> Please follow these commands
+
+``` sh
+1. cd SMS && npm i
+```
+
+
 ServeMe System helps users **initiate “service request” for their home or small business**. This will help users (i.e. customers that require service) to be put in contact with service providers. You will make money by collecting commission from each service request fulfilled by the service provider. The categories of services (displayed graphically by an icon) can be expanded to cover more service areas in the future.
 
 ## Components
