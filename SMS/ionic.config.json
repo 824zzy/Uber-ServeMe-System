@@ -1,5 +1,7 @@
 {
   "name": "SMS",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
