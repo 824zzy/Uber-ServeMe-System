@@ -13,11 +13,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule)
   },
   {
-    path: 'initlanch',
-    loadChildren: () => import('./initlanch/initlanch.module').then( m => m.InitlanchPageModule)
+    path: 'menu',
+    loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuPageModule)
+  },
+  {
+    path: 'review',
+    loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+
   },
 ];
 @NgModule({
