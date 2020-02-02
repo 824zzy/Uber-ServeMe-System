@@ -15,7 +15,7 @@ Customers (i.e. Service Requesters) can optionally register and login to the sys
 Setup: Setup control fields such as:
 
 - Sounds on/off
-- Receive communication yes/no
+- Receive communication yes/no.(Set a prefered period for service)
 - TODO:???use points toward a service yes/no
 - Feel free to include other parameters
 - TODO:???The Bold charters will be the default.
