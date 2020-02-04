@@ -4,7 +4,7 @@
     <img src='https://img.shields.io/badge/status-Building-yellowgreen'>
     <img alt="node (tag)" src="https://img.shields.io/node/v/ionic/latest">
 </p>
-<img src="./SMS/src/assets/image/lanuch_page_logo.png" width="300" height="300" />
+<img src="./SMS/src/assets/image/readmelogo.png" width="100%"/>
 
 ServeMe System helps users **initiate “service request” for their home or small business**. This will help users (i.e. customers that require service) to be put in contact with service providers. You will make money by collecting commission from each service request fulfilled by the service provider. The categories of services (displayed graphically by an icon) can be expanded to cover more service areas in the future.
 
