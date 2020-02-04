@@ -6,16 +6,21 @@
 </p>
 <img src="./SMS/src/assets/image/lanuch_page_logo.png" width="300" height="300" />
 
-## Setup
-> Please follow these commands
-
-``` sh
-1. cd SMS && npm i
-```
-
 ServeMe System helps users **initiate “service request” for their home or small business**. This will help users (i.e. customers that require service) to be put in contact with service providers. You will make money by collecting commission from each service request fulfilled by the service provider. The categories of services (displayed graphically by an icon) can be expanded to cover more service areas in the future.
 
 ## Components
+
+- [x] Login & Registration
+- [ ] Setup
+- [ ] Service Categories
+- [ ] Register to become an approved vendor
+- [ ] Place a Service Request (by Customers)
+- [ ] Cancellation and Change
+- [ ] Accept a Service Request (by service provider))
+- [x] Payments
+- [ ] Review and Rating (by customers)
+- [ ] Order History
+- [ ] Search
 
 ### Login & Registration
 
@@ -85,14 +90,6 @@ Vendor is for one or more of the above service categories (i.e. Service Provider
 
 - Ability to search by for a service provider by address, name, star rating, etc.
 
-## Sprint Plans
-
-1. TODO:
-2. TODO:
-3. TODO:
-4. TODO:
-5. TODO:
-
 ## Agile organization and activities
 
 Agile organization and activities:
@@ -106,7 +103,7 @@ Each team consists of 7 members with revolving roles as follows:
 - The ScrumMaster role manages all the technical details of an increment (as well as playing the “client role”). ScrumMaster position will be rotated so all member can practice. ScrumMaster may NOT develop code.
 - The “Developer” role includes: implementing the required activities including but not limited to: writing requirements, design & coding, unit testing, writing test cases, integration and testing. Developers will work in pairs at all times.
 - “Pairs” will be rotating as sprints change (i.e. no two people will be paired more than once)
-- “Daily Standup Meetings, DSM, also referred to as daily scrum”: Normally, all team members will present their work on a daily basis while standing. In this class, since we meet only twice a week, we will have DSM every Thursday (10 minutes per team total). 
+- “Daily Standup Meetings, DSM, also referred to as daily scrum”: Normally, all team members will present their work on a daily basis while standing. In this class, since we meet only twice a week, we will have DSM every Thursday (10 minutes per team total).
 - DSM format and structure: ScrumMaster will start the meeting, and passes the turn to pairs. ScrumMaster will summarize and end the meeting. Each member will go over:
   - What did they finish since last DSM?
   - What are they going to work on next?
@@ -124,7 +121,7 @@ Each team consists of 7 members with revolving roles as follows:
 
 1. [Zhengyuan Zhu](zzy824.cn)
 2. [Boyuan Yu](TODO:)
-3. TODO:
+3. [Mao Zhang](TODO:)
 4. TODO:
 5. TODO:
 6. TODO:
