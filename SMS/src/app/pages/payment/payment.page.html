@@ -3,10 +3,74 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>payment</ion-title>
+    <ion-title>Wallet</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+
+    <!-- card title -->
+
+    <ion-item class="cashtitle" lines="none">
+      <img class='wallet_icon' src="../../../assets/image/wallet_logo.png">
+      <ion-title>Uber Cash</ion-title>
+    </ion-item>
+
+    <!-- cash amount -->
+
+    <div class="cashamount">
+      <ion-item lines="none">
+        <div class="cash">
+          <ion-text class="moneyunit">US$</ion-text>
+          <ion-text class="amount">0.00</ion-text>
+          <img class="foward" src="../../../assets/image/amount_forward.png">
+        </div>
+      </ion-item>
+    </div>
+
+    <div class="money">
+      <ion-item color="dark">
+        <div class="add">Add funds</div>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img class="rewardone" src="../../../assets/icon/reward.png">
+            <ion-text class="points">Reward Points</ion-text>
+          </ion-col>
+          <ion-col class="line">
+            <div style="margin: 0px auto;
+            width: 0.8px;height: 70px; background: darkgray;"></div> 
+          </ion-col>
+          <ion-col>
+            <img class="rewardtwo" src="../../../assets/icon/prize.png">
+            <ion-text class="gift">PIN/Gift Code</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+
+  <div class="paytitle">
+    <ion-text>Payment Methods</ion-text>
+  </div>
+  <div>
+    <ion-item class="paypal">
+      <img class="pimg" src="../../../assets/icon/paypal.png">
+      <ion-text>PayPal</ion-text>
+    </ion-item>
+    <ion-item class="applepay">
+      <img class="aimg" src="../../../assets/icon/applepay.png">
+      <ion-text>Apple Pay</ion-text>
+    </ion-item>
+    <ion-item class="addmethod" lines="none">
+      <ion-text>Add Payment Method</ion-text>
+    </ion-item>
+
+  </div>
 
 </ion-content>

@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { GooglePlus} from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
+import { CoreService } from './core/core.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     AngularFireAuthModule
   ],
   providers: [
+    CoreService,
     NativeStorage,
     GooglePlus,
     StatusBar,

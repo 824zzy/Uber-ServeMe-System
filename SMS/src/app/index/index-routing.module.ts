@@ -21,10 +21,10 @@ const routes: Routes = [
           )
       },
       {
-        path: 'signup',
+        path: 'register',
         loadChildren: () =>
-          import('../pages/signup/signup.module').then(
-            m => m.SignupPageModule
+          import('../pages/register/register.module').then(
+            m => m.RegisterPageModule
           )
       },
     ]

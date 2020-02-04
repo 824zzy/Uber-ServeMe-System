@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: FeedPage
-  }
+  },
+  {
+    path: 'allservices',
+    loadChildren: () => import('../../pages/allservices/allservices.module').then( m => m.AllservicesPageModule)
+  },
+  {
+    path: 'service-lists',
+    loadChildren: () => import('../../pages/service-lists/service-lists.module').then( m => m.ServiceListsPageModule)
+  },
 ];
 
 @NgModule({

@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { environment } from '../../../environments/environment';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
