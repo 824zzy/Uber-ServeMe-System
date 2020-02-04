@@ -10,19 +10,19 @@ export class MenuPage implements OnInit {
   
   pages = [
     {
-      title: 'Home Page',
+      title: 'Home',
       url: '/menu/home/feed',
     },
     {
-      title: 'Payment Page',
+      title: 'Wallet',
       url: '/menu/payment',
     },
     {
-      title: 'History Page',
+      title: 'Order history',
       url: '/menu/history',
     },
     {
-      title: 'Settings Page',
+      title: 'Settings',
       url: '/menu/settings',
     },
   ]

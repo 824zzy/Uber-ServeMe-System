@@ -1,27 +1,37 @@
 <ion-split-pane contentId="menu-content">
   <ion-menu contentId="menu-content" menuId="menu-content" side="start" type="overlay">
     <ion-header>
-      <ion-toolbar color='dark' class='user-profile'>
-        <ion-item margin-bottom>
-          <ion-avatar color='dark' slot="start" class="user-avatar">
-            <img src="assets/img/avatar.jpeg">
-          </ion-avatar>
-          <ion-label>
-            <ion-text color="medium">
-              <h1><strong>name place holder</strong></h1>
-            </ion-text>
-          </ion-label>
-        </ion-item>
-      </ion-toolbar>
+
     </ion-header>
+
+
     <ion-content>
       <ion-list>
+
+      <!-- user info -->
+      
+        <div class="userinfo">
+          <span>
+          <ion-avatar slot="start" class="user-avatar">
+            <img src="assets/image/avatar.png">
+          </ion-avatar>
+          </span>
+          <span>
+          <ion-label>
+            <ion-text>
+              Someone
+            </ion-text>
+          </ion-label>
+          </span>
+        </div>
+
+        <!-- menu list -->
+
         <ion-menu-toggle auto-hide='false' *ngFor="let p of pages">
           <ion-item [routerLink]='p.url' routerDirection="root" [class.activate-item]='selectedPath === p.url'>
-            <ion-label>{{p.title}}</ion-label>
+            <ion-label class="mlist">{{p.title}}</ion-label>
           </ion-item>
         </ion-menu-toggle>
-        
         <ion-item tappable routerLink="/login" routerDirection="root">
           <ion-icon name="log-out" slot="start"></ion-icon>
           Log out

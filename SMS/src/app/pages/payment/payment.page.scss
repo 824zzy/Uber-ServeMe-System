@@ -1,0 +1,127 @@
+ion-content{
+
+    --ion-background-color:rgb(240, 240, 240);
+}
+ion-item{
+    --background: white;
+}
+ion-title{
+    font-size: 14pt;
+    padding: 1px;
+}
+
+// card style
+
+.cashtitle{
+    padding: 4px 0px 2px 6px;
+    ion-title{
+        font-size: 10pt;
+    }
+}
+.wallet_icon{
+    background-color: black;
+    width: 12%;
+    margin-right: 12px;
+    border-radius: 0.1em;
+}
+.cash{
+    text-align: center;
+}
+.cashamount{
+    margin-top: 8px;
+    margin-bottom: 25px;
+}
+.moneyunit{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 22pt;
+    vertical-align: middle;
+
+}
+.amount{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 22pt;
+    vertical-align: middle;
+}
+.foward{
+    width: 3.5%;
+    margin-left: 5px;
+    margin-top: 1.5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.money{
+    padding: 0px 22px 0px 22px;  
+    margin-bottom: 5px;
+
+}
+.add{
+    text-align: center;
+    width: 100%;
+    font-size: 13pt;
+}
+ion-row{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.rewardone{
+    width: 45%;
+    margin: 0px 0px 5px 20px;
+    padding-top: 5px;
+}
+.rewardtwo{
+    width: 45%;
+    margin: 0px 0px 5px 20px;
+    padding-top: 5px;
+}
+
+.points{
+    font-size: 9pt;
+}
+.gift{
+    font-size: 9pt;
+}
+
+ion-card{
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+// item
+
+.paytitle{
+    width: 87%;
+    ion-text{
+        color: rgb(83, 83, 83);
+        font-family: 'Roboto', sans-serif;
+    }
+    margin: 0px auto;
+}
+.paypal{
+    margin-top: 10px;
+    ion-text{
+        font-size: 11pt;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+.applepay{
+    ion-text{
+        font-size: 11pt;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+.aimg{
+    margin: 10px 7px 10px 7px;
+    width: 15%;
+}
+.pimg{
+    margin: 10px 7px 10px 7px;
+    width: 15%;
+}
+.addmethod{
+    ion-text{
+        color: rgb(18, 139, 219);
+        margin-left: 7px;
+    }
+}
