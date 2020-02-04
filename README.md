@@ -1,6 +1,10 @@
-# ServeMe System(SMS)
-
-TODO: add a logo and some bandges.
+# Uber ServeMe System
+<!-- markdownlint-disable MD033 -->
+<p align="left">
+    <img src='https://img.shields.io/badge/status-Building-yellowgreen'>
+    <img alt="node (tag)" src="https://img.shields.io/node/v/ionic/latest">
+</p>
+<img src="./SMS/src/assets/image/lanuch_page_logo.png" width="300" height="300" />
 
 ## Setup
 > Please follow these commands
