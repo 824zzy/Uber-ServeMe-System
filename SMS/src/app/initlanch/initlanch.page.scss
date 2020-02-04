@@ -1,0 +1,39 @@
+.lanchlogo{
+    width: 50%;
+    margin: 0px auto;
+}
+.lanch{
+    margin-top: 15%;
+}
+.bg-login{
+    border-radius: 20px;
+    margin-top: 36px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+ion-item{
+    --highlight-height: 0;
+    width: 90%;
+    margin: 0px auto;
+}
+.mylabel{
+    font-size: 11pt;
+    color: #979797;
+}
+
+ion-grid{
+    ion-col{
+        text-align: center;
+        margin: 7px;
+        .lgrg{
+            width: 65%;
+            height: 150%;
+        }
+    }
+}
+.tplogin{
+    margin-top: 12px;
+    ion-icon{
+        margin: 16px;
+    }
+}

@@ -1,6 +1,3 @@
-# ServeMe System(SMS)
-
-TODO: add a logo and some bandges.
 
 ## Setup
 > Please follow these commands
