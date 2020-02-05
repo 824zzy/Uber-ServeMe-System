@@ -120,7 +120,7 @@ Each team consists of 7 members with revolving roles as follows:
 ## Contributor
 
 1. [Zhengyuan Zhu](zzy824.cn)
-2. [Boyuan Yu](TODO:)
+2. [Boyuan Yu](https://github.com/peteryu929)
 3. [Mao Zhang](TODO:)
 4. TODO:
 5. TODO:
