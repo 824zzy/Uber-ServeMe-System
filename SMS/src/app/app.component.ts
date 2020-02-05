@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Environment } from '@ionic-native/google-maps';
 
-import { CoreService } from './core/core.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,6 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public core: CoreService
   ) {
     this.initializeApp();
   }

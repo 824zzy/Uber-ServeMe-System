@@ -8,7 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import firebaseConfig from './firebase';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
@@ -16,7 +15,6 @@ import { environment } from 'src/environments/environment';
 import { GooglePlus} from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-import { CoreService } from './core/core.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,11 +23,10 @@ import { CoreService } from './core/core.service';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
   providers: [
-    CoreService,
     NativeStorage,
     GooglePlus,
     StatusBar,
