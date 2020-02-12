@@ -13,7 +13,7 @@
     <!-- password input -->
     <ion-item lines="none">
       <ion-label class="mylabel" position="floating">Password</ion-label>
-      <ion-input type="Password" [(ngModel)]="Password"></ion-input>
+      <ion-input type="Password" [(ngModel)]="password"></ion-input>
     </ion-item>
   </ion-card>
 
@@ -21,8 +21,7 @@
     <ion-row class="login-row">
       <!-- login button -->
       <ion-col>
-        <!-- <ion-button class="lgrg" shape="round" fill="solid" color="dark" [routerLink]="['/tabs/tab1']">login</ion-button> -->
-        <ion-button class="lgrg" shape="round" fill="solid" color="dark" routerLink="/menu/home/feed">login</ion-button>
+        <ion-button class="lgrg" shape="round" fill="solid" color="dark" (click)="login()">login</ion-button>
       </ion-col>
     </ion-row>
 
