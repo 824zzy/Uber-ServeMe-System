@@ -4,6 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div id="recaptcha-container"></div>
 
+  <ion-item>
+    <ion-label stacked>Phone Number</ion-label>
+    <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
+  </ion-item>
+
+  <ion-button ion-button id="sign-in-button" (click)="signIn(phoneNumber)">
+    Sign In
+  </ion-button> 
+  
 </ion-content>

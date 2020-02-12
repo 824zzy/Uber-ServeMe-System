@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthService } from './auth.service'
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./pages/testlogin/testlogin.module').then( m => m.TestloginPageModule)
+  // },
   {
     path: '',
-    loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule)
+    loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule),
+    canActivate: [AuthService]
   },
   {
     path: 'menu',
@@ -23,10 +29,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/testlogin/testlogin.module').then( m => m.TestloginPageModule)
   },
 
-  // {
-  //   path: 'allservices',
-  //   loadChildren: () => import('./pages/allservices/allservices.module').then( m => m.AllservicesPageModule)
-  // },
 ];
 @NgModule({
   imports: [

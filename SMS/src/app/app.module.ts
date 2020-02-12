@@ -15,6 +15,9 @@ import { environment } from 'src/environments/environment';
 import { GooglePlus} from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
+import { UserService } from './user.service';
+import { AuthService } from './auth.service';
+import { AngularFirestore } from '@angular/fire/firestore'
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +34,9 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     GooglePlus,
     StatusBar,
     SplashScreen,
+    UserService,
+    AuthService,
+    AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

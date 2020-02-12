@@ -6,6 +6,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx' ;
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { environment } from '../../../environments/environment';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +18,14 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(public afAuth: AngularFireAuth, 
+  constructor(public afAuth: AngularFireAuth,
     public loadingController: LoadingController,
     private googlePlus: GooglePlus,
     private router: Router,
     private nativeStorage: NativeStorage,
     private platform: Platform,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public user: UserService,
     ) { }
 
   ngOnInit() {
@@ -32,14 +34,35 @@ export class LoginPage implements OnInit {
   async login() {
     const { username, password } = this
     try {
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
+
+      if(res.user) {
+          this.user.setUser({
+            username,
+            uid: res.user.uid
+          })
+          this.router.navigate(['/menu/home/feed'])
+      }
+
+
     } catch(err) {
       console.dir(err)
       if (err.code === "auth/user-not-found") {
         console.log("User not found")
       }
+      this.showAlert('Error', err.message)
     }
 
+  }
+
+  async showAlert(title: string, message: string){
+    const alert = await this.alertController.create({
+      header: title,
+      message: message,
+      buttons: ['Ok']
+    })
+
+    await alert.present()
   }
 
   async doGoogleLogin(){
@@ -61,7 +84,7 @@ export class LoginPage implements OnInit {
         picture: user.imageUrl
       })
       .then(() =>{
-        this.router.navigate(["/tabs/tab1"]);
+        this.router.navigate(['/menu/home/feed']);
       }, (error) =>{
         console.log(error);
       })
