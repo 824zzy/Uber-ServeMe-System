@@ -27,6 +27,7 @@ const routes: Routes = [
   //   path: 'allservices',
   //   loadChildren: () => import('./pages/allservices/allservices.module').then( m => m.AllservicesPageModule)
   // },
+  
 ];
 @NgModule({
   imports: [
