@@ -1,16 +1,17 @@
+.header{
+    font-size: 14pt;
+    padding-left: 1px;
+}
+
 .lanchlogo{
-    width: 50%;
+    width: 60%;
     margin: 0px auto;
 }
 .lanch{
-    margin-top: 18%;
+    margin-top: 5%;
+    margin-bottom: 10%;
 }
-.bg-login{
-    border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
+
 ion-item{
     --highlight-height: 0;
     width: 90%;
@@ -21,29 +22,25 @@ ion-item{
     color: #979797;
 }
 
-ion-grid{
-    ion-col{
-        text-align: center;
-        margin: 7px;
-        .lgrg{
-            width: 65%;
-            height: 150%;
-        }
-    }
-}
-.login-row{
-    margin-top: 10px;
-}
-.auth-row{
-    margin-top: 12%;
-}
-.tplogin{
-    ion-icon{
-        margin: 0px;
-    }
 
+
+ion-button{
+    margin-bottom: 10px;
+    padding: 0px 15px 0px 15px;
+}
+.signup{
+    margin-top: 20px;
+    font-weight: 600;
+}
+.google-btn{
+    --border-color: white;
+    --background: white;
+    --background-hover: white;
 }
 
-.tplogin:hover{
-    background-color: white !important;
+.facebook-btn{
+    --border-color: #3c5a98;
+    --background: #3c5a98;
+    --background-hover: #3c5a98;
 }
+

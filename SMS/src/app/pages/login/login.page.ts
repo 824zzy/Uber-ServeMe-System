@@ -51,14 +51,13 @@ export class LoginPage implements OnInit {
       if (err.code === "auth/user-not-found") {
         console.log("User not found")
       }
-      this.showAlert('Error', err.message)
+      this.showAlert(err.message)
     }
 
   }
 
-  async showAlert(title: string, message: string){
+  async showAlert(message: string){
     const alert = await this.alertController.create({
-      header: title,
       message: message,
       buttons: ['Ok']
     })

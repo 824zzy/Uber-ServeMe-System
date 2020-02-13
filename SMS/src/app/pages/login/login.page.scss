@@ -41,9 +41,8 @@ ion-grid{
     ion-icon{
         margin: 0px;
     }
+    --border-color: white;
+    --background: white;
+    --background-hover: white;
 
-}
-
-.tplogin:hover{
-    background-color: white !important;
 }
