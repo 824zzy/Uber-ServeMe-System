@@ -7,8 +7,24 @@ import { NavController } from '@ionic/angular';
 const routes: Routes = [
   {
     path: '',
-    component: SettingsPage
-  }
+    component: SettingsPage,
+  },
+  {
+    path: 'push-notifications',
+    loadChildren: () => import('../settings-pages/push-notifications/push-notifications.module').then( m => m.PushNotificationsPageModule)
+  },
+  {
+    path: 'email-notifications',
+    loadChildren: () => import('../settings-pages/email-notifications/email-notifications.module').then( m => m.EmailNotificationsPageModule)
+  },
+  {
+    path: 'privacy-settings',
+    loadChildren: () => import('../settings-pages/privacy-settings/privacy-settings.module').then( m => m.PrivacySettingsPageModule)
+  },
+  {
+    path: 'location-settings',
+    loadChildren: () => import('../settings-pages/location-settings/location-settings.module').then( m => m.LocationSettingsPageModule)
+  },
 ];
 
 @NgModule({
