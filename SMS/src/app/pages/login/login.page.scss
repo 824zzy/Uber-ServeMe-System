@@ -41,8 +41,8 @@ ion-grid{
     ion-icon{
         margin: 0px;
     }
-    --border-color: white;
-    --background: white;
     --background-hover: white;
-
+    
+    // it effect ripple !important
+    --ripple-color: white;
 }
