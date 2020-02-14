@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule),
-    canActivate: [AuthService]
+    // canActivate: [AuthService]
   },
   {
     path: 'menu',
@@ -19,6 +19,13 @@ const routes: Routes = [
   {
     path: 'review',
     loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then(
+        m => m.LoginPageModule
+      )
   },
   {
     path: 'register',

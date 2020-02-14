@@ -18,7 +18,8 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(public afAuth: AngularFireAuth,
+  constructor(
+    public afAuth: AngularFireAuth,
     public loadingController: LoadingController,
     private googlePlus: GooglePlus,
     private router: Router,
@@ -43,7 +44,6 @@ export class LoginPage implements OnInit {
           })
           this.router.navigate(['/menu/home/feed'])
       }
-
 
     } catch(err) {
       console.dir(err)
@@ -96,7 +96,6 @@ export class LoginPage implements OnInit {
       }
       loading.dismiss();
     });
-
   }
 
   async presentAlert() {

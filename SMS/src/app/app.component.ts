@@ -24,13 +24,11 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
 
-      Environment.setEnv({
-        
+      Environment.setEnv({      
         // api key for server
         'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyBfdfHVfFgZbqw40ZBzZZa7kMTrEOvxarg',
         // api key for local develoment
         'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyBfdfHVfFgZbqw40ZBzZZa7kMTrEOvxarg'
-
       });
 
       this.statusBar.styleDefault();
