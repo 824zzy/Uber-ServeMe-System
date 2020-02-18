@@ -59,12 +59,12 @@ export class RegisterPage implements OnInit {
 
   async presentRegAlert(content: string) {
 		const toast = await this.toast.create({
+
 			message: content,
       position: 'top',
       duration: 2000
 		})
 		await toast.present()
   }
-  
 
 }
