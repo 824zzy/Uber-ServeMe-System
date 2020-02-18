@@ -1,49 +1,100 @@
 .lanchlogo{
-    width: 50%;
-    margin: 0px auto;
+    width: 30%;
 }
 .lanch{
-    margin-top: 18%;
+    width: 100%;
+    margin-bottom: 20%;
+    margin-left: 10%;
+    margin-top: 15%;
 }
-.bg-login{
-    border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
+
+ion-icon.inputicon{
+    margin: 22px 15px 0px 0px;
+    padding: 0px;
 }
-ion-item{
+ion-item.input{
     --highlight-height: 0;
-    width: 90%;
+    width: 85%;
     margin: 0px auto;
 }
 .mylabel{
+    padding-top: 4px;
     font-size: 11pt;
     color: #979797;
 }
 
-ion-grid{
-    ion-col{
-        text-align: center;
-        margin: 7px;
-        .lgrg{
-            width: 65%;
-            height: 150%;
+.login-btn{
+    margin-top: 40px;
+    margin-right: 10px;
+    float: right;
+    font-size: 10pt;
+    width: 40%;
+    height: 7%;
+    margin-bottom: 10px;
+    padding: 0px 15px 0px 15px;
+}
+
+.forgetpassword{
+    margin-left: 10%;
+    margin-top: 15%;
+    font-size: 10pt;
+    color: rgb(148, 148, 148);
+}
+
+// --or--
+.order{
+    padding-top: 40px;
+    width: 80%;
+    margin: 0px auto;
+    text-align: center;
+    .line{
+        display: inline-block;
+        width: 90px;
+        border-top: 1px solid #ccc;
+    }
+    .txt{
+        color: rgb(148, 148, 148);
+        vertical-align: -4px;
+        font-size: 9pt;
+        margin: 0px 7px 0px 7px;
+    }
+}
+
+.g{
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    ion-button{
+        --border-radius: 2px;
+        --box-shadow: none;
+        width: 72%;
+        height: 40px;
+        font-size: 10pt;
+        ion-icon{
+            margin-right: 30px;
+            width: 12%;
         }
     }
 }
-.login-row{
-    margin-top: 10px;
-}
-.auth-row{
-    margin-top: 12%;
-}
-.tplogin{
-    ion-icon{
-        margin: 0px;
+
+
+.signup{
+    padding-top: 30px;
+    margin: 0px auto;
+    width: 90%;
+    text-align: center;
+    p{
+        font-size: 9pt;
+        color: rgb(148, 148, 148);
+        letter-spacing: 1%;
+        margin: 0.5px;
     }
-
-}
-
-.tplogin:hover{
-    background-color: white !important;
+    .sign{
+        font-weight: 600;
+        font-size: 12.5pt;
+        color: black;
+        --background-hover: white;
+        --ripple-color: white;
+    }
+    margin-bottom: 10%;
 }

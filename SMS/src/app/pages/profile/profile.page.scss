@@ -1,0 +1,54 @@
+ion-title{
+    font-size: 14pt;
+    padding: 1px;
+}
+  
+  .ava{
+    position: absolute;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  .edit{
+    position: absolute;
+    margin-top: 26%;
+    margin-left: 16%;
+    ion-icon{
+      color: black;
+      font-size: 20px;
+      background-color: white;
+      border-radius: 99px;
+      padding-left: 2px;
+    }
+  }
+  
+  .toparea{
+    margin: 0px auto;
+    width: 83%;
+    height: 20%;
+    ion-avatar{
+      width: 80px;
+      height: 80px;
+    }
+  }
+  p{
+  width: 90%;
+  margin: 0px auto;
+  }
+  
+  .items{
+    margin-top: 8%;
+  }
+  
+  .ptitle{
+  font-size: 10pt;
+  color: rgb(119, 119, 119);
+  }
+  .pinput{
+  padding-top: 4px;
+  font-size: 12pt;
+  color: black;
+  }
+  ion-icon{
+    color: gray;
+    font-size: 16px;
+    }

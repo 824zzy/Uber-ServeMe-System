@@ -1,28 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
 
-    <ion-item>
-      <ion-label position="floating">Email address</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
-    </ion-item>
+<ion-content class="ion-padding">
 
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
+  <!-- logo -->
+  <div class="lanch">
+    <ion-img class="lanchlogo" alt="fail" src="/assets/image/signup_logo.png"></ion-img>
+  </div>
 
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password" [(ngModel)]="cpassword"></ion-input>
-    </ion-item>
+  <ion-item>
+    <ion-icon slot="start" color="dark" name="person"></ion-icon>
+    <ion-label class="mylabel" position="floating">Email address</ion-label>
+    <ion-input class="myinput" type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
 
-  </ion-list>
+  <ion-item>
+    <ion-icon slot="start" color="dark" name="key"></ion-icon>
+    <ion-label class="mylabel" position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
 
-  <ion-button fill="solid" expand="block" color="dark" (click)="register()">Sign up</ion-button>
+  <ion-item class="lastitem">
+    <ion-label class="mylabel" position="floating">Confirm Password</ion-label>
+    <ion-input type="password" [(ngModel)]="cpassword"></ion-input>
+  </ion-item>
+
+  <ion-button class="signup" fill="solid" color="dark" (click)="register()">REGISTER</ion-button>
+  
+  <div class="backlogin">
+    <p>Already Have An Account?</p>
+    <ion-button class="login" fill="clear" [routerLink]="['../login']">LOGIN</ion-button>
+  </div>
+
+
 </ion-content>

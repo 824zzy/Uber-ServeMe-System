@@ -1,0 +1,54 @@
+.lanchlogo{
+    width: 30%;
+}
+.lanch{
+    width: 100%;
+    margin-bottom: 20%;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+ion-icon{
+    margin: 22px 15px 0px 0px;
+    padding: 0px;
+}
+ion-item{
+    --highlight-height: 0;
+    width: 85%;
+    margin: 0px auto;
+}
+.mylabel{
+    padding-top: 4px;
+    font-size: 11pt;
+    color: #979797;
+}
+
+.signup{
+    margin-top: 40px;
+    margin-right: 10px;
+    float: right;
+    font-size: 10pt;
+    width: 40%;
+    height: 7%;
+    margin-bottom: 10px;
+    padding: 0px 15px 0px 15px;
+}
+
+.backlogin{
+    position:fixed; bottom:0;
+    width: 90%;
+    text-align: center;
+    p{
+        font-size: 9pt;
+        color: rgb(148, 148, 148);
+        letter-spacing: 1%;
+        margin: 0.5px;
+    }
+    .login{
+        font-weight: 600;
+        font-size: 12.5pt;
+        color: black;
+        --background-hover: white;
+        --ripple-color: white;
+    }
+    margin-bottom: 10%;
+}

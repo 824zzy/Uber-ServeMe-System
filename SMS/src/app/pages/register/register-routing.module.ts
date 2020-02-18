@@ -7,10 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: RegisterPage
-  },
-  { path: 'menu', 
-  loadChildren: () => import('../menu/menu.module').then( m => m.MenuPageModule)
-  },
+  }
 ];
 
 @NgModule({

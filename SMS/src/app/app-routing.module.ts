@@ -3,14 +3,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthService } from './auth.service'
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./pages/testlogin/testlogin.module').then( m => m.TestloginPageModule)
-  // },
   {
     path: '',
     loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule),
-    canActivate: [AuthService]
   },
   {
     path: 'menu',
@@ -21,14 +16,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then(
+        m => m.LoginPageModule
+      )
   },
   {
-    path: 'testlogin',
-    loadChildren: () => import('./pages/testlogin/testlogin.module').then( m => m.TestloginPageModule)
-  },
-
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  }
 ];
 @NgModule({
   imports: [

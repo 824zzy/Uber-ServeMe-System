@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { LoadingController, AlertController, Platform } from '@ionic/angular';
+import { LoadingController, AlertController, ToastController, Platform } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx' ;
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { environment } from '../../../environments/environment';
 import { UserService } from 'src/app/user.service';
+// import { customAlertEnter } from '../../customAlertEnter';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -18,13 +22,15 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(public afAuth: AngularFireAuth,
+  constructor(
+    public afAuth: AngularFireAuth,
     public loadingController: LoadingController,
     private googlePlus: GooglePlus,
     private router: Router,
     private nativeStorage: NativeStorage,
     private platform: Platform,
     public alertController: AlertController,
+    public toastController: ToastController,
     public user: UserService,
     ) { }
 
@@ -50,16 +56,17 @@ export class LoginPage implements OnInit {
       if (err.code === "auth/user-not-found") {
         console.log("User not found")
       }
-      this.showAlert('Error', err.message)
+      this.showAlert(err.message)
     }
 
   }
 
-  async showAlert(title: string, message: string){
-    const alert = await this.alertController.create({
-      header: title,
+  async showAlert(message: string){
+    const alert = await this.toastController.create({
       message: message,
-      buttons: ['Ok']
+      duration: 2000,
+      position: 'top',
+      // enterAnimation: customAlertEnter
     })
 
     await alert.present()
@@ -96,7 +103,6 @@ export class LoginPage implements OnInit {
       }
       loading.dismiss();
     });
-
   }
 
   async presentAlert() {

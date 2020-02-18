@@ -8,10 +8,16 @@ const routes: Routes = [
     path: '',
     component: MenuPage,
     children: [
-      { path: 'home', 
+      {
+        path: 'profile',
+        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+      },
+      { 
+        path: 'home', 
         loadChildren: () => import('../../home/home.module').then( m => m.HomePageModule)
       },
-      { path: 'settings', 
+      { 
+        path: 'settings', 
         loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
       },
       {
@@ -22,7 +28,6 @@ const routes: Routes = [
         path: 'history',
         loadChildren: () => import('../history/history.module').then( m => m.HistoryPageModule)
       },
-      // TODO: add more pages to menu
     ]
   },
   // {

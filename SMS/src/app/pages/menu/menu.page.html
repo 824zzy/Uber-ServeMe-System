@@ -9,8 +9,8 @@
       <ion-list>
 
       <!-- user info -->
-      
-        <div class="userinfo">
+      <ion-menu-toggle auto-hide='false'>
+        <div class="userinfo" routerLink="/menu/profile">
           <span>
           <ion-avatar slot="start" class="user-avatar">
             <img src="assets/image/avatar.png">
@@ -19,11 +19,12 @@
           <span>
           <ion-label>
             <ion-text>
-              Someone
+              {{username}}
             </ion-text>
           </ion-label>
           </span>
         </div>
+      </ion-menu-toggle>
 
         <!-- menu list -->
 
@@ -32,10 +33,6 @@
             <ion-label class="mlist">{{p.title}}</ion-label>
           </ion-item>
         </ion-menu-toggle>
-        <ion-item tappable routerLink="/login" routerDirection="root">
-          <ion-icon name="log-out" slot="start"></ion-icon>
-          Log out
-        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
