@@ -3,6 +3,8 @@ import { Router, RouterEvent } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../../user.service'
 
+import { UserService } from '../../user.service'
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -53,5 +55,4 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
   }
-
 }

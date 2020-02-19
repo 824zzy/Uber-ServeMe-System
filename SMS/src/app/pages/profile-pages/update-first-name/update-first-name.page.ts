@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-update-first-name',
   templateUrl: './update-first-name.page.html',
@@ -53,5 +52,4 @@ export class UpdateFirstNamePage implements OnInit {
 
     this.router.navigate(['/menu/profile'])
   }
-
 }
