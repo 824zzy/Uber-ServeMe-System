@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-location-settings',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationSettingsPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public alertController: AlertController,
+  ) { }
 
   ngOnInit() {
   }
+
 
 }

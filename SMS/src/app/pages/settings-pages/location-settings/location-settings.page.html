@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>location-settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Location Access</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-button color="dark" (click)="locationAccess()">Location Settings</ion-button>
 </ion-content>

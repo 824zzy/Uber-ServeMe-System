@@ -16,12 +16,18 @@ export class SettingsPage implements OnInit {
   }
   
   async clearHistory() {
-    // TODO:
     const alert = await this.alertController.create({
       message: 'Clear all your keyword, location and recent history?',
-      buttons: ['OK']
+      buttons: ['Cancel', 'OK']
     })
+   await alert.present()
+  }
 
+  async locationAccess() {
+    const alert = await this.alertController.create({
+      message: 'Enable location services on Uber SMS?',
+      buttons: ['Cancel', 'OK']
+    })
    await alert.present()
   }
 

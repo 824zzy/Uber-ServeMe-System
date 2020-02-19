@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    <ion-title>settings</ion-title>
+    <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -19,7 +19,7 @@
   <ion-item tappable routerLink="/menu/settings/privacy-settings" detail>
     <ion-label>Privacy Settings</ion-label>
   </ion-item>
-  <ion-item tappable routerLink="/menu/settings/location-settings" detail>
+  <ion-item (click)="locationAccess()">
     <ion-label>Location Settings</ion-label>
   </ion-item>
   <ion-item (click)="clearHistory()">
