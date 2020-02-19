@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../user.service'
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
+import { UserService } from '../../../user.service';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-first-name',
@@ -12,9 +14,10 @@ export class UpdateFirstNamePage implements OnInit {
   sub
   mainuser: AngularFirestoreDocument
   firstname: string;
-  users: any;
 
   constructor(
+    private router: Router,
+		private toastController: ToastController,
     private afs: AngularFirestore,
     public user: UserService
   ) { 
@@ -25,24 +28,28 @@ export class UpdateFirstNamePage implements OnInit {
   }
 
   ngOnInit() {
-    this.user.readUsers().subscribe(data => {
- 
-      this.users = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          Name: e.payload.doc.data()['firstname'],
-          isEdit: false,
-        };
-      })
-      console.log(this.users);
-    });
   }
 
-  updateFirstName(name) {
-    this.user.updateFirstName(name.id, name)
+  ngOnDestroy() {
+		this.sub.unsubscribe()
   }
+  
+  async presentAlert(content: string) {
+		const alert = await this.toastController.create({
+			message: content,
+      duration: 2000,
+      position: 'top'
+		})
+
+		await alert.present()
+	}
 
 
+  async updateFirstName(newName) {
+    this.user.updateFirstName(this.user.getUID(), newName)
 
+    await this.presentAlert('Your First Name was updated!')
 
+    this.router.navigate(['/menu/profile'])
+  }
 }

@@ -5,30 +5,34 @@ import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-update-last-name',
-  templateUrl: './update-last-name.page.html',
-  styleUrls: ['./update-last-name.page.scss'],
+  selector: 'app-verify-password',
+  templateUrl: './verify-password.page.html',
+  styleUrls: ['./verify-password.page.scss'],
 })
-export class UpdateLastNamePage implements OnInit {
+export class VerifyPasswordPage implements OnInit {
 
+  
   sub
   mainuser: AngularFirestoreDocument
-  lastname: string;
+  username: string;
+  password: string
+
+	busy: boolean = false
 
   constructor(
-    private router: Router,
+		private router: Router,
 		private toastController: ToastController,
     private afs: AngularFirestore,
     public user: UserService
   ) { 
     this.mainuser = afs.doc(`users/${user.getUID()}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.lastname = event.lastname
+			this.username = event.username
 		})   
   }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
   ngOnDestroy() {
 		this.sub.unsubscribe()
@@ -44,12 +48,26 @@ export class UpdateLastNamePage implements OnInit {
 		await alert.present()
 	}
 
+  async updateDetails() {
+		this.busy = true
 
-  async updateLastName(newName) {
-    this.user.updateLastName(this.user.getUID(), newName)
+		if(!this.password) {
+			this.busy = false
+			return this.presentAlert('You have to enter a password')
+		}
 
-    await this.presentAlert('Your Last Name was updated!')
+		try {
+			await this.user.reAuth(this.user.getUsername(), this.password)
+		} catch(error) {
+			this.busy = false
+			return this.presentAlert('Wrong password!')
+    } 
+    
+    await this.router.navigate(['/menu/profile/update-password'])
+    
+		this.password = ""
+    this.busy = false
+    
+	}
 
-    this.router.navigate(['/menu/profile'])
-  }
 }

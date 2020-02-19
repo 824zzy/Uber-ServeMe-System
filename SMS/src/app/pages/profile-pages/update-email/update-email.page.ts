@@ -5,25 +5,27 @@ import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-update-last-name',
-  templateUrl: './update-last-name.page.html',
-  styleUrls: ['./update-last-name.page.scss'],
+  selector: 'app-update-email',
+  templateUrl: './update-email.page.html',
+  styleUrls: ['./update-email.page.scss'],
 })
-export class UpdateLastNamePage implements OnInit {
+export class UpdateEmailPage implements OnInit {
 
   sub
   mainuser: AngularFirestoreDocument
-  lastname: string;
+  username: string;
+
+  busy: boolean = false
 
   constructor(
-    private router: Router,
+		private router: Router,
 		private toastController: ToastController,
     private afs: AngularFirestore,
     public user: UserService
   ) { 
     this.mainuser = afs.doc(`users/${user.getUID()}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.lastname = event.lastname
+			this.username = event.username
 		})   
   }
 
@@ -44,12 +46,21 @@ export class UpdateLastNamePage implements OnInit {
 		await alert.present()
 	}
 
+  async updateDetails() {
+		this.busy = true
 
-  async updateLastName(newName) {
-    this.user.updateLastName(this.user.getUID(), newName)
+		if(this.username !== this.user.getUsername()) {
+			await this.user.updateEmail(this.username)
+			this.mainuser.update({
+				username: this.username
+			})
+		}
 
-    await this.presentAlert('Your Last Name was updated!')
+		this.busy = false
 
-    this.router.navigate(['/menu/profile'])
-  }
+		await this.presentAlert('Your profile was updated!')
+
+		this.router.navigate(['/menu/profile'])
+	}
+
 }
