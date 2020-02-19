@@ -16,5 +16,4 @@ export class WelcomePage implements OnInit {
   navigateToLoginPagee(){
     this.router.navigate(['login'])
   }
-
 }

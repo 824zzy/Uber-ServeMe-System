@@ -64,7 +64,6 @@ export class LoginPage implements OnInit {
           this.router.navigate(['/menu/home/feed'])
       }
 
-
     } catch(err) {
       console.dir(err)
       if (err.code === "auth/user-not-found") {
