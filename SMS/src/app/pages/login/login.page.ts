@@ -10,8 +10,6 @@ import { UserService } from 'src/app/user.service';
 // import { customAlertEnter } from '../../customAlertEnter';
 
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
