@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { auth } from 'firebase/app'
 
 interface user {
 	username: string,
@@ -39,6 +40,10 @@ export class UserService {
 		}
 	}
 
+	reAuth(username: string, password: string) {
+		return this.afAuth.auth.currentUser.reauthenticateWithCredential(auth.EmailAuthProvider.credential(username, password))
+	}
+
 	getUsername(): string {
 		return this.user.username
 	}
@@ -57,6 +62,10 @@ export class UserService {
 
 	updatePassword(newpassword: string) {
 		return this.afAuth.auth.currentUser.updatePassword(newpassword)
+	}
+
+	updateNewPassword(uid, newpassword){
+		this.firestore.doc('users/' + uid).update({password: newpassword});
 	}
 
 }
