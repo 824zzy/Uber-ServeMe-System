@@ -12,8 +12,19 @@
     <ion-img class="lanchlogo" alt="fail" src="/assets/image/signup_logo.png"></ion-img>
   </div>
 
+  <div class="name">
+    <ion-item class="fname">
+      <ion-icon slot="start" color="dark" name="person"></ion-icon>
+      <ion-label class="mylabel" position="floating">First Name</ion-label>
+      <ion-input class="myinput" type="text" [(ngModel)]="firstname"></ion-input>
+    </ion-item>
+    <ion-item class="lname">
+      <ion-label class="mylabel" position="floating">Last Name</ion-label>
+      <ion-input class="myinput" type="text" [(ngModel)]="lastname"></ion-input>
+    </ion-item>
+  </div>
   <ion-item>
-    <ion-icon slot="start" color="dark" name="person"></ion-icon>
+    <ion-icon slot="start" color="dark" name="mail"></ion-icon>
     <ion-label class="mylabel" position="floating">Email address</ion-label>
     <ion-input class="myinput" type="text" [(ngModel)]="username"></ion-input>
   </ion-item>
@@ -25,6 +36,7 @@
   </ion-item>
 
   <ion-item class="lastitem">
+    <ion-icon slot="start" color="dark" name="lock"></ion-icon>
     <ion-label class="mylabel" position="floating">Confirm Password</ion-label>
     <ion-input type="password" [(ngModel)]="cpassword"></ion-input>
   </ion-item>

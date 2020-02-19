@@ -13,7 +13,8 @@
   <ion-item class="input">
     <ion-icon class="inputicon" slot="start" color="dark" name="key"></ion-icon>
     <ion-label class="mylabel" position="floating">Password</ion-label>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
+    <ion-input [type]="showPassword ? 'text':'password'" [(ngModel)]="password"></ion-input>
+    <ion-icon class="eye" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
   </ion-item>
 
   <ion-button class="login-btn" fill="solid" color="dark" (click)="login()">LOGIN</ion-button>

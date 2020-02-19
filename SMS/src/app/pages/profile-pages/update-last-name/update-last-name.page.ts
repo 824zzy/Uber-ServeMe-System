@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-
-import { UserService } from '../../user.service'
-import { User } from 'firebase';
+import { UserService } from '../../../user.service'
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+  selector: 'app-update-last-name',
+  templateUrl: './update-last-name.page.html',
+  styleUrls: ['./update-last-name.page.scss'],
 })
-export class ProfilePage implements OnInit {
-  
+export class UpdateLastNamePage implements OnInit {
+
   sub
   mainuser: AngularFirestoreDocument
   username: string;
@@ -24,10 +22,10 @@ export class ProfilePage implements OnInit {
     this.mainuser = afs.doc(`users/${user.getUID()}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
-			this.username = event.username
 			this.firstname = event.firstname
 		})   
   }
+
 
   ngOnInit() {
   }

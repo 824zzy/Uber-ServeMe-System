@@ -22,6 +22,9 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
+  showPassword = false;
+  passwordToggleIcon = 'eye';
+
   constructor(
     public afAuth: AngularFireAuth,
     public loadingController: LoadingController,
@@ -36,6 +39,17 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
+  togglePassword(): void{
+    this.showPassword = !this.showPassword;
+    
+    if (this.passwordToggleIcon === 'eye') {
+      this.passwordToggleIcon = 'eye-off';
+    } else {
+      this.passwordToggleIcon = 'eye';
+    }
+  }
+
 
   async login() {
     const { username, password } = this

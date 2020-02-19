@@ -1,18 +1,22 @@
-import { Injectable } from '@angular/core'
-import { AngularFireAuth } from '@angular/fire/auth'
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 interface user {
 	username: string,
-	uid: string
+	uid: string,
+	// lastname: string,
+	// firstname: string,
 }
 
 @Injectable()
 export class UserService {
 	private user: user
 
-	constructor(private afAuth: AngularFireAuth) {
-
-	}
+	constructor(
+		private afAuth: AngularFireAuth,
+		private firestore: AngularFirestore
+	) { }
 
 	setUser(user: user) {
 		this.user = user
@@ -24,7 +28,7 @@ export class UserService {
 				const user = this.afAuth.auth.currentUser
 				this.setUser({
 					username: user.email.split('@')[0],
-					uid: user.uid
+					uid: user.uid,
 				})
 				return user.uid
 			} else {
@@ -35,10 +39,16 @@ export class UserService {
 		}
 	}
 
+	readUsers() {
+		return this.firestore.collection('users').snapshotChanges();
+	}
 
 	getUsername(): string {
 		return this.user.username
 	}
 
+	updateFirstName(uid, firstname){
+		this.firestore.doc('users/' + uid).update(firstname);
+	}
 
 }
