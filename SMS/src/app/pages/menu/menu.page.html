@@ -9,8 +9,8 @@
       <ion-list>
 
       <!-- user info -->
-      
-        <div class="userinfo">
+      <ion-menu-toggle auto-hide='false'>
+        <div class="userinfo" routerLink="/menu/profile">
           <span>
           <ion-avatar slot="start" class="user-avatar">
             <img src="assets/image/avatar.png">
@@ -18,12 +18,13 @@
           </span>
           <span>
           <ion-label>
-            <ion-text>
-              Someone
+            <ion-text class="username">
+              {{username}}
             </ion-text>
           </ion-label>
           </span>
         </div>
+      </ion-menu-toggle>
 
         <!-- menu list -->
 

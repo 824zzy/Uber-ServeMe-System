@@ -1,49 +1,69 @@
 .lanchlogo{
-    width: 50%;
-    margin: 0px auto;
+    width: 30%;
 }
 .lanch{
-    margin-top: 18%;
+    width: 100%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-top: 15%;
 }
-.bg-login{
-    border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
+ion-icon{
+    margin: 22px 15px 0px 0px;
+    padding: 0px;
+}
+.name{
+    width: 85%;
+    margin: 0px auto;
+    ion-item{
+        display: inline-block;
+    }
+    .fname{
+        width: 53% !important;
+        margin-right: 15px;
+
+    }
+    .lname{
+        width: 41% !important;
+    }
 }
 ion-item{
     --highlight-height: 0;
-    width: 90%;
+    width: 85%;
     margin: 0px auto;
 }
 .mylabel{
+    padding-top: 4px;
     font-size: 11pt;
     color: #979797;
 }
 
-ion-grid{
-    ion-col{
-        text-align: center;
-        margin: 7px;
-        .lgrg{
-            width: 65%;
-            height: 150%;
-        }
-    }
-}
-.login-row{
-    margin-top: 10px;
-}
-.auth-row{
-    margin-top: 12%;
-}
-.tplogin{
-    ion-icon{
-        margin: 0px;
-    }
-
+.signup{
+    margin-top: 40px;
+    margin-right: 10px;
+    float: right;
+    font-size: 10pt;
+    width: 135px;
+    height: 45px;
+    margin-bottom: 10px;
+    padding: 0px 15px 0px 15px;
 }
 
-.tplogin:hover{
-    background-color: white !important;
+.backlogin{
+    position: fixed; bottom:0;
+    width: 90%;
+    text-align: center;
+    p{
+        font-size: 9pt;
+        color: rgb(148, 148, 148);
+        letter-spacing: 1%;
+        margin: 0.5px;
+    }
+    .login{
+        font-weight: 600;
+        font-size: 12.5pt;
+        color: black;
+        --background-hover: white;
+        --ripple-color: white;
+    }
+    margin-bottom: 10%;
 }

@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { LoadingController, AlertController, Platform } from '@ionic/angular';
+import { LoadingController, AlertController, ToastController, Platform } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx' ;
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { environment } from '../../../environments/environment';
 import { UserService } from 'src/app/user.service';
+// import { customAlertEnter } from '../../customAlertEnter';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -18,6 +22,9 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
+  showPassword = false;
+  passwordToggleIcon = 'eye';
+
   constructor(
     public afAuth: AngularFireAuth,
     public loadingController: LoadingController,
@@ -26,11 +33,23 @@ export class LoginPage implements OnInit {
     private nativeStorage: NativeStorage,
     private platform: Platform,
     public alertController: AlertController,
+    public toastController: ToastController,
     public user: UserService,
     ) { }
 
   ngOnInit() {
   }
+
+  togglePassword(): void{
+    this.showPassword = !this.showPassword;
+    
+    if (this.passwordToggleIcon === 'eye') {
+      this.passwordToggleIcon = 'eye-off';
+    } else {
+      this.passwordToggleIcon = 'eye';
+    }
+  }
+
 
   async login() {
     const { username, password } = this
@@ -50,16 +69,17 @@ export class LoginPage implements OnInit {
       if (err.code === "auth/user-not-found") {
         console.log("User not found")
       }
-      this.showAlert('Error', err.message)
+      this.showAlert(err.message)
     }
 
   }
 
-  async showAlert(title: string, message: string){
-    const alert = await this.alertController.create({
-      header: title,
+  async showAlert(message: string){
+    const alert = await this.toastController.create({
       message: message,
-      buttons: ['Ok']
+      duration: 2000,
+      position: 'top',
+      // enterAnimation: customAlertEnter
     })
 
     await alert.present()

@@ -1,51 +1,49 @@
-<ion-content>
+<ion-content class="ion-padding">
   <!-- logo -->
   <div class="lanch">
-    <ion-img class="lanchlogo" alt="fail" src="/assets/image/lanuch_page_logo.png"></ion-img>
+    <ion-img class="lanchlogo" alt="fail" src="/assets/image/signup_logo.png"></ion-img>
   </div>
 
-  <ion-card class="bg-login">
-    <!-- user input -->
-    <ion-item class="itemuser">
-      <ion-label class="mylabel" position="floating">Username</ion-label>
-      <ion-input class="myinput" type="text" [(ngModel)]="username"></ion-input>
-    </ion-item>
-    <!-- password input -->
-    <ion-item lines="none">
-      <ion-label class="mylabel" position="floating">Password</ion-label>
-      <ion-input type="Password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-  </ion-card>
+  <ion-item class="input">
+    <ion-icon class="inputicon" slot="start" color="dark" name="person"></ion-icon>
+    <ion-label class="mylabel" position="floating">Email address</ion-label>
+    <ion-input class="myinput" type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
 
-  <ion-grid>
-    <ion-row class="login-row">
-      <!-- login button -->
-      <ion-col>
-        <ion-button class="lgrg" shape="round" fill="solid" color="dark" (click)="login()">login</ion-button>
-      </ion-col>
-    </ion-row>
+  <ion-item class="input">
+    <ion-icon class="inputicon" slot="start" color="dark" name="key"></ion-icon>
+    <ion-label class="mylabel" position="floating">Password</ion-label>
+    <ion-input [type]="showPassword ? 'text':'password'" [(ngModel)]="password"></ion-input>
+    <ion-icon class="eye" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+  </ion-item>
 
-    <ion-row>
-      <!-- sign in button -->
-      <ion-col>
-        <ion-button class="lgrg" shape="round" fill="outline" color="dark" [routerLink]="['../register']">sign up</ion-button>
-      </ion-col>
-    </ion-row>
+  <ion-button class="login-btn" fill="solid" color="dark" (click)="login()">LOGIN</ion-button>
 
-    <ion-row class="auth-row">
-      <ion-col>
-        <!-- google login auth -->
-        <ion-button class="tplogin" fill='clear' (click)="doGoogleLogin()">
-          <ion-icon size="large" name="logo-google" color="danger"></ion-icon>
-        </ion-button>
-        <!-- facebook login auth -->
-        <ion-button class="tplogin" fill='clear'>
-          <ion-icon size="large" name="logo-facebook" color="primary"></ion-icon>  
-        </ion-button>
-      </ion-col>
-    </ion-row>
+  <div class="forgetpassword">
+    <p>Forget Password?</p>
+  </div>
+
+  <div class="order">
+    <span class="line"></span>
+    <span class="txt">OR</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="g">
+    <ion-button color="dark" (click)="doGoogleLogin()">
+      <ion-icon slot="start" name="logo-google"></ion-icon> 
+      LOGIN WITH GOOGLE
+    </ion-button>
+    <!-- google login auth -->
+  </div>
+
+
+
+  <div class="signup">
+    <p>Don't Have An Account?</p>
+    <ion-button class="sign" fill="clear" [routerLink]="['../register']">SIGN UP</ion-button>
+  </div>
     
-  </ion-grid>
 
 
 </ion-content>

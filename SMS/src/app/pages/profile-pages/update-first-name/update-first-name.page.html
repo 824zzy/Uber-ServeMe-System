@@ -1,0 +1,18 @@
+
+<ion-content>
+  <div>
+    <ion-icon class="back" slot="start" name="close-outline" routerLink="/menu/profile"></ion-icon>
+  </div>
+
+  <div class="edit">
+    <ion-title>First Name</ion-title>
+    <ion-input type="text" clearInput value="{{firstname}}" [(ngModel)]="firstname"></ion-input>
+  </div>
+  <div class="update">
+  <ion-item class="update-btn" color="dark" (click)="updateFirstName(firstname)">
+    <div>Update First Name</div>
+  </ion-item>
+  </div>
+
+</ion-content>
+

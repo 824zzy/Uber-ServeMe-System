@@ -1,0 +1,68 @@
+<ion-header>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-content>
+
+    <div class='toparea'>
+      <div class="ava">
+      <ion-avatar>
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      </div>
+      <div class="edit"> 
+        <ion-icon name="create-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div>
+      <ion-item routerLink="/menu/profile/update-first-name">
+        <ion-label>
+          <p class="ptitle">First Name</p>
+          <p class="pinput">{{firstname}}</p>
+        </ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item routerLink="/menu/profile/update-last-name">
+        <ion-label>
+          <p class="ptitle">Last Name</p>
+          <p class="pinput">{{lastname}}</p>
+        </ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p class="ptitle">Phone</p>
+          <p class="pinput">682-283-1523</p>
+        </ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p class="ptitle">Email</p>
+          <p class="pinput">yby4301955@gmail.com</p>
+        </ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p class="ptitle">Password</p>
+          <p class="pinput">******</p>
+        </ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+  
+  </ion-content>
+  
+</ion-content>

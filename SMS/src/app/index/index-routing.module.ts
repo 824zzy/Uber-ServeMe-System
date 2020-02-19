@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IndexPage } from './index.page';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -11,7 +12,9 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('../pages/welcome/welcome.module').then(m => m.WelcomePageModule)
+          import('../pages/welcome/welcome.module').then(
+            m => m.WelcomePageModule
+          )
       },
     ]
   },
