@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class UpdatePasswordPage implements OnInit {
 
+  showPassword = false;
+  passwordToggleIcon = 'eye';
+
   sub
   mainuser: AngularFirestoreDocument
   username: string;
@@ -35,6 +38,16 @@ export class UpdatePasswordPage implements OnInit {
 
   ngOnDestroy() {
 		this.sub.unsubscribe()
+  }
+
+  togglePassword(): void{
+    this.showPassword = !this.showPassword;
+    
+    if (this.passwordToggleIcon === 'eye') {
+      this.passwordToggleIcon = 'eye-off';
+    } else {
+      this.passwordToggleIcon = 'eye';
+    }
   }
   
   async presentAlert(content: string) {
