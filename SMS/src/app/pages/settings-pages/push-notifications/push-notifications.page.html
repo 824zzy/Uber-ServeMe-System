@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>push-notifications</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Push Notifications</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div>
+    <ion-list>
+      <ion-title>From Uber SMS</ion-title>
+      <ion-item>
+        <ion-label>Deals and announcements </ion-label>
+        <ion-toggle color="dark" checked="true"></ion-toggle>
+      </ion-item>
 
+      <ion-item>
+        <ion-label>Home services you might like</ion-label>
+        <ion-toggle color="dark" checked="true"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Cash Back updates</ion-label>
+        <ion-toggle color="dark" checked="true"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Surveys</ion-label>
+        <ion-toggle color="dark" checked="true"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Order and purchase updates</ion-label>
+        <ion-toggle color="dark" checked="true"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

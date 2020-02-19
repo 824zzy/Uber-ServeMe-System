@@ -97,7 +97,6 @@ export class LoginPage implements OnInit {
       'offline': true // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
     })
     .then(user =>{
-
       this.nativeStorage.setItem('google_user', {
         name: user.displayName,
         email: user.email,

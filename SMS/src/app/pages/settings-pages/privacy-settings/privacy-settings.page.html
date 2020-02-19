@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>privacy-settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Privacy Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-title>Let other users see my histories</ion-title>
+    <ion-item>
+      <ion-label>Show history</ion-label>
+      <ion-toggle color="dark" checked="true"></ion-toggle>
+    </ion-item>
 
+    <ion-title>Direct Messages from Vendors</ion-title>
+    <ion-item>
+      <ion-label>Let them contact me</ion-label>
+      <ion-toggle color="dark" checked="true"></ion-toggle>
+    </ion-item>
+
+    <ion-title>Can vendors see about me</ion-title>
+    <ion-item>
+      <ion-label>Let them see my profile</ion-label>
+      <ion-toggle color="dark" checked="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
