@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
-
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../../user.service'
 
 @Component({
@@ -10,7 +10,10 @@ import { UserService } from '../../user.service'
 })
 export class MenuPage implements OnInit {
   
-  username: string;
+  sub
+  mainuser: AngularFirestoreDocument
+  lastname: string;
+  firstname: string;
 
   pages = [
     {
@@ -35,12 +38,17 @@ export class MenuPage implements OnInit {
 
   constructor(
     private router: Router,
-    public user: UserService
+    public user: UserService,
+    private afs: AngularFirestore,
     ) { 
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
     });
-    this.username = user.getUsername();
+    this.mainuser = afs.doc(`users/${user.getUID()}`)
+    this.sub = this.mainuser.valueChanges().subscribe(event => {
+			this.lastname = event.lastname
+			this.firstname = event.firstname
+		})   
   }
 
   ngOnInit() {

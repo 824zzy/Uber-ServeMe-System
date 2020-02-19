@@ -14,10 +14,10 @@ ion-title{
     margin-left: 16%;
     ion-icon{
       color: black;
-      font-size: 20px;
+      font-size: 18px;
       background-color: white;
       border-radius: 99px;
-      padding-left: 2px;
+      padding-left: 3px;
     }
   }
   
@@ -30,6 +30,11 @@ ion-title{
       height: 80px;
     }
   }
+
+  .info{
+    margin-top: 30px;
+  }
+
   p{
   width: 90%;
   margin: 0px auto;

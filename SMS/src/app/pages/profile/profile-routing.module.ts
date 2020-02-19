@@ -15,7 +15,19 @@ const routes: Routes = [
   {
     path: 'update-last-name',
     loadChildren: () => import('../profile-pages/update-last-name/update-last-name.module').then( m => m.UpdateLastNamePageModule)
-  }
+  },
+  {
+    path: 'update-email',
+    loadChildren: () => import('../profile-pages/update-email/update-email.module').then( m => m.UpdateEmailPageModule)
+  },
+  {
+    path: 'verify-password',
+    loadChildren: () => import('../profile-pages/verify-password/verify-password.module').then( m => m.VerifyPasswordPageModule)
+  },
+  {
+    path: 'update-password',
+    loadChildren: () => import('../profile-pages/update-password/update-password.module').then( m => m.UpdatePasswordPageModule)
+  },
 ];
 
 @NgModule({
