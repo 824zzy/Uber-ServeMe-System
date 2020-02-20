@@ -15,6 +15,7 @@ export class MenuPage implements OnInit {
   mainuser: AngularFirestoreDocument
   lastname: string;
   firstname: string;
+  profilePic: string;
 
   pages = [
     {
@@ -48,7 +49,8 @@ export class MenuPage implements OnInit {
     this.mainuser = afs.doc(`users/${user.getUID()}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
-			this.firstname = event.firstname
+      this.firstname = event.firstname
+      this.profilePic = event.profilePic
 		})   
   }
 

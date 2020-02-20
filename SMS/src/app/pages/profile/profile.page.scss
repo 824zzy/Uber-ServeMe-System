@@ -2,7 +2,19 @@ ion-title{
     font-size: 14pt;
     padding: 1px;
 }
-  
+
+.filebtn {
+	opacity: 0;
+	position: absolute;
+	top: -100em;
+	left: -100em;
+}
+
+// .profile-pic {
+// 	width: 100%;
+// 	height: 100%;
+// }
+
   .ava{
     position: absolute;
     margin-top: 10%;

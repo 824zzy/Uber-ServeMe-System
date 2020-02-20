@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular';
-import * as firebase from 'firebase';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Http } from '@angular/http';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
+import { UserService } from '../../user.service'
 
 @Component({
   selector: 'app-testlogin',
@@ -11,57 +15,71 @@ import * as firebase from 'firebase';
 
 export class TestloginPage implements OnInit {
 
-  public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
+  mainuser: AngularFirestoreDocument
+	sub
+	username: string
+	profilePic: string
 
-  constructor(
-    public navCtrl: NavController,
-    public alertCtrl: AlertController
-  ) { }
+	busy: boolean = false
 
-  ngOnInit() {
+  @ViewChild('fileBtn', {static: false}) fileBtn: {
+		nativeElement: HTMLInputElement
+	}
+
+   constructor(
+		private http: Http, 
+		private afs: AngularFirestore,
+		private router: Router,
+		private alertController: AlertController,
+		private user: UserService) {
+		this.mainuser = afs.doc(`users/${user.getUID()}`)
+		this.sub = this.mainuser.valueChanges().subscribe(event => {
+			this.username = event.username
+			this.profilePic = event.profilePic
+		})
+  }
+  
+ 
+  ngOnInit(){
+
   }
 
-  // ionViewDidLoad(){
-  //   this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-  // }
+  ngOnDestroy() {
+		this.sub.unsubscribe()
+	}
 
-  signIn(phoneNumber: number){
-    const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    const phoneNumberString = "+" + phoneNumber;
-    firebase.auth().signInWithPhoneNumber(phoneNumberString, appVerifier)
-      .then( async confirmationResult => {
-        // SMS sent. Prompt user to type the code from the message, then sign the
-        // user in with confirmationResult.confirm(code).
-        let prompt = await this.alertCtrl.create({
-        header: 'Enter the Confirmation code',
-        inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
-        buttons: [
-          { text: 'Cancel',
-            handler: data => { console.log('Cancel clicked'); }
-          },
-          { text: 'Send',
-            handler: data => {
-              confirmationResult.confirm(data.confirmationCode)
-                .then(function (result) {
-                  // User signed in successfully.
-                  console.log(result.user);
-                  // ...
-                }).catch(function (error) {
-                  // User couldn't sign in (bad verification code?)
-                  // ...
-                });
-            }
-          }
-        ]
-      });
-      await prompt.present();
-    })
-    .catch(function (error) {
-      console.error("SMS not sent", error);
-    });
-    
-  }
+	updateProfilePic() {
+		this.fileBtn.nativeElement.click()
+	}
 
+	uploadPic(event) {
+		const files = event.target.files
+
+		const data = new FormData()
+		data.append('file', files[0])
+		data.append('UPLOADCARE_STORE', '1')
+		data.append('UPLOADCARE_PUB_KEY', 'ada5e3cb2da06dee6d82')
+		
+		this.http.post('https://upload.uploadcare.com/base/', data)
+		.subscribe(event => {
+			const uuid = event.json().file
+			this.mainuser.update({
+				profilePic: uuid
+			})
+		})
+	}
+
+	async presentAlert(title: string, content: string) {
+		const alert = await this.alertController.create({
+			header: title,
+			message: content,
+			buttons: ['OK']
+		})
+
+		await alert.present()
+	}
+
+  
 }
 
 

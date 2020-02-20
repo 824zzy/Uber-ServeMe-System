@@ -12,6 +12,8 @@ import * as firebase from 'firebase';
 
 import { environment } from 'src/environments/environment'
 
+import { FileSizeFormatPipe } from './file-size-format.pipe';
+
 firebase.initializeApp(environment.firebase);
 
 
@@ -22,6 +24,6 @@ firebase.initializeApp(environment.firebase);
     IonicModule,
     TestloginPageRoutingModule
   ],
-  declarations: [TestloginPage]
+  declarations: [TestloginPage,FileSizeFormatPipe]
 })
 export class TestloginPageModule {}

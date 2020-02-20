@@ -67,4 +67,8 @@ export class UserService {
 	updateNewPassword(uid, newpassword){
 		this.firestore.doc('users/' + uid).update({password: newpassword});
 	}
+
+	updateImage(uid, newImage){
+		this.firestore.doc('users/' + uid).update({image: newImage});
+	}
 }

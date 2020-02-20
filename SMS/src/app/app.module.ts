@@ -20,6 +20,11 @@ import { AngularFirestore } from '@angular/fire/firestore'
 
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx'
 
+// photo upload
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { HttpModule } from '@angular/http'
+
 // import { customAlertEnter } from './customAlertEnter'
 
 @NgModule({
@@ -32,7 +37,10 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx
     }), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFirestoreModule, 
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    HttpModule,
   ],
   providers: [
     NativeStorage,
