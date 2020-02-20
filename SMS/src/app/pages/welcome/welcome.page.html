@@ -1,10 +1,14 @@
 <ion-content>
-  <app-slides></app-slides>
-  <ion-button expand="block" color='warning' (click)="navigateToLoginPage()">
-    START as Customer
-  </ion-button>
+  <div class="slide">
+    <app-slides></app-slides>
+  </div>
+  <div class="btn">
+    <ion-button expand="block" color='dark' (click)="navigateToLoginPagee()">
+      START as Customer
+    </ion-button>
 
-  <ion-button expand="block" color='primary' (click)="navigateToLoginPage()">
-    START as Vendor
-  </ion-button>
+    <ion-button class="vendor" expand="block" (click)="navigateToLoginPagee()">
+      START as Vendor
+    </ion-button>
+  </div>
 </ion-content>

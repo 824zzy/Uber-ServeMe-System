@@ -13,8 +13,6 @@ import { AngularFireModule } from '@angular/fire'
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
-
- 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',

@@ -1,14 +1,15 @@
-.username{
-    // font-size: 13pt;
+ion-list{
+    padding-top: 0px;
+}
+.userinfo{
+    // margin-top: 12px;
+    height: 150px;
+    background-color: rgb(41, 40, 40);
+    padding-top: 40px;
+    padding-left: 25px;
+    vertical-align: middle;
 }
 
-.userinfo{
-    margin-top: 12px;
-    height: 100px;
-    background-color: rgb(41, 40, 40);
-    padding-top: 18px;
-    padding-left: 14px;
-}
 span{
     display: inline-block;
     vertical-align: middle;
@@ -17,4 +18,8 @@ ion-label{
     margin-left: 17px;
     color: white;
     font-size: 15pt;
+}
+
+ion-item{
+    height: 55px;
 }

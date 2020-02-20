@@ -24,4 +24,6 @@ export class WelcomePage implements OnInit {
       this.router.navigate(['login'])
     }    
   }
+
+
 }

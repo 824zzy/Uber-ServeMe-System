@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Environment } from '@ionic-native/google-maps';
+import { timer } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -15,6 +16,9 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  showSplash = true;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -22,7 +26,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
-
+  
   initializeApp() {
     this.platform.ready().then(() => {
 
@@ -32,9 +36,12 @@ export class AppComponent {
         // api key for local develoment
         'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyBfdfHVfFgZbqw40ZBzZZa7kMTrEOvxarg'
       });
-
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.statusBar.overlaysWebView(false);
+      this.statusBar.styleLightContent();
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 300);
+      timer(3000).subscribe(() => this.showSplash = false)
     });
   }
 }
