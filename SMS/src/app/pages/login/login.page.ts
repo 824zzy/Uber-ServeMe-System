@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth} from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { LoadingController, AlertController, ToastController, Platform } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx' ;
@@ -8,10 +7,14 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { environment } from '../../../environments/environment';
 import { UserService } from 'src/app/user.service';
 // import { customAlertEnter } from '../../customAlertEnter';
+import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire'
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
-
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -35,10 +38,27 @@ export class LoginPage implements OnInit {
     public alertController: AlertController,
     public toastController: ToastController,
     public user: UserService,
+    public afstore: AngularFirestore,
     ) { }
 
   ngOnInit() {
   }
+  successCallback() {
+    console.log(this.afAuth.auth.currentUser.uid)
+    if(this.afstore.doc(`users/${this.afAuth.auth.currentUser.uid}`).get()) {
+      this.afstore.doc(`users/${this.afAuth.auth.currentUser.uid}`).set({
+        username: this.afAuth.auth.currentUser.email,
+        lastname: "Please edit",
+        firstname: "",
+      })
+      console.log('add new data to db')
+    }
+    this.router.navigate(['/menu/home/feed'])
+  }
+
+  errorCallback(errorData) {
+    console.log(errorData)
+  }  
 
   togglePassword(): void{
     this.showPassword = !this.showPassword;
@@ -57,10 +77,18 @@ export class LoginPage implements OnInit {
       const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
 
       if(res.user) {
-          this.user.setUser({
-            username,
-            uid: res.user.uid
-          })
+          // this.user.setUser({
+          //   username,
+          //   uid: res.user.uid,
+          //   lastname: "",
+          //   firstname: "",
+          // })
+          // this.afstore.doc(`users/${res.user.uid}`).set({
+          //   username: username,
+          //   uid: res.user.uid,
+          //   lastname: "",
+          //   firstname: "",
+          // })
           this.router.navigate(['/menu/home/feed'])
       }
 
@@ -71,7 +99,6 @@ export class LoginPage implements OnInit {
       }
       this.showAlert(err.message)
     }
-
   }
 
   async showAlert(message: string){
@@ -85,38 +112,6 @@ export class LoginPage implements OnInit {
     await alert.present()
   }
 
-  async doGoogleLogin(){
-    const loading = await this.loadingController.create({
-      message: 'Please wait...'
-    });
-    this.presentLoading(loading);
-  
-    this.googlePlus.login({
-      'scopes': '', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-      'webClientId': environment.googleWebClientId, // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-      'offline': true // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-    })
-    .then(user =>{
-      this.nativeStorage.setItem('google_user', {
-        name: user.displayName,
-        email: user.email,
-        picture: user.imageUrl
-      })
-      .then(() =>{
-        this.router.navigate(['/menu/home/feed']);
-      }, (error) =>{
-        console.log(error);
-      })
-      loading.dismiss();
-    }, err =>{
-      console.log(err);
-      if (!this.platform.is('cordova')){
-        this.presentAlert();
-      }
-      loading.dismiss();
-    });
-  }
-
   async presentAlert() {
     const alert = await this.alertController.create({
        message: 'Cordova is not available on desktop. Please try this in a real device or in an emulator.',
@@ -128,6 +123,12 @@ export class LoginPage implements OnInit {
 
   async presentLoading(loading) {
     return await loading.present();
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/'])
+    })
   }
 
 }

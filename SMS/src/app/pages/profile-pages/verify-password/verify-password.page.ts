@@ -3,6 +3,7 @@ import { UserService } from '../../../user.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-verify-password',
@@ -20,12 +21,13 @@ export class VerifyPasswordPage implements OnInit {
 	busy: boolean = false
 
   constructor(
-		private router: Router,
-		private toastController: ToastController,
+	private router: Router,
+	private toastController: ToastController,
     private afs: AngularFirestore,
-    public user: UserService
+	public user: UserService,
+	public afAuth: AngularFireAuth,
   ) { 
-    this.mainuser = afs.doc(`users/${user.getUID()}`)
+    this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.username = event.username
 		})   
