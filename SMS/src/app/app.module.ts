@@ -18,6 +18,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { UserService } from './user.service';
 import { AngularFirestore } from '@angular/fire/firestore'
 
+import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx'
+
 // import { customAlertEnter } from './customAlertEnter'
 
 @NgModule({
@@ -37,6 +39,7 @@ import { AngularFirestore } from '@angular/fire/firestore'
     GooglePlus,
     StatusBar,
     SplashScreen,
+    NativePageTransitions,
     UserService,
     AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

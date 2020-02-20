@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class WelcomePage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    ) { }
 
   ngOnInit() {
   }
@@ -16,4 +18,6 @@ export class WelcomePage implements OnInit {
   navigateToLoginPagee(){
     this.router.navigate(['login'])
   }
+
+
 }

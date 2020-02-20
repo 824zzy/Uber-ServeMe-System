@@ -24,16 +24,19 @@
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/google-plus": "^5.20.0",
+    "@ionic-native/native-page-transitions": "^5.21.5",
     "@ionic-native/native-storage": "^5.18.1-beta.5",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
+    "com.telerik.plugins.nativepagetransitions": "^0.6.5",
     "cordova-android": "8.1.0",
     "cordova-browser": "6.0.0",
     "cordova-ios": "5.1.1",
     "cordova-plugin-googlemaps": "^2.6.2",
     "cordova-plugin-googleplus": "^8.2.1",
     "cordova-plugin-nativestorage": "^2.3.2",
+    "cordova-plugin-statusbar": "^2.4.3",
     "core-js": "^2.5.4",
     "firebase": "^7.8.0",
     "firebase-admin": "^8.9.2",
@@ -57,6 +60,11 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^4.0.0",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-whitelist": "1.3.3",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -67,13 +75,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3",
-    "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-splashscreen": "5.0.2",
-    "cordova-plugin-ionic-webview": "^4.0.0",
-    "cordova-plugin-ionic-keyboard": "^2.0.5"
+    "typescript": "~3.4.3"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -84,7 +86,6 @@
       },
       "cordova-plugin-nativestorage": {},
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {
@@ -96,7 +97,9 @@
         "API_KEY_FOR_IOS": "AIzaSyBfdfHVfFgZbqw40ZBzZZa7kMTrEOvxarg",
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "com.telerik.plugins.nativepagetransitions": {},
+      "cordova-plugin-statusbar": {}
     },
     "platforms": [
       "android"
