@@ -37,6 +37,9 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "node_modules/firebaseui/dist/firebaseui.css"
               }
             ],
             "scripts": []
@@ -98,7 +101,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [],
+            "styles": ["node_modules/firebaseui/dist/firebaseui.css"],
             "scripts": [],
             "assets": [
               {

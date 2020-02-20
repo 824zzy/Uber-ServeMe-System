@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 
 import { UserService } from '../../user.service'
 import { User } from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-profile',
@@ -18,10 +19,11 @@ export class ProfilePage implements OnInit {
   firstname: string;
 
   constructor(
+    public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     public user: UserService
   ) { 
-    this.mainuser = afs.doc(`users/${user.getUID()}`)
+    this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
 			this.username = event.username

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public afAuth: AngularFireAuth,
+    public router: Router,
+  ) { }
 
   ngOnInit() {
+    // console.log('dada')
+    // console.log(this.afAuth.auth.currentUser)
+    // if(this.afAuth.auth.currentUser){
+    //   this.router.navigate(['menu/home/feed'])
+    // }
   }
 
 }

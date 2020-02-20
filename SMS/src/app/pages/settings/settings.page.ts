@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController} from '@ionic/angular'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -10,6 +12,8 @@ export class SettingsPage implements OnInit {
 
   constructor(
     public alertController: AlertController,
+    public afAuth: AngularFireAuth,
+    public router: Router,
   ) { }
 
   ngOnInit() {
@@ -29,6 +33,12 @@ export class SettingsPage implements OnInit {
       buttons: ['Cancel', 'OK']
     })
    await alert.present()
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/'])
+    })
   }
 
 }

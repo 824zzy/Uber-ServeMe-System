@@ -6,17 +6,18 @@ import { auth } from 'firebase/app'
 interface user {
 	username: string,
 	uid: string,
-	// lastname: string,
-	// firstname: string,
+	lastname: string,
+	firstname: string,
+	
 }
 
 @Injectable()
 export class UserService {
-	private user: user
+	public user: user
 
 	constructor(
-		private afAuth: AngularFireAuth,
-		private firestore: AngularFirestore
+		public afAuth: AngularFireAuth,
+		public firestore: AngularFirestore
 	) { }
 
 	setUser(user: user) {
@@ -30,6 +31,8 @@ export class UserService {
 				this.setUser({
 					username: user.email.split('@')[0],
 					uid: user.uid,
+					lastname: "",
+					firstname: "",
 				})
 				return user.uid
 			} else {
