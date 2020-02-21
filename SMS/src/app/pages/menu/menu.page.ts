@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../../user.service'
-
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-menu',
@@ -41,12 +41,13 @@ export class MenuPage implements OnInit {
   constructor(
     private router: Router,
     public user: UserService,
-    private afs: AngularFirestore,
+    public afs: AngularFirestore,
+    public afAuth: AngularFireAuth
     ) { 
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
     });
-    this.mainuser = afs.doc(`users/${user.getUID()}`)
+    this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
       this.firstname = event.firstname

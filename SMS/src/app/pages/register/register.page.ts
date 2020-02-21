@@ -52,6 +52,8 @@ export class RegisterPage implements OnInit {
       this.user.setUser({
         username,
         uid: res.user.uid,
+        lastname: "",
+        firstname: "",
       })
       
       console.log(res)

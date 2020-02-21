@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from '../../user.service'
 import { User } from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-profile',
@@ -26,12 +27,13 @@ export class ProfilePage implements OnInit {
 
   constructor(
     private http: Http, 
-		private afs: AngularFirestore,
 		private router: Router,
 		private alertController: AlertController,
+    public afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
     public user: UserService
   ) { 
-    this.mainuser = afs.doc(`users/${user.getUID()}`)
+    this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
 			this.username = event.username

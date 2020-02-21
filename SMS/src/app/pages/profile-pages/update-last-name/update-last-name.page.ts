@@ -3,6 +3,7 @@ import { UserService } from '../../../user.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-update-last-name',
@@ -19,9 +20,10 @@ export class UpdateLastNamePage implements OnInit {
     private router: Router,
 		private toastController: ToastController,
     private afs: AngularFirestore,
+    public afAuth: AngularFireAuth,
     public user: UserService
   ) { 
-    this.mainuser = afs.doc(`users/${user.getUID()}`)
+    this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
 		})   
@@ -46,7 +48,7 @@ export class UpdateLastNamePage implements OnInit {
 
 
   async updateLastName(newName) {
-    this.user.updateLastName(this.user.getUID(), newName)
+    this.user.updateLastName(this.afAuth.auth.currentUser.uid, newName)
 
     await this.presentAlert('Your Last Name was updated!')
 

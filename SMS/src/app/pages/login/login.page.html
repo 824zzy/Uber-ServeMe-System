@@ -30,10 +30,18 @@
   </div>
 
   <div class="g">
-    <ion-button color="dark" (click)="doGoogleLogin()">
+    <!-- <ion-button color="dark" (click)="doGoogleLogin()">
       <ion-icon slot="start" name="logo-google"></ion-icon> 
       LOGIN WITH GOOGLE
-    </ion-button>
+    </ion-button> -->
+    <firebase-ui
+    (signInSuccessWithAuthResult)="successCallback($event)"
+    (signInFailure)="errorCallback($event)">
+    </firebase-ui>
+    <!-- <h1 *ngIf="afAuth.auth.currentUser">Welcome {{afAuth.auth.currentUser.displayName}}</h1> -->
+    <!-- <ion-button (click)="signOut()">
+      Sign Out
+    </ion-button> -->
     <!-- google login auth -->
   </div>
 
