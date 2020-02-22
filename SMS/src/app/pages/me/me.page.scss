@@ -1,0 +1,68 @@
+.userinfo{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-color: rgb(31, 31, 31);
+    padding-top: 13%;
+    padding-left: 10%;
+    .user-avatar{
+        width: 80px;
+        height: 80px;
+    }
+    .name{
+        margin-left: 5%;
+    }
+    span{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    ion-label{
+        margin-left: 17px;
+        color: white;
+        font-size: 16pt;
+    }
+}
+
+.three{
+    width: 90%;
+    margin-top: 40%;
+    margin-left: 5%;
+    --background: white;
+}
+ion-grid{
+    z-index: 999;
+    padding: 4% 2% 3% 2%;
+    .title{
+        margin-top: 1%;
+    }
+    ion-col{
+        text-align: center;
+        padding: 0px;
+        font-size: 9pt;
+        color: rgb(54, 54, 54);
+        ion-icon{
+            font-size: 20pt;
+        }      
+    }
+}
+
+.list{
+    margin-top: 6%;
+    ion-item{
+        width: 90%;
+        margin: 0px auto;
+    }
+    ion-icon{
+        color: rgb(54, 54, 54);
+        margin-right: 4%;
+        font-size: 20pt;
+    }
+    ion-text{
+        padding-left: 2%;
+    }
+}
+
+.vendor{
+    --background: rgb(54, 54, 54);
+    --background-hover: rgb(95, 95, 95);
+}

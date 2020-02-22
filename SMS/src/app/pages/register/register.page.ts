@@ -58,7 +58,7 @@ export class RegisterPage implements OnInit {
       
       console.log(res)
       this.presentRegAlert("Welcome UberService!")
-      this.router.navigate(['/menu/home/feed'])
+      this.router.navigate(['/home/feed'])
     } catch(error) {
       console.dir(error)
       this.presentRegAlert(error.message)

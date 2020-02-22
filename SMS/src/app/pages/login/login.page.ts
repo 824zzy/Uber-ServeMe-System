@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
       })
       console.log('add new data to db')
     }
-    this.router.navigate(['/menu/home/feed'])
+    this.router.navigate(['/home/feed'])
   }
 
   errorCallback(errorData) {
@@ -87,7 +87,7 @@ export class LoginPage implements OnInit {
           //   lastname: "",
           //   firstname: "",
           // })
-          this.router.navigate(['/menu/home/feed'])
+          this.router.navigate(['/home/feed'])
       }
 
     } catch(err) {
