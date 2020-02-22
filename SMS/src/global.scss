@@ -28,8 +28,8 @@
 @import '~firebaseui/dist/firebaseui.css';
 
 .searchbar-input-container {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     .searchbar-input {
-        border-radius: 0 !important;
+        border-radius: 8px !important;
     }
 }

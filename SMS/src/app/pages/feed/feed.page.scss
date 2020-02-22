@@ -4,7 +4,8 @@
 //   }
 .recommand{
   width: 100%;
-  height: 40vh;
+  height: 35%;
+  overflow: hidden;
   position: absolute;
 }
 
@@ -13,6 +14,7 @@
   position: absolute;
   z-index: 999;
   ion-text{
+    display: block;
     color: white;
     font-weight: bold;
     font-size: 18pt;
@@ -37,8 +39,8 @@
 }
 
 ion-searchbar{
-  margin-top: 60%;
-  border-radius: 20%;
+  margin-top: 51%;
+  margin-bottom: 1%;
   --icon-color: rgb(61, 61, 61);
   padding: 0% 5% 0% 5% !important;
 }
@@ -47,16 +49,110 @@ ion-searchbar{
   width: 60%;
   outline: none;
 }
-
-ion-col{
-  text-align: center;
-  ion-card-title{
-    font-size: 9pt;
+ion-grid{
+  margin-bottom: 2%;
+  ion-col{
+    text-align: center;
+    ion-card-title{
+      font-size: 8.5pt;
+    }
   }
+  
 }
 
 .break{
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(235, 235, 235);
   width: 100%;
   height: 2%;
+}
+
+.vendor{
+  width: 100%;
+  height: 50%;
+  .pfy{
+    margin: 6% 0% 0% 5%;
+    display: inline-block;
+    ion-text{
+      font-weight: bold;
+      font-size: 18pt;
+      color: rgb(43, 43, 43);
+  }}
+  
+  .heart{
+    float: right;
+    font-size: 50px;
+    margin: 4% 5% 0% 0%;
+  }
+
+  .list{
+    padding-top: 8%;
+    display: block;
+    margin: 2%;
+    ion-card{
+      width: 95%;
+      padding: 5% 2% 5% 6%;
+      margin-bottom: 5%;
+
+      .avatar{
+        float: left;
+        padding-top: 3%;
+      }
+      .vinfo{
+        padding-left: 24%;
+        padding-right: 5%;
+        .title{
+          width: 100%;
+          .v{
+            float: left;
+          }
+          .t{
+            font-size: 13pt;
+            font-weight: bold;
+            color: rgb(22, 22, 22);
+          }
+          .distance{
+            float: right;
+            ion-text{
+              font-size: 9pt;
+            }
+          }
+        }
+        .eval{
+          margin-top: 5%;
+          color: rgb(252, 179, 21);
+          font-size: 14pt;  
+        }
+        .skill{
+          width: 100%;
+          .first{
+            --background: rgb(36, 131, 255);
+            ion-label{
+              color: white;
+            }
+          }
+          ion-chip{
+            padding: 4px 8px 3px 8px;
+            margin: 5px 5px 0px 0px;
+            height: 25px;
+            display: inline-block;
+            ion-label{
+              // font-weight: bold;
+              font-size: 9pt;
+            }
+          }
+          
+        }
+        .price{
+          float: right;
+          ion-text{
+            font-size: 16pt;
+            font-weight: bold;
+            color: rgb(36, 36, 36);
+          }
+
+        }
+      }
+    }
+  }
+
 }
