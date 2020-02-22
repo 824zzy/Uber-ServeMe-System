@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class RegisterPage implements OnInit {
 
-  username: string = ""
+  email: string = ""
   password: string = ""
   cpassword: string = ""
   lastname: string = ""
@@ -32,31 +32,21 @@ export class RegisterPage implements OnInit {
   }
 
   async register() {
-    const { lastname, firstname, username, password, cpassword, image } = this
+    const { lastname, firstname, email, password, cpassword, image } = this
     if (password !== cpassword) {
       this.presentRegAlert("Password doesn't match, please try again")
       return console.error("Password doesn't match")
     }
 
     try { 
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(username, password)
-      
+      const res = await this.afAuth.auth.createUserWithEmailAndPassword(email, password) 
       this.afstore.doc(`users/${res.user.uid}`).set({
-        username,
+        email,
         password,
         lastname,
         firstname,
         image,
       })
-
-      this.user.setUser({
-        username,
-        uid: res.user.uid,
-        lastname: "",
-        firstname: "",
-      })
-      
-      console.log(res)
       this.presentRegAlert("Welcome UberService!")
       this.router.navigate(['/home/feed'])
     } catch(error) {
@@ -68,7 +58,6 @@ export class RegisterPage implements OnInit {
 
   async presentRegAlert(content: string) {
 		const toast = await this.toast.create({
-
 			message: content,
       position: 'top',
       duration: 2000

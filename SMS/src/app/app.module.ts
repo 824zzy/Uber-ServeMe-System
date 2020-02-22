@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { GooglePlus} from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { AngularFirestore } from '@angular/fire/firestore'
 
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx'
@@ -27,9 +27,9 @@ import { HttpModule } from '@angular/http'
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
-  // signInSuccessUrl: '/menu/home/feed',
   signInFlow: 'popup',
   signInOptions: [
     // firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -79,6 +79,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
   ],
   providers: [
+    GoogleMaps,
     NativeStorage,
     GooglePlus,
     StatusBar,

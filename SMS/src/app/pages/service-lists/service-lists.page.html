@@ -11,5 +11,44 @@
 </ion-header>
 
 <ion-content>
+  <div #mapElement id='map_canvas'>
+    <ion-searchbar placeholder="Search for home services on Uber SMS" (ionChange)="searchChanged()" [(ngModel)]='search' [hidden]="destination"></ion-searchbar>
+    <ion-button class="ion-margin-top" (click)="back()" color="dark" fill="clear" size="small" [hidden]="!destination">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-list class="ion-margin-horizontal" [hidden]="!search.length">
+      <ion-item (click)="calcRoute(result)" *ngFor='let result of searchResults'>
+        {{ result.description }}
+      </ion-item>
+    </ion-list>
+
+    <div class="request-car ion-padding ion-text-center" [hidden]="!destination">
+      <h4 class="ion-no-margin">Uber SMS</h4>
+      <span>Central Library[place holder]</span>
+      <ion-grid class="ion-margin-vertical">
+        <ion-row>
+          <ion-col size="4">
+            <img src="https://via.placeholder.com/65/cccccc" alt="">
+            <span class="category">Select</span>
+            <span>R$17,50</span>
+          </ion-col>
+          <ion-col size="4">
+            <img src="https://via.placeholder.com/65/cccccc" alt="">
+            <span class="category">Black</span>
+            <span>R$17,50</span>
+          </ion-col>
+          <ion-col size="4">
+            <img src="https://via.placeholder.com/65/cccccc" alt="">
+            <span class="category">Black</span>
+            <span>R$17,50</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button color="dark" expand="block">
+        Confirm Vendor
+      </ion-button>
+    </div>
+  </div>
 
 </ion-content>
