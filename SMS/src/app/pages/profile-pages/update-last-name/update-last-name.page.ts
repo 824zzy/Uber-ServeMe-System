@@ -50,6 +50,6 @@ export class UpdateLastNamePage implements OnInit {
   async updateLastName(newName) {
     this.user.updateLastName(newName)
     await this.presentAlert('Your Last Name was updated!')
-    this.router.navigate(['/menu/profile'])
+    this.router.navigate(['/home/me/profile'])
   }
 }

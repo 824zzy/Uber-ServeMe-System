@@ -20,7 +20,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class LoginPage implements OnInit {
 
-  username: string = ""
+  email: string = ""
   password: string = ""
 
   showPassword = false;
@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
   successCallback() {
     if(this.afstore.doc(`users/${this.afAuth.auth.currentUser.uid}`).get()) {
       this.afstore.doc(`users/${this.afAuth.auth.currentUser.uid}`).set({
-        username: this.afAuth.auth.currentUser.email,
+        email: this.afAuth.auth.currentUser.email,
         lastname: "Please edit",
         firstname: "",
       })
@@ -68,9 +68,9 @@ export class LoginPage implements OnInit {
 
 
   async login() {
-    const { username, password } = this
+    const { email, password } = this
     try {
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(email, password)
       if(res.user) {
           this.router.navigate(['/home/feed'])
       }

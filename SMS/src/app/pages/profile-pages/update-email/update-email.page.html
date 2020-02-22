@@ -1,12 +1,12 @@
 
 <ion-content>
   <div>
-    <ion-icon class="back" slot="start" name="close" routerLink="/menu/profile"></ion-icon>
+    <ion-icon class="back" slot="start" name="close" routerLink="/home/me/profile"></ion-icon>
   </div>
 
   <div class="edit">
     <ion-title>Email</ion-title>
-    <ion-input type="text" clearInput value="{{username}}" [(ngModel)]="username"></ion-input>
+    <ion-input type="text" clearInput value="{{email}}" [(ngModel)]="email"></ion-input>
   </div>
   <div class="update">
   <ion-item class="update-btn" color="dark" (click)="updateDetails()">

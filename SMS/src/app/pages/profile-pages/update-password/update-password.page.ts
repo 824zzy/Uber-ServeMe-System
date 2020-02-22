@@ -17,7 +17,7 @@ export class UpdatePasswordPage implements OnInit {
 
   sub
   mainuser: AngularFirestoreDocument
-  username: string;
+  email: string;
   newpassword: string
 
 	busy: boolean = false
@@ -31,7 +31,7 @@ export class UpdatePasswordPage implements OnInit {
   ) { 
     this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.username = event.username
+			this.email = event.email
 		})   
   }
 
@@ -78,7 +78,7 @@ export class UpdatePasswordPage implements OnInit {
     
     await this.presentAlert('Update password successful!')
     
-    this.router.navigate(['/menu/profile'])
+    this.router.navigate(['/home/me/profile'])
     
     this.busy = false
     

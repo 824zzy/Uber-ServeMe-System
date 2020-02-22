@@ -15,7 +15,7 @@ export class VerifyPasswordPage implements OnInit {
   
   sub
   mainuser: AngularFirestoreDocument
-  username: string;
+  email: string;
   password: string
 
 	busy: boolean = false
@@ -29,7 +29,7 @@ export class VerifyPasswordPage implements OnInit {
   ) { 
     this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.username = event.username
+			this.email = event.email
 		})   
   }
 
@@ -43,31 +43,31 @@ export class VerifyPasswordPage implements OnInit {
   async presentAlert(content: string) {
 		const alert = await this.toastController.create({
 			message: content,
-      duration: 2000,
-      position: 'top'
+      		duration: 2000,
+      		position: 'top'
 		})
 
 		await alert.present()
 	}
 
   async updateDetails() {
-		this.busy = true
+	this.busy = true
 
-		if(!this.password) {
-			this.busy = false
-			return this.presentAlert('You have to enter a password')
-		}
+	if(!this.password) {
+		this.busy = false
+		return this.presentAlert('You have to enter a password')
+	}
 
-		try {
-			await this.user.reAuth(this.user.getUsername(), this.password)
-		} catch(error) {
-			this.busy = false
-			return this.presentAlert('Wrong password!')
+	try {
+		await this.user.reAuth(this.user.getUserEmail(), this.password)
+	} catch(error) {
+		this.busy = false
+		return this.presentAlert('Wrong password!')
     } 
     
-    await this.router.navigate(['/menu/profile/update-password'])
+    await this.router.navigate(['/home/me/profile/update-password'])
     
-		this.password = ""
+	this.password = ""
     this.busy = false
     
 	}

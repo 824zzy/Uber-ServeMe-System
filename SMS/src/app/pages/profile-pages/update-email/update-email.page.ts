@@ -14,7 +14,7 @@ export class UpdateEmailPage implements OnInit {
 
   sub
   mainuser: AngularFirestoreDocument
-  username: string;
+  email: string;
 
   busy: boolean = false
 
@@ -27,7 +27,7 @@ export class UpdateEmailPage implements OnInit {
   ) { 
     this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
-			this.username = event.username
+			this.email = event.email
 		})   
   }
 
@@ -51,10 +51,10 @@ export class UpdateEmailPage implements OnInit {
   async updateDetails() {
 		this.busy = true
 
-		if(this.username !== this.user.getUsername()) {
-			await this.user.updateEmail(this.username)
+		if(this.email !== this.user.getUserEmail()) {
+			await this.user.updateEmail(this.email)
 			this.mainuser.update({
-				username: this.username
+				email: this.email
 			})
 		}
 
@@ -62,7 +62,7 @@ export class UpdateEmailPage implements OnInit {
 
 		await this.presentAlert('Your profile was updated!')
 
-		this.router.navigate(['/menu/profile'])
+		this.router.navigate(['/home/me/profile'])
 	}
 
 }

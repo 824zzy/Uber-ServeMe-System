@@ -17,7 +17,7 @@ export class ProfilePage implements OnInit {
   
   sub
   mainuser: AngularFirestoreDocument
-  username: string;
+  email: string;
   lastname: string;
   firstname: string;
   profilePic: string;
@@ -37,7 +37,7 @@ export class ProfilePage implements OnInit {
     this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
-			this.username = event.username
+			this.email = event.email
       this.firstname = event.firstname
       this.profilePic = event.profilePic
 		})   

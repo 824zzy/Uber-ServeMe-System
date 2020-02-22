@@ -52,6 +52,6 @@ export class UpdateFirstNamePage implements OnInit {
 
     await this.presentAlert('Your First Name was updated!')
 
-    this.router.navigate(['/menu/profile'])
+    this.router.navigate(['/home/me/profile'])
   }
 }
