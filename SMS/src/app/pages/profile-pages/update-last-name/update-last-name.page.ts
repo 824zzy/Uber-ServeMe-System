@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../user.service';
+import { UserService } from 'src/app/services/user.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -48,10 +48,8 @@ export class UpdateLastNamePage implements OnInit {
 
 
   async updateLastName(newName) {
-    this.user.updateLastName(this.afAuth.auth.currentUser.uid, newName)
-
+    this.user.updateLastName(newName)
     await this.presentAlert('Your Last Name was updated!')
-
     this.router.navigate(['/menu/profile'])
   }
 }

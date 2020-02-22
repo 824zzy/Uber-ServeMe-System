@@ -23,35 +23,16 @@
     <p>Forget Password?</p>
   </div>
 
-  <div class="order">
-    <span class="line"></span>
-    <span class="txt">OR</span>
-    <span class="line"></span>
-  </div>
 
   <div class="g">
-    <!-- <ion-button color="dark" (click)="doGoogleLogin()">
-      <ion-icon slot="start" name="logo-google"></ion-icon> 
-      LOGIN WITH GOOGLE
-    </ion-button> -->
     <firebase-ui
     (signInSuccessWithAuthResult)="successCallback($event)"
     (signInFailure)="errorCallback($event)">
     </firebase-ui>
-    <!-- <h1 *ngIf="afAuth.auth.currentUser">Welcome {{afAuth.auth.currentUser.displayName}}</h1> -->
-    <!-- <ion-button (click)="signOut()">
-      Sign Out
-    </ion-button> -->
-    <!-- google login auth -->
   </div>
-
-
 
   <div class="signup">
     <p>Don't Have An Account?</p>
     <ion-button class="sign" fill="clear" [routerLink]="['../register']">SIGN UP</ion-button>
   </div>
-    
-
-
 </ion-content>

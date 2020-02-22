@@ -11,40 +11,39 @@
 </ion-header>
 
 <ion-content>
-  <div id="map_canvas"></div>
   <ion-item class="cgtitle" color="light" lines="none">Categories</ion-item>
 
   <ion-grid>
     <ion-row>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/appliance.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'appliance'}" src="assets/icon/categories/appliance.png">
         <ion-card-title>Appliances</ion-card-title>
       </ion-col>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/electrical.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'electrical'}" src="assets/icon/categories/electrical.png">
         <ion-card-title>Electrical</ion-card-title>
       </ion-col>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/plumbing.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'plumbing'}" src="assets/icon/categories/plumbing.png">
         <ion-card-title>Plumbling</ion-card-title>
       </ion-col>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/homecleaning.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'cleaning'}" src="assets/icon/categories/homecleaning.png">
         <ion-card-title>Home Cleaning</ion-card-title>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/tutor.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'tutoring'}" src="assets/icon/categories/tutor.png">
         <ion-card-title>Tutoring</ion-card-title>
       </ion-col>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/move.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'moving'}" src="assets/icon/categories/move.png">
         <ion-card-title>Packaging & Moving</ion-card-title>
       </ion-col>
       <ion-col>
-        <img class="cgicon" routerLink="../service-lists" src="assets/icon/categories/monitor.png">
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'repair'}" src="assets/icon/categories/monitor.png">
         <ion-card-title>Computer Repair</ion-card-title>
       </ion-col>
       <ion-col>

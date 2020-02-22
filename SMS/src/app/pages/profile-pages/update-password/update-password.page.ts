@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../user.service';
+import { UserService } from '../../../services/user.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -72,7 +72,7 @@ export class UpdatePasswordPage implements OnInit {
 
 		if(this.newpassword) {
       await this.user.updatePassword(this.newpassword)
-      await this.user.updateNewPassword(this.user.getUID(), this.newpassword)
+      await this.user.updateNewPassword(this.newpassword)
 
 		}
     

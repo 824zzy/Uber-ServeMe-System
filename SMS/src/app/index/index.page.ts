@@ -15,11 +15,6 @@ export class IndexPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log('dada')
-    // console.log(this.afAuth.auth.currentUser)
-    // if(this.afAuth.auth.currentUser){
-    //   this.router.navigate(['menu/home/feed'])
-    // }
   }
 
 }

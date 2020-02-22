@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -38,23 +38,13 @@ export class RegisterPage implements OnInit {
     }
 
     try { 
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(username, password)
-      
+      const res = await this.afAuth.auth.createUserWithEmailAndPassword(username, password) 
       this.afstore.doc(`users/${res.user.uid}`).set({
         username,
         password,
         lastname,
         firstname,
       })
-
-      this.user.setUser({
-        username,
-        uid: res.user.uid,
-        lastname: "",
-        firstname: "",
-      })
-      
-      console.log(res)
       this.presentRegAlert("Welcome UberService!")
       this.router.navigate(['/menu/home/feed'])
     } catch(error) {
@@ -66,7 +56,6 @@ export class RegisterPage implements OnInit {
 
   async presentRegAlert(content: string) {
 		const toast = await this.toast.create({
-
 			message: content,
       position: 'top',
       duration: 2000

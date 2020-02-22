@@ -5,7 +5,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx' ;
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { environment } from '../../../environments/environment';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/services/user.service';
 // import { customAlertEnter } from '../../customAlertEnter';
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -42,14 +42,12 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   successCallback() {
-    console.log(this.afAuth.auth.currentUser.uid)
     if(this.afstore.doc(`users/${this.afAuth.auth.currentUser.uid}`).get()) {
       this.afstore.doc(`users/${this.afAuth.auth.currentUser.uid}`).set({
         username: this.afAuth.auth.currentUser.email,
         lastname: "Please edit",
         firstname: "",
       })
-      console.log('add new data to db')
     }
     this.router.navigate(['/menu/home/feed'])
   }
@@ -73,23 +71,9 @@ export class LoginPage implements OnInit {
     const { username, password } = this
     try {
       const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
-
       if(res.user) {
-          // this.user.setUser({
-          //   username,
-          //   uid: res.user.uid,
-          //   lastname: "",
-          //   firstname: "",
-          // })
-          // this.afstore.doc(`users/${res.user.uid}`).set({
-          //   username: username,
-          //   uid: res.user.uid,
-          //   lastname: "",
-          //   firstname: "",
-          // })
           this.router.navigate(['/menu/home/feed'])
       }
-
     } catch(err) {
       console.dir(err)
       if (err.code === "auth/user-not-found") {
@@ -128,5 +112,4 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/'])
     })
   }
-
 }
