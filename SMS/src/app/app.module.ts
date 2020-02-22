@@ -18,6 +18,11 @@ import { AngularFirestore } from '@angular/fire/firestore'
 
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx'
 
+// photo upload
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { HttpModule } from '@angular/http'
+
 // import { customAlertEnter } from './customAlertEnter'
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
@@ -25,7 +30,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GoogleMaps } from '@ionic-native/google-maps';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
-  // signInSuccessUrl: '/menu/home/feed',
   signInFlow: 'popup',
   signInOptions: [
     // firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -67,6 +71,10 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     }), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, 
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    HttpModule,
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
   ],

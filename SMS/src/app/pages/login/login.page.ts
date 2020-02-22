@@ -49,7 +49,7 @@ export class LoginPage implements OnInit {
         firstname: "",
       })
     }
-    this.router.navigate(['/menu/home/feed'])
+    this.router.navigate(['/home/feed'])
   }
 
   errorCallback(errorData) {
@@ -72,7 +72,7 @@ export class LoginPage implements OnInit {
     try {
       const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
       if(res.user) {
-          this.router.navigate(['/menu/home/feed'])
+          this.router.navigate(['/home/feed'])
       }
     } catch(err) {
       console.dir(err)

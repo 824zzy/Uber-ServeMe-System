@@ -1,29 +1,20 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule),
+    redirectTo: 'login', pathMatch: 'full',
   },
-  {
-    path: 'menu',
-    loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuPageModule)
-  },
-  {
-    path: 'review',
-    loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
+  { 
+    path: 'home', 
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'login',
-    loadChildren: () =>
-      import('./pages/login/login.module').then(
-        m => m.LoginPageModule
-      )
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    canActivate: [LoginGuard],
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'vendor',

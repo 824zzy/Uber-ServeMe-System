@@ -17,7 +17,10 @@
     <div class='toparea'>
       <div class="ava">
       <ion-avatar>
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <input type="file" #fileBtn class="filebtn" (change)="uploadPic($event)" />
+
+        <ion-img class="profile-pic" (click)="updateProfilePic()" src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/150x150/center/"></ion-img>
+        
       </ion-avatar>
       </div>
       <div class="edit"> 

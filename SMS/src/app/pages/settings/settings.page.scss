@@ -1,11 +1,33 @@
-ion-label {
-    font-weight: bold
-}
-
-ion-title {
-    font-weight: bold
+ion-content{
+    --ion-background-color:rgb(240, 240, 240);
 }
 
 ion-icon {
-    color: red
+    color: rgb(219, 18, 18);
+    margin-right: 5%;
+    
+}
+ion-title{
+    font-size: 14pt;
+    padding: 1px;
+}
+
+ion-list{
+    ion-label {
+        font-size: 11pt!important;
+    }
+    margin-top: 2%;
+    margin-bottom: 3%;
+    padding-bottom: 0px;
+    --ion-background-color: white;
+}
+
+.logout{
+    font-weight: bold;
+    text-align: center;
+    ion-label{
+        font-size: 11pt;
+        color: rgb(223, 5, 5);
+    }
+    --ion-background-color: white;
 }

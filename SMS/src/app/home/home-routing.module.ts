@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,18 +11,24 @@ const routes: Routes = [
     children: [
       {
         path: 'feed',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('../pages/feed/feed.module').then(m => m.FeedPageModule)
       },
       {
-        path: 'messages',
+        path: 'collections',
         loadChildren: () =>
-          import('../pages/messages/messages.module').then(m => m.MessagesPageModule)
+          import('../pages/collections/collections.module').then(m => m.CollectionsPageModule)
       },
       {
-        path: 'notifications',
+        path: 'history',
         loadChildren: () =>
-          import('../pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
+          import('../pages/history/history.module').then(m => m.HistoryPageModule)
+      },
+      {
+        path: 'me',
+        loadChildren: () =>
+          import('../pages/me/me.module').then(m => m.MePageModule)
       },
     ]
   },

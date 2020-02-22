@@ -2,16 +2,22 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>ServeMe Service</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item class="cgtitle" color="light" lines="none">Categories</ion-item>
+  <div class="recommand">
+    <ion-img src="assets/image/backrecommand.jpg"></ion-img>
+  </div>
+
+  <div class="recword">
+    <ion-text>Keep your kitchen running smoothly</ion-text>
+    <ion-button fill="outline">
+      <ion-icon name="search" slot="start"></ion-icon>
+      <ion-text>kitchme</ion-text>
+    </ion-button>
+  </div>
+
+  <ion-searchbar></ion-searchbar>
 
   <ion-grid>
     <ion-row>
@@ -52,5 +58,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div class="break"></div>
 
 </ion-content>

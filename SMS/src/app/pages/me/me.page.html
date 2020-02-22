@@ -1,0 +1,90 @@
+
+<ion-content>
+  <!-- user info -->
+  <div class="userinfo">
+    <span>
+      <ion-avatar slot="start" class="user-avatar">
+        <img src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/150x150/center/">
+      </ion-avatar>
+      </span>
+      <span class="name">
+      <ion-label>
+        <ion-text class="username">
+          {{firstname}} {{lastname}}
+        </ion-text>
+      </ion-label>
+      </span>
+  </div>
+
+  <ion-card class="three">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon routerLink="" src="../../../assets/icon/address.svg"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon routerLink="./payment" src="../../../assets/icon/wallet.svg"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon routerLink="/home/collections" src="../../../assets/icon/favorite.svg"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon routerLink="/home/history" src="../../../assets/icon/order.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="title">
+        <ion-col>Address</ion-col>
+        <ion-col>Wallet</ion-col>
+        <ion-col>Favorite</ion-col>
+        <ion-col>Order</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <div class="list">
+
+    <!-- tappable make click response faster -->
+
+    <ion-item routerLink="./profile" detail>
+      <ion-icon slot="start" src="../../../assets/icon/profile.svg"></ion-icon>
+      <ion-text>Profile</ion-text>
+    </ion-item>
+    <ion-item routerLink="" detail>
+      <ion-icon slot="start" src="../../../assets/icon/promotion.svg"></ion-icon>
+      <ion-text>Promotions</ion-text>
+    </ion-item>
+    <ion-item routerLink="" detail>
+      <ion-icon slot="start" src="../../../assets/icon/question.svg"></ion-icon>
+      <ion-text>Help</ion-text>
+    </ion-item>
+    <ion-item routerLink="" detail>
+      <ion-icon slot="start" src="../../../assets/icon/info.svg"></ion-icon>
+      <ion-text>About</ion-text>
+    </ion-item>
+    <ion-item lines="none" routerLink="./settings" detail>
+      <ion-icon slot="start" src="../../../assets/icon/wheel.svg"></ion-icon>
+      <ion-text>Settings</ion-text>
+    </ion-item>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="vendor">
+      <ion-icon src="../../../assets/icon/vendor.svg"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon src="../../../assets/icon/vendor.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon src="../../../assets/icon/vendor.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon src="../../../assets/icon/vendor.svg"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
+
+
+</ion-content>
