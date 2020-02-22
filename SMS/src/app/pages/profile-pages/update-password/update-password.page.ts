@@ -78,7 +78,7 @@ export class UpdatePasswordPage implements OnInit {
     
     await this.presentAlert('Update password successful!')
     
-    this.router.navigate(['/menu/profile'])
+    this.router.navigate(['/home/me/profile'])
     
     this.busy = false
     

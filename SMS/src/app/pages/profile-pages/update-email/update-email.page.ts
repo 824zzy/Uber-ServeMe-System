@@ -62,7 +62,7 @@ export class UpdateEmailPage implements OnInit {
 
 		await this.presentAlert('Your profile was updated!')
 
-		this.router.navigate(['/menu/profile'])
+		this.router.navigate(['/home/me/profile'])
 	}
 
 }

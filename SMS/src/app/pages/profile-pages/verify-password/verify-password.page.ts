@@ -65,7 +65,7 @@ export class VerifyPasswordPage implements OnInit {
 			return this.presentAlert('Wrong password!')
     } 
     
-    await this.router.navigate(['/menu/profile/update-password'])
+    await this.router.navigate(['/home/me/profile/update-password'])
     
 		this.password = ""
     this.busy = false
