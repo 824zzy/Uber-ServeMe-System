@@ -28,6 +28,18 @@ const routes: Routes = [
     path: 'service-detail',
     loadChildren: () => import('./pages/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
   },
+  {
+    path: 'service-detail/:id',
+    loadChildren: () => import('./pages/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
+  },
+  {
+    path: 'add-service',
+    loadChildren: () => import('./pages/add-service/add-service.module').then( m => m.AddServicePageModule)
+  },
+  {
+    path: 'vendor-request',
+    loadChildren: () => import('./pages/vendor-request/vendor-request.module').then( m => m.VendorRequestPageModule)
+  },
 ];
 @NgModule({
   imports: [
