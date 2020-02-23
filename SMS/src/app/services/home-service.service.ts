@@ -23,7 +23,7 @@ export class HomeServiceService {
     )
   }
 
-  addServices(homeservice: HomeService) {
+  addService(homeservice: HomeService) {
     return this.homeServiceCollection.add(homeservice)
   }
 

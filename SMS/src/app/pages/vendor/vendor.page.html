@@ -26,7 +26,7 @@
 
   <ion-list>
     <ion-item-sliding *ngFor="let service of homeServices">
-      <ion-item button [routerLink]="['/details', service.id]">
+      <ion-item button [routerLink]="['/service-detail', service.id]">
         <ion-avatar slot="start">
           <img [src]="service.picture">
         </ion-avatar>
@@ -56,7 +56,7 @@
       <ion-row>
         <ion-col size="6">
           <ion-button (click)="logout()" color="danger" expand="block">
-            air?
+            Logout Place holder
           </ion-button>
         </ion-col>
 
