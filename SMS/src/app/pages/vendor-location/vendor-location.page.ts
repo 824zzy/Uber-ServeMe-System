@@ -2,15 +2,17 @@ import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { ToastController, Platform, LoadingController, NavController } from '@ionic/angular';
 import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, GoogleMapsAnimation, MyLocation, Environment, GoogleMapOptions, Geocoder, ILatLng } from '@ionic-native/google-maps';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 declare var google: any
 
 @Component({
-  selector: 'app-service-lists',
-  templateUrl: './service-lists.page.html',
-  styleUrls: ['./service-lists.page.scss'],
+  selector: 'app-vendor-location',
+  templateUrl: './vendor-location.page.html',
+  styleUrls: ['./vendor-location.page.scss'],
 })
-export class ServiceListsPage implements OnInit {
+export class VendorLocationPage implements OnInit {
   @ViewChild('mapElement', {static: true}) mapElement: any
   private loading: any
   private map: GoogleMap
@@ -20,10 +22,9 @@ export class ServiceListsPage implements OnInit {
   public searchResults = new Array<any>()
   private originMarker: Marker
   public destination: any
-  private googleDirectionService = new google.maps.DirectionsService()
+  public position: any
+
   
-  // public latitude: any
-  // public longtitude: any
 
   constructor(
     public toastCtrl: ToastController,
@@ -33,16 +34,14 @@ export class ServiceListsPage implements OnInit {
     public route: Router,
     public activateRoute: ActivatedRoute,
     public nav: NavController,
-    // private geolocation: Geolocation,
-  ) { 
-    console.log('declared var:', google)
+    public user: UserService,
+    public afstore: AngularFirestore,
+    public toast: ToastController,
+    public router: Router,
+  ) {
   }
 
   async ngOnInit() {
-    this.activateRoute.queryParams.subscribe((data: any) => {
-      console.log("data.service:", data.service)
-      this.service = data.service
-    })
     console.log("service:", this.service)
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
@@ -83,7 +82,7 @@ export class ServiceListsPage implements OnInit {
         zoom: 18
       })
       this.originMarker = this.map.addMarkerSync({
-        title: 'origin',
+        title: 'Your current location',
         icon: "#000",
         animation: GoogleMapsAnimation.DROP,
         position: myLocation.latLng,
@@ -104,7 +103,7 @@ export class ServiceListsPage implements OnInit {
     })
   }
 
-  async calcRoute(item: any) {
+  async addDestinationMarker(item: any) {
     this.search = ''
     this.destination = item
 
@@ -116,28 +115,19 @@ export class ServiceListsPage implements OnInit {
       animation: GoogleMapsAnimation.DROP,
       position: info[0].position,
     })
-    
-    this.googleDirectionService.route({
-      origin: this.originMarker.getPosition(),
-      destination: markerDestination.getPosition(),
-      travelMode: 'DRIVING',
-    }, async results => {
-      const points = new Array<ILatLng>()
-      const routes = results.routes[0].overview_path
-      for(let i=0; i<routes.length;i++) {
-        points[i] = {
-          lat: routes[i].lat(),
-          lng: routes[i].lng(),
-        }
-      }
-      await this.map.addPolyline({
-        points: points,
-        color: '#000',
-        width: 5,
-     })
-     await this.map.moveCamera({ target: points })
-     this.map.panBy(0, 100)
-    })
+
+    await this.map.moveCamera({ target: info[0].position })
+    this.position = info[0].position
+  }
+
+  async saveLocation() {
+    try {
+      this.user.updateLocation(this.position)
+      this.presentAlert("Successfully update you Location!")
+      this.router.navigate(['/vendor'])
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   async back() {
@@ -150,56 +140,12 @@ export class ServiceListsPage implements OnInit {
     }
   }
 
-
-
-  // goToMyLocation(){
-  //   this.map.clear();
-
-  //   // Get the location of you
-  //   this.map.getMyLocation().then((location: MyLocation) => {
-  //     console.log(JSON.stringify(location, null, 2));
-
-  //     // Move the map camera to the location with animation
-  //     this.map.animateCamera({
-  //       target: location.latLng,
-  //       zoom: 17,
-  //       duration: 5000
-  //     });
-
-  //     // add a market
-  //     let marker: Marker = this.map.addMarkerSync({
-  //       title: '@ionic-native/google-maps plugin!',
-  //       snippet: 'This plugin is awesome!',
-  //       position: location.latLng,
-  //       animation: GoogleMapsAnimation.BOUNCE
-  //     });
-
-  //     // show the infoWindow
-  //     marker.showInfoWindow();
-
-  //     // if clicked it, display the alert
-  //     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-  //       this.showToast('clicked!');
-  //     });  
-
-  //     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(
-  //       (data) => {
-  //         console.log("Click MAP", data);
-  //       }
-  //     );
-  //   })
-  //   .catch(err => {
-  //     // this.loading.dismiss();
-  //     this.showToast(err.err_message);
-  //   });
-  // }
-
-  // async showToast(message: string) {
-  //   let toast = await this.toastCtrl.create({
-  //     message: message,
-  //     duration: 2000,
-  //     position: 'middle'
-  //   });
-  //   toast.present();
-  // }
+  async presentAlert(content: string) {
+		const toast = await this.toast.create({
+			message: content,
+      position: 'top',
+      duration: 2000
+		})
+		await toast.present()
+  }
 }

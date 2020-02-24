@@ -41,6 +41,11 @@ export class UserService {
 	updateNewPassword(newpassword: string) {
 		this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).update({password: newpassword});
 	}
+
+	updateLocation(newLocation: any) {
+		this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).update({location: newLocation});
+	}
+
 	getAuth() {
 		return this.afAuth.auth
 	}

@@ -40,6 +40,18 @@ const routes: Routes = [
     path: 'vendor-request',
     loadChildren: () => import('./pages/vendor-request/vendor-request.module').then( m => m.VendorRequestPageModule)
   },
+  {
+    path: 'vendor-location',
+    loadChildren: () => import('./pages/vendor-location/vendor-location.module').then( m => m.VendorLocationPageModule)
+  },
+  {
+    path: 'place-request',
+    loadChildren: () => import('./pages/place-request/place-request.module').then( m => m.PlaceRequestPageModule)
+  },
+  {
+    path: 'place-request/:id',
+    loadChildren: () => import('./pages/place-request/place-request.module').then( m => m.PlaceRequestPageModule)
+  },
 ];
 @NgModule({
   imports: [

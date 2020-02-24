@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ServiceListsPageRoutingModule } from './service-lists-routing.module';
+import { VendorLocationPageRoutingModule } from './vendor-location-routing.module';
 
-import { ServiceListsPage } from './service-lists.page';
+import { VendorLocationPage } from './vendor-location.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ServiceListsPageRoutingModule
+    VendorLocationPageRoutingModule
   ],
-  declarations: [ServiceListsPage],
+  declarations: [VendorLocationPage]
 })
-export class ServiceListsPageModule {}
+export class VendorLocationPageModule {}

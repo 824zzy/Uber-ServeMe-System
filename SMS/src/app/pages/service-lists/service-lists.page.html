@@ -12,7 +12,7 @@
 
 <ion-content>
   <div #mapElement id='map_canvas'>
-    <ion-searchbar placeholder="Search for home services on Uber SMS" (ionChange)="searchChanged()" [(ngModel)]='search' [hidden]="destination"></ion-searchbar>
+    <ion-searchbar placeholder="Search for {{service}} on Uber SMS" (ionChange)="searchChanged()" [(ngModel)]='search' [hidden]="destination"></ion-searchbar>
     <ion-button class="ion-margin-top" (click)="back()" color="dark" fill="clear" size="small" [hidden]="!destination">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>

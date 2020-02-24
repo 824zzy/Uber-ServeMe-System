@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ServiceListsPageRoutingModule } from './service-lists-routing.module';
+import { PlaceRequestPageRoutingModule } from './place-request-routing.module';
 
-import { ServiceListsPage } from './service-lists.page';
+import { PlaceRequestPage } from './place-request.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ServiceListsPageRoutingModule
+    PlaceRequestPageRoutingModule
   ],
-  declarations: [ServiceListsPage],
+  declarations: [PlaceRequestPage]
 })
-export class ServiceListsPageModule {}
+export class PlaceRequestPageModule {}
