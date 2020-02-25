@@ -31,6 +31,23 @@ spinner{
   }
 
 }
+.search{
+  position: absolute;
+  width: 100%;
+  ion-searchbar {
+    --background: #fff;
+    padding: 0% 5% 0% 5%;
+    margin-top: 7%;
+    --box-shadow: 0%;
+    --placeholder-font-size: 9pt;
+  }
+  .searchres{
+    margin: 2% 5% 0% 5%;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 0px;
+  }
+}
 
 .request-car {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);

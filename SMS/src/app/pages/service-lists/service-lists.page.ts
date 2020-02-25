@@ -23,6 +23,9 @@ export class ServiceListsPage implements OnInit {
   private originMarker: Marker
   public destination: any
   private googleDirectionService = new google.maps.DirectionsService()
+  
+  // public latitude: any
+  // public longtitude: any
 
   vendorList: any[];
   loadVendor: any[];
@@ -30,6 +33,7 @@ export class ServiceListsPage implements OnInit {
   hide: boolean = false;
   message: any;
   showSpinner: boolean = true;
+
 
   constructor(
     public toastCtrl: ToastController,

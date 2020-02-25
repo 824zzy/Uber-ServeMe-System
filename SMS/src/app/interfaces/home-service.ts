@@ -5,7 +5,7 @@ export interface HomeService {
     price?: string
     picture?: string
     createdAt?: number
-    userId?: string
+    vendorId?: string
     category?: string
     position?: string
     available?: boolean

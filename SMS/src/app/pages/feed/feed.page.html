@@ -17,7 +17,23 @@
     </ion-button>
   </div>
 
-  <ion-searchbar></ion-searchbar>
+  <ion-searchbar placeholder="Search for home services on Uber SMS" showCancelButton (ionInput)="filterService($event)"></ion-searchbar>
+  <ion-list class="ion-margin-horizontal" [hidden]="!flag">
+    <ion-item-sliding *ngFor="let item of goalService">
+      <ion-item button [routerLink]="['/place-request', item.id]">
+        <ion-avatar>
+          <!-- TODO: -->
+          <img src="assets/image/avatar.png">
+        </ion-avatar>
+        <ion-label> {{ item.name }} </ion-label>
+        <ion-chip class="first">
+          <ion-label>Plumbing</ion-label>
+        </ion-chip>
+        <br>
+        <ion-text>10.5mi</ion-text>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 
   <ion-grid>
     <ion-row>
