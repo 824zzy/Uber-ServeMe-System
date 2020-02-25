@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -16,6 +16,9 @@ export class FeedPage implements OnInit {
   public goalService: any
   public loadedGoalService: any
   public flag: any
+
+  vendorList: any[];
+  loadVendor: any[];
   
   constructor(
     public toastCtrl: ToastController,
@@ -41,6 +44,12 @@ export class FeedPage implements OnInit {
     })
     this.flag = false
 
+    // this.firestore.collection('HomeServices', ref => ref.where('category', "==", this.service)).valueChanges().subscribe( vendorList => {
+    this.firestore.collection('HomeServices').valueChanges().subscribe( vendorList => {
+      this.vendorList = vendorList;
+      this.loadVendor = vendorList;
+    })
+    
     // var query = serviceRef.where("userId", "==", this.userService.getAuth().currentUser.uid.toString())
     // console.log(serviceRef)
     // console.log(this.goalService)
@@ -86,4 +95,14 @@ export class FeedPage implements OnInit {
   //     console.log(error)
   //   }
   // }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
 }
