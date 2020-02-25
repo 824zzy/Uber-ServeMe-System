@@ -40,6 +40,8 @@ const routes: Routes = [
     path: 'vendor-request',
     loadChildren: () => import('./pages/vendor-request/vendor-request.module').then( m => m.VendorRequestPageModule)
   },
+
+
 ];
 @NgModule({
   imports: [

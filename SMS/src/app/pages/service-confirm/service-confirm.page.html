@@ -1,0 +1,68 @@
+
+<ion-content>
+
+  <div #mapElement id='map_canvas'>
+    <div id='circle'>
+      <div>
+      <ion-icon class='blank' name='ios-arrow-back'></ion-icon>
+      </div>
+    </div>
+    <!-- <div class="search">
+      <ion-searchbar searchIcon="ios-arrow-back" ></ion-searchbar>
+    </div> -->
+
+  </div>
+
+  <div class="request-car ion-padding">
+
+    <ion-card id="1">
+      <ion-grid>
+        <ion-row class="f-row">
+          <ion-col width-25 class="avatar">
+          <ion-avatar >
+            <img src="assets/image/avatar.png">
+          </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <div class="title">
+              <div class="v">
+                <ion-text></ion-text>
+              </div>
+              <ion-text class="t ion-text-capitalize">{{data.name}}</ion-text>
+              <div class="distance">
+                <ion-text>{{distance}} mi</ion-text>
+              </div>
+            </div>
+            <div class="eval">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-half"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <div class="skill">
+              <ion-chip class="first">
+                <ion-label>{{ data.category }}</ion-label>
+              </ion-chip>
+              <ion-chip color="primary">
+                <ion-label>Tutor</ion-label>
+              </ion-chip>
+              <div class="price">
+                <ion-text>${{ data.price }}/h</ion-text>
+              </div>
+            </div>
+          </ion-row>
+
+      </ion-grid>
+    </ion-card>
+
+
+    <ion-button color="dark" expand="block">
+      Confirm Vendor
+    </ion-button>
+  </div>
+
+</ion-content>

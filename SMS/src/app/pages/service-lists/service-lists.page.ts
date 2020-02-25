@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, NgZone, DoBootstrap } from '@angular/core';
 import { ToastController, Platform, LoadingController, NavController } from '@ionic/angular';
 import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, GoogleMapsAnimation, MyLocation, Environment, GoogleMapOptions, Geocoder, ILatLng } from '@ionic-native/google-maps';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore'
+
+import { DataService } from '../../services/data.service'
 
 declare var google: any
 
@@ -15,40 +18,77 @@ export class ServiceListsPage implements OnInit {
   private loading: any
   private map: GoogleMap
   public search: string=''
-  public service: string=''
-  private googleAutocomplete = new google.maps.places.AutocompleteService()
+  public service: any
   public searchResults = new Array<any>()
   private originMarker: Marker
   public destination: any
   private googleDirectionService = new google.maps.DirectionsService()
 
+  vendorList: any[];
+  loadVendor: any[];
+  flag: boolean = false;
+  hide: boolean = false;
+  message: any;
+  showSpinner: boolean = true;
+
   constructor(
     public toastCtrl: ToastController,
     private platform: Platform,
     private loadingCtrl: LoadingController,
-    private ngZone: NgZone,
+    // private ngZone: NgZone,
     public route: Router,
     public activateRoute: ActivatedRoute,
     public nav: NavController,
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    public firestore: AngularFirestore,
+    // private dataService: DataService,
   ) { 
-    console.log('declared var:', google)
+    // console.log('declared var:', google)
+
+    // this.activateRoute.queryParams.subscribe((data: any) => {
+    //   console.log("data.service:", data.service)
+    //   this.service = data.service
+    //   console.log("service1:", this.service)
+    // })
   }
 
   async ngOnInit() {
-    this.activateRoute.queryParams.subscribe((data: any) => {
-      console.log("data.service:", data.service)
-      this.service = data.service
+
+    let searchIcon = this.elementRef.nativeElement.querySelector('.blank');
+    // console.log('searchCSS:',searchIcon)
+      if(searchIcon != null) {
+        this.renderer.listen(searchIcon, 'click' , () => {
+          // console.log('gooo')
+          this.route.navigate(['home/feed'])
+        });
+      }
+    // this.firestore.collection('HomeServices', ref => ref.where('category', "==", this.service)).valueChanges().subscribe( vendorList => {
+    this.firestore.collection('HomeServices').valueChanges().subscribe( vendorList => {
+      this.vendorList = vendorList;
+      this.loadVendor = vendorList;
     })
+
     console.log("service:", this.service)
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
-    this.mapElement.style.height = this.platform.height()+'px'
+    this.mapElement.style.height = '100%'
     this.loadMap()
+
   }
 
+  n
+
+
+  initializeItems(): void {
+    this.vendorList = this.loadVendor;
+    this.flag = true;
+  }
+
+
   async loadMap() {
-    this.loading = await this.loadingCtrl.create({ message: 'Loading map...' })
+    this.loading = await this.loadingCtrl.create()
     // TODO: add loading
     // await this.loading.present()
     Environment.setEnv({      
@@ -57,7 +97,7 @@ export class ServiceListsPage implements OnInit {
     })
     const mapOptions: GoogleMapOptions = {
       controls: {
-        zoom: false
+        zoom: true,
       }
     }
     this.map = GoogleMaps.create(this.mapElement, mapOptions)
@@ -69,6 +109,22 @@ export class ServiceListsPage implements OnInit {
     } finally {
       this.loading.dismiss()
     }
+
+    console.log('vendor: ', this.vendorList)
+    for ( const i in this.vendorList ) {
+      this.destination = this.vendorList[i]
+      console.log('vendor: ', this.destination)
+      console.log('vendor-position: ', this.destination.location)
+      this.map.addMarkerSync({
+        title: 'origin',
+        icon: '#000',
+        animation: GoogleMapsAnimation.DROP,
+        position: this.destination.location,
+      })
+    }
+    
+
+    this.showSpinner=false;
   }
 
   async addOriginMarker() {
@@ -91,64 +147,55 @@ export class ServiceListsPage implements OnInit {
     }
   }
 
-  searchChanged() {
-    if(!this.search.trim().length) return;
-    this.googleAutocomplete.getPlacePredictions({ input: this.search }, predictions => {
-      this.ngZone.run(() => {
-        this.searchResults = predictions
-      })
-    })
-  }
 
-  async calcRoute(item: any) {
-    this.search = ''
-    this.destination = item
+  // TODO autocomplete from firestore
+  
+  // searchChanged() {
+  //   if(!this.search.trim().length) return;
+  //   this.googleAutocomplete.getPlacePredictions({ input: this.search }, predictions => {
+  //     this.ngZone.run(() => {
+  //       this.searchResults = predictions
+  //     })
+  //   })
+  // }
 
-    const info: any = await Geocoder.geocode({ address: this.destination.description })
+  searchChanged(event) {
+    this.initializeItems();
 
-    let markerDestination: Marker = this.map.addMarkerSync({
-      title: this.destination.description,
-      icon: '#000',
-      animation: GoogleMapsAnimation.DROP,
-      position: info[0].position,
-    })
-    
-    this.googleDirectionService.route({
-      origin: this.originMarker.getPosition(),
-      destination: markerDestination.getPosition(),
-      travelMode: 'DRIVING',
-    }, async results => {
-      // console.log('results:', results)
-      const points = new Array<ILatLng>()
-      const routes = results.routes[0].overview_path
-      // console.log("dada", points, results)
-      for(let i=0; i<routes.length;i++) {
-        points[i] = {
-          lat: routes[i].lat(),
-          lng: routes[i].lng(),
-        }
-      }
-      await this.map.addPolyline({
-        points: points,
-        color: '#000',
-        width: 5,
-     })
-     await this.map.moveCamera({ target: points })
-     this.map.panBy(0, 100)
-    })
-  }
+    const searchVendor = event.srcElement.value;
 
-  async back() {
-    try {
-      await this.map.clear()
-      this.destination = null
-      this.addOriginMarker()
-    } catch(error) {
-      console.log(error)
+    if (!searchVendor) {
+      this.flag = false;
+      return;
     }
+    this.vendorList = this.vendorList.filter(currentVendor => {
+      if (currentVendor.name && searchVendor) {
+        if (currentVendor.name.toLowerCase().indexOf(searchVendor.toLowerCase()) > -1) {
+          return true;
+        } 
+        // do not show empty list
+        // this.flag = false;
+        return false;
+      } 
+      this.flag = false;
+    })
+    console.log(this.vendorList);
   }
 
+  navToConfirmPage(vendor) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        vendor: JSON.stringify(vendor)
+      }
+    }
+    this.message = ""
 
+    this.flag = false;
+    this.route.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
+    
+
+  }
+  
 
   // goToMyLocation(){
   //   this.map.clear();

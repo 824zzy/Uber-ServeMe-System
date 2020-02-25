@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
-import { ToastController, Platform, LoadingController } from '@ionic/angular';
-import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, GoogleMapsAnimation, MyLocation, Environment, GoogleMapOptions, Geocoder, ILatLng } from '@ionic-native/google-maps';
+import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 
@@ -14,11 +13,8 @@ export class FeedPage implements OnInit {
   
   constructor(
     public toastCtrl: ToastController,
-    private platform: Platform,
-    private loadingCtrl: LoadingController,
-    private ngZone: NgZone,
     public router: Router,
-  ) { 
+  ) {
   }
 
   async ngOnInit() {
