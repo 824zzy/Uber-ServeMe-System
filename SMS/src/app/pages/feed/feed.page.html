@@ -41,7 +41,7 @@
     <!-- refresher -->
 
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content refreshing-spinner="circles">123</ion-refresher-content>
+      <ion-refresher-content pullingIcon="" refreshingSpinner="dots"></ion-refresher-content>
     </ion-refresher>
 
     <!-- categories -->
@@ -96,7 +96,7 @@
       <ion-icon class="heart" src="assets/icon/heart.svg"></ion-icon>
 
       <div class="list">
-        <ion-card id="1">
+        <ion-card id="1" *ngFor="let vendor of vendorList">
           <div class="avatar">
             <ion-avatar>
               <img src="assets/image/avatar.png">
@@ -107,7 +107,7 @@
               <div class="v">
                 <ion-text></ion-text>
               </div>
-              <ion-text class="t">Vendor</ion-text>
+              <ion-text class="t">{{vendor.name}}</ion-text>
               <div class="distance">
                 <ion-text>10.5mi</ion-text>
               </div>
@@ -121,161 +121,13 @@
             </div>
             <div class="skill">
               <ion-chip class="first">
-                <ion-label>Plumbing</ion-label>
+                <ion-label>{{vendor.category}}</ion-label>
               </ion-chip>
               <ion-chip color="primary">
                 <ion-label>Tutor</ion-label>
               </ion-chip>
               <div class="price">
-                <ion-text>15$/h</ion-text>
-              </div>
-            </div>
-          </div>
-        </ion-card>
-
-        <ion-card id="1">
-          <div class="avatar">
-            <ion-avatar>
-              <img src="assets/image/avatar.png">
-            </ion-avatar>
-          </div>
-          <div class="vinfo">
-            <div class="title">
-              <div class="v">
-                <ion-text></ion-text>
-              </div>
-              <ion-text class="t">Vendor</ion-text>
-              <div class="distance">
-                <ion-text>10.5mi</ion-text>
-              </div>
-            </div>
-            <div class="eval">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
-            </div>
-            <div class="skill">
-              <ion-chip class="first">
-                <ion-label>Plumbing</ion-label>
-              </ion-chip>
-              <ion-chip color="primary">
-                <ion-label>Tutor</ion-label>
-              </ion-chip>
-              <div class="price">
-                <ion-text>15$/h</ion-text>
-              </div>
-            </div>
-          </div>
-        </ion-card>
-
-        <ion-card id="1">
-          <div class="avatar">
-            <ion-avatar>
-              <img src="assets/image/avatar.png">
-            </ion-avatar>
-          </div>
-          <div class="vinfo">
-            <div class="title">
-              <div class="v">
-                <ion-text></ion-text>
-              </div>
-              <ion-text class="t">Vendor</ion-text>
-              <div class="distance">
-                <ion-text>10.5mi</ion-text>
-              </div>
-            </div>
-            <div class="eval">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
-            </div>
-            <div class="skill">
-              <ion-chip class="first">
-                <ion-label>Plumbing</ion-label>
-              </ion-chip>
-              <ion-chip color="primary">
-                <ion-label>Tutor</ion-label>
-              </ion-chip>
-              <div class="price">
-                <ion-text>15$/h</ion-text>
-              </div>
-            </div>
-          </div>
-        </ion-card>
-
-        <ion-card id="1">
-          <div class="avatar">
-            <ion-avatar>
-              <img src="assets/image/avatar.png">
-            </ion-avatar>
-          </div>
-          <div class="vinfo">
-            <div class="title">
-              <div class="v">
-                <ion-text></ion-text>
-              </div>
-              <ion-text class="t">Vendor</ion-text>
-              <div class="distance">
-                <ion-text>10.5mi</ion-text>
-              </div>
-            </div>
-            <div class="eval">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
-            </div>
-            <div class="skill">
-              <ion-chip class="first">
-                <ion-label>Plumbing</ion-label>
-              </ion-chip>
-              <ion-chip color="primary">
-                <ion-label>Tutor</ion-label>
-              </ion-chip>
-              <div class="price">
-                <ion-text>15$/h</ion-text>
-              </div>
-            </div>
-          </div>
-        </ion-card>
-
-        <ion-card id="1">
-          <div class="avatar">
-            <ion-avatar>
-              <img src="assets/image/avatar.png">
-            </ion-avatar>
-          </div>
-          <div class="vinfo">
-            <div class="title">
-              <div class="v">
-                <ion-text></ion-text>
-              </div>
-              <ion-text class="t">Vendor</ion-text>
-              <div class="distance">
-                <ion-text>10.5mi</ion-text>
-              </div>
-            </div>
-            <div class="eval">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
-            </div>
-            <div class="skill">
-              <ion-chip class="first">
-                <ion-label>Plumbing</ion-label>
-              </ion-chip>
-              <ion-chip color="primary">
-                <ion-label>Tutor</ion-label>
-              </ion-chip>
-              <div class="price">
-                <ion-text>15$/h</ion-text>
+                <ion-text>$ {{vendor.price}}/h</ion-text>
               </div>
             </div>
           </div>

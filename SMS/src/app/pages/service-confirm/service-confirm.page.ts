@@ -67,7 +67,7 @@ export class ServiceConfirmPage implements OnInit {
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
-    this.mapElement.style.height = this.platform.height()+'px'
+    this.mapElement.style.height = '100%'
 
     // put calcRoute in ngOnInit
     this.calcRoute(this.data)
@@ -163,9 +163,9 @@ export class ServiceConfirmPage implements OnInit {
       animation: GoogleMapsAnimation.DROP,
       position: this.destination.location,
     })
-    console.log('marker name:', this.destination);
-    console.table([this.destination])
-    console.table([this.originMarker])
+    // console.log('marker name:', this.destination);
+    // console.table([this.destination])
+    // console.table([this.originMarker])
 
     // TODO calculate dis
     const lat1 = this.originMarker.getPosition().lat
@@ -173,6 +173,7 @@ export class ServiceConfirmPage implements OnInit {
     const lat2 = markerDestination.getPosition().lat
     const lnt2 = markerDestination.getPosition().lng
     this.distance = (this.getDistanceFromLatLonInKm(lat1, lnt1, lat2, lnt2)).toFixed(1)
+
 
     this.googleDirectionService.route({
       origin: this.originMarker.getPosition(),
@@ -194,7 +195,9 @@ export class ServiceConfirmPage implements OnInit {
         color: '#000',
         width: 7,
      })
-     await this.map.moveCamera({ target: points })
+     await this.map.moveCamera({ 
+        target: points
+      })
      this.map.panBy(0, 0)
     })
   }

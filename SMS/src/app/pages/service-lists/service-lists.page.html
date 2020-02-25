@@ -27,4 +27,51 @@
 
   </div>
 
+  <div class="vendorInfo" [hidden]="!showInfo" *ngIf="destination">
+
+    <ion-card id="1">
+      <ion-grid>
+        <ion-row class="f-row">
+          <ion-col width-25 class="avatar">
+          <ion-avatar >
+            <img src="assets/image/avatar.png">
+          </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <div class="title">
+              <div class="v">
+                <ion-text></ion-text>
+              </div>
+              <ion-text class="t ion-text-capitalize">{{destination.name}}</ion-text>
+              <div class="distance">
+                <ion-text>12 mi</ion-text>
+              </div>
+            </div>
+            <div class="eval">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-half"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <div class="skill">
+              <ion-chip class="first">
+                <ion-label>{{destination.category}}</ion-label>
+              </ion-chip>
+              <ion-chip color="primary">
+                <ion-label>Tutor</ion-label>
+              </ion-chip>
+              <div class="price">
+                <ion-text>$ {{destination.price}}/h</ion-text>
+              </div>
+            </div>
+          </ion-row>
+
+      </ion-grid>
+    </ion-card>
+  </div>
+
 </ion-content>

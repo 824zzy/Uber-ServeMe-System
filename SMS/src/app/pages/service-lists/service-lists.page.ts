@@ -33,7 +33,7 @@ export class ServiceListsPage implements OnInit {
   hide: boolean = false;
   message: any;
   showSpinner: boolean = true;
-
+  showInfo: boolean = false;
 
   constructor(
     public toastCtrl: ToastController,
@@ -82,9 +82,6 @@ export class ServiceListsPage implements OnInit {
 
   }
 
-  n
-
-
   initializeItems(): void {
     this.vendorList = this.loadVendor;
     this.flag = true;
@@ -93,7 +90,6 @@ export class ServiceListsPage implements OnInit {
 
   async loadMap() {
     this.loading = await this.loadingCtrl.create()
-    // TODO: add loading
     // await this.loading.present()
     Environment.setEnv({      
       'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyBfdfHVfFgZbqw40ZBzZZa7kMTrEOvxarg',
@@ -101,7 +97,7 @@ export class ServiceListsPage implements OnInit {
     })
     const mapOptions: GoogleMapOptions = {
       controls: {
-        zoom: true,
+        zoom: false,
       }
     }
     this.map = GoogleMaps.create(this.mapElement, mapOptions)
@@ -115,33 +111,55 @@ export class ServiceListsPage implements OnInit {
     }
 
     console.log('vendor: ', this.vendorList)
+
     for ( const i in this.vendorList ) {
       this.destination = this.vendorList[i]
-      console.log('vendor: ', this.destination)
-      console.log('vendor-position: ', this.destination.location)
-      this.map.addMarkerSync({
-        title: 'origin',
-        icon: '#000',
-        animation: GoogleMapsAnimation.DROP,
+      
+      this.map.addMarker({
+        icon: { 
+          url: "../assets/icon/setting-marker.svg", 
+          size: {
+            width: 32,
+            height: 32
+          }
+        },
+        animation: GoogleMapsAnimation.BOUNCE,
         position: this.destination.location,
-      })
+      }).then(
+        marker => {
+          marker.on(GoogleMapsEvent.MARKER_CLICK)
+            .subscribe(() => {
+              if (this.showInfo == true){
+                this.showInfo = false;
+                return
+              }
+              console.log('destination: ', this.destination)
+              this.map.moveCamera({
+                target: this.destination.location,
+                zoom: 12,
+              })
+              this.showInfo = true;
+          })
+        }
+      )
+
     }
     
-
+    // loading already complete
     this.showSpinner=false;
   }
+
 
   async addOriginMarker() {
     try {
       const myLocation: MyLocation = await this.map.getMyLocation()
       await this.map.moveCamera({
         target: myLocation.latLng,
-        zoom: 18
+        zoom: 12,
       })
       this.originMarker = this.map.addMarkerSync({
-        title: 'origin',
         icon: "#000",
-        animation: GoogleMapsAnimation.DROP,
+        animation: GoogleMapsAnimation.BOUNCE,
         position: myLocation.latLng,
       })
     } catch (error) {
@@ -150,18 +168,6 @@ export class ServiceListsPage implements OnInit {
       this.loading.dismiss()
     }
   }
-
-
-  // TODO autocomplete from firestore
-  
-  // searchChanged() {
-  //   if(!this.search.trim().length) return;
-  //   this.googleAutocomplete.getPlacePredictions({ input: this.search }, predictions => {
-  //     this.ngZone.run(() => {
-  //       this.searchResults = predictions
-  //     })
-  //   })
-  // }
 
   searchChanged(event) {
     this.initializeItems();

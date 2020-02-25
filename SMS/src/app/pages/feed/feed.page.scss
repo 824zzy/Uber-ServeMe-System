@@ -49,6 +49,14 @@ ion-searchbar{
   width: 60%;
   outline: none;
 }
+
+ion-refresher{
+  z-index: 999;
+  ion-icon{
+    color: black;
+  }
+}
+
 ion-grid{
   margin-bottom: 2%;
   ion-col{
