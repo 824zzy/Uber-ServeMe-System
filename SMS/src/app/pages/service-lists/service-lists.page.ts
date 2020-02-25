@@ -47,6 +47,10 @@ export class ServiceListsPage implements OnInit {
     private renderer: Renderer2,
     public firestore: AngularFirestore,
     // private dataService: DataService,
+<<<<<<< HEAD
+=======
+    // private geolocation: Geolocation,
+>>>>>>> 1e8187d202cf38f1a46a3fb55d9b0adbd2cf0b10
   ) { 
     // console.log('declared var:', google)
 
@@ -165,7 +169,11 @@ export class ServiceListsPage implements OnInit {
 
   searchChanged(event) {
     this.initializeItems();
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 1e8187d202cf38f1a46a3fb55d9b0adbd2cf0b10
     const searchVendor = event.srcElement.value;
 
     if (!searchVendor) {
