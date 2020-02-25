@@ -53,56 +53,7 @@ export class FeedPage implements OnInit {
       this.goalService = data
       this.loadedGoalService = data
     })
-    console.log(this.loadedGoalService)
     this.flag = false
-
-    this.geolocation.getCurrentPosition().then(resp => {
-      this.latitude = resp.coords.latitude
-      this.longitude = resp.coords.longitude
-      console.log(this.latitude, this.longitude)
-    })
-
-    this.current = new google.maps.LatLng(this.latitude, this.longitude)
-    var test = new google.maps.LatLng(0, 0)
-    console.log("current:", this.current)
-    var service = new google.maps.DistanceMatrixService()
-    var ans = service.getDistanceMatrix({
-      origins: [this.current],
-      destinations: [test],
-      travelMode: 'DRIVING',
-      avoidHighways: true,
-      avoidTolls: true,
-  }, function(response, status) {
-    if(status != "OK") {
-      alert("Error was: " + status)
-    } else {
-      var originList = response.originAddresses;
-      var destinationList = response.destinationAddresses;
-
-      for (var i = 0; i < originList.length; i++) {
-        var results = response.rows[i].elements;
-        // geocoder.geocode({'address': originList[i]},
-        //     showGeocodedAddressOnMap(false));
-        for (var j = 0; j < results.length; j++) {
-          // geocoder.geocode({'address': destinationList[j]},
-          //     showGeocodedAddressOnMap(true));
-          console.log("dada", results[j],results[j].distance, results[j].duration)
-          // outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
-          //     ': ' + results[j].distance.text + ' in ' +
-          //     results[j].duration.text + '<br>';
-        }
-      }
-    }
-  })
-    console.log("ans", ans)
-
-
-
-
-    // var query = serviceRef.where("userId", "==", this.userService.getAuth().currentUser.uid.toString())
-    // console.log(serviceRef)
-    // console.log(this.goalService)
-    // console.log(this.loadedGoalService)
   }
 
   ngOnDestroy() {
