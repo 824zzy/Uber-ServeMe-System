@@ -95,7 +95,6 @@ export class FeedPage implements OnInit {
 
 
 
-
     // var query = serviceRef.where("userId", "==", this.userService.getAuth().currentUser.uid.toString())
     // console.log(serviceRef)
     // console.log(this.goalService)
@@ -141,4 +140,14 @@ export class FeedPage implements OnInit {
   //     console.log(error)
   //   }
   // }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 800);
+  }
+
 }
