@@ -6,8 +6,6 @@ import { UserService } from 'src/app/services/user.service';
 import { HomeServiceService } from 'src/app/services/home-service.service';
 import { Subscription } from 'rxjs';
 
-declare var google: any
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.page.html',
@@ -18,11 +16,6 @@ export class FeedPage implements OnInit {
   public goalService: any
   public loadedGoalService: any
   public flag: any
-
-
-  latitude: any
-  longitude: any
-  current: any
   
   constructor(
     public toastCtrl: ToastController,
@@ -47,6 +40,11 @@ export class FeedPage implements OnInit {
       this.loadedGoalService = data
     })
     this.flag = false
+
+    // var query = serviceRef.where("userId", "==", this.userService.getAuth().currentUser.uid.toString())
+    // console.log(serviceRef)
+    // console.log(this.goalService)
+    // console.log(this.loadedGoalService)
   }
 
   ngOnDestroy() {
