@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from 'src/app/services/user.service';
 import { HomeServiceService } from 'src/app/services/home-service.service';
 import { Subscription } from 'rxjs';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 declare var google: any
 
@@ -15,12 +14,11 @@ declare var google: any
   styleUrls: ['./feed.page.scss'],
 })
 export class FeedPage implements OnInit {
-  @ViewChild('mapElement', {static: true}) mapElement: any
   private homeServicesSubscription: Subscription;
   public goalService: any
   public loadedGoalService: any
   public flag: any
-  private map: GoogleMaps
+
 
   latitude: any
   longitude: any
@@ -32,7 +30,6 @@ export class FeedPage implements OnInit {
     private firestore: AngularFirestore,
     private userService: UserService,
     private homeServiceService: HomeServiceService,
-    private geolocation: Geolocation,
   ) { 
   }
 
