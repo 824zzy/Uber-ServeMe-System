@@ -30,6 +30,11 @@
 .searchbar-input-container {
     // box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     .searchbar-input {
-        border-radius: 8px !important;
+        border-radius: 5px;
+        padding-right: 7%;
+        font-size: 10pt;
     }
+    // .searchbar-search-icon{
+    //     pointer-events: visible;
+    // }
 }
