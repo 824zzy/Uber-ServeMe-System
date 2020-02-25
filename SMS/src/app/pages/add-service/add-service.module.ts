@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddServicePageRoutingModule } from './add-service-routing.module';
 
 import { AddServicePage } from './add-service.page';
+// import { Geolocation } from '@ionic-native/geolocation/';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AddServicePage } from './add-service.page';
     IonicModule,
     AddServicePageRoutingModule
   ],
-  declarations: [AddServicePage]
+  declarations: [AddServicePage],
 })
 export class AddServicePageModule {}

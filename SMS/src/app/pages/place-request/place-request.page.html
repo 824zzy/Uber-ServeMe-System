@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Place Request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="homeService.name" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="homeService.description" placeholder="Description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="homeService.category" value="appliance" okText="OK" cancelText="Cancel">
+          <ion-select-option value="appliances">appliances</ion-select-option>
+          <ion-select-option value="electrical">electrical</ion-select-option>
+          <ion-select-option value="plumbling">plumbling</ion-select-option>
+          <ion-select-option value="cleaning">cleaning</ion-select-option>
+          <ion-select-option value="tutoring">tutoring</ion-select-option>
+          <ion-select-option value="moving">moving</ion-select-option>
+          <ion-select-option value="repair">repair</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="homeService.picture" placeholder="Picture"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="homeService.price" placeholder="Price"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="placeOrder()" expand="block">
+      Place order
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

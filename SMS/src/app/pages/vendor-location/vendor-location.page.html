@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vendor-location</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div #mapElement id='map_canvas'>
+    <ion-searchbar placeholder="Search for your target location" (ionChange)="searchChanged()" [(ngModel)]='search' [hidden]="destination"></ion-searchbar>
+    <ion-button class="ion-margin-top" (click)="back()" color="dark" fill="clear" size="small" [hidden]="!destination">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-list class="ion-margin-horizontal" [hidden]="!search.length">
+      <ion-item (click)="addDestinationMarker(result)" *ngFor='let result of searchResults'>
+        {{ result.description }}
+      </ion-item>
+    </ion-list>
+
+    <div class="request-car ion-padding ion-text-center" [hidden]="!destination">
+      <h4 class="ion-no-margin"></h4>
+      <span>Update your current service location to</span>
+
+      <ion-button (click)="saveLocation()" color="dark" expand="block">
+        Confirm this location
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

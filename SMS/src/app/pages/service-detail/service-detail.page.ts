@@ -14,14 +14,14 @@ import { HomeServiceService } from 'src/app/services/home-service.service';
 })
 export class ServiceDetailPage implements OnInit {
 
-  private homeSeviceId: string = null;
-  public homeService: HomeService = {};
+  private homeSeviceId: string = null
+  public homeService: HomeService = {}
   private loading: any;
   private homeServiceSubscription: Subscription;
 
   constructor(
     private homeServiceService: HomeServiceService,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute, 
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
     private userService: UserService,
@@ -46,8 +46,8 @@ export class ServiceDetailPage implements OnInit {
   async saveProduct() {
     await this.presentLoading();
 
-    this.homeService.userId = this.userService.getAuth().currentUser.uid;
-    console.log(this.homeService.userId)
+    this.homeService.vendorId = this.userService.getAuth().currentUser.uid;
+    console.log(this.homeService.vendorId)
     if (this.homeSeviceId) {
       try {
         await this.homeServiceService.updateService(this.homeSeviceId, this.homeService);

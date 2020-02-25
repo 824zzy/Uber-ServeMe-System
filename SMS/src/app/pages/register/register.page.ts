@@ -64,5 +64,4 @@ export class RegisterPage implements OnInit {
 		})
 		await toast.present()
   }
-
 }

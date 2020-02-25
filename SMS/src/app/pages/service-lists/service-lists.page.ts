@@ -23,6 +23,9 @@ export class ServiceListsPage implements OnInit {
   private originMarker: Marker
   public destination: any
   private googleDirectionService = new google.maps.DirectionsService()
+  
+  // public latitude: any
+  // public longtitude: any
 
   vendorList: any[];
   loadVendor: any[];
@@ -43,6 +46,7 @@ export class ServiceListsPage implements OnInit {
     private renderer: Renderer2,
     public firestore: AngularFirestore,
     // private dataService: DataService,
+    // private geolocation: Geolocation,
   ) { 
     // console.log('declared var:', google)
 
@@ -161,7 +165,7 @@ export class ServiceListsPage implements OnInit {
 
   searchChanged(event) {
     this.initializeItems();
-
+    
     const searchVendor = event.srcElement.value;
 
     if (!searchVendor) {
