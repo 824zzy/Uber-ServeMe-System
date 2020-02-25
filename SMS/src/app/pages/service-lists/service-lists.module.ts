@@ -8,13 +8,18 @@ import { ServiceListsPageRoutingModule } from './service-lists-routing.module';
 
 import { ServiceListsPage } from './service-lists.page';
 
+import { SpinnerComponent } from '../../components/spinner/spinner.component'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ServiceListsPageRoutingModule
+    ServiceListsPageRoutingModule,
   ],
-  declarations: [ServiceListsPage],
+  declarations: [
+    ServiceListsPage,
+    SpinnerComponent
+  ],
 })
 export class ServiceListsPageModule {}

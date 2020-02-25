@@ -1,0 +1,32 @@
+<ion-header>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+</ion-header>
+
+<ion-content>
+  <div id='map_canvas'>
+    <ion-icon class='blank' name='is-arrow-back'></ion-icon>
+    <div class="search">
+      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)" [(ngModel)]='search'></ion-searchbar>
+      
+    </div>
+    <div class="list" [hidden]="!flag">
+
+      <ion-item *ngFor="let vendor of vendorList">
+        <ion-avatar>
+          <img src="{{vendor.picture}}" alt="" srcset="">
+        </ion-avatar>
+        <ion-label>
+          <ion-note style="font-weight: bold;">
+            {{vendor.name}}
+          </ion-note>
+        </ion-label>
+      </ion-item>
+
+    </div>
+
+
+  </div>
+
+</ion-content>

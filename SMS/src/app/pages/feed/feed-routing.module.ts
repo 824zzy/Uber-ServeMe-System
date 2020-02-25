@@ -16,6 +16,14 @@ const routes: Routes = [
     path: 'service-lists',
     loadChildren: () => import('../../pages/service-lists/service-lists.module').then( m => m.ServiceListsPageModule)
   },
+  {
+    path: 'appliances',
+    loadChildren: () => import('../../pages/category/appliances/appliances.module').then( m => m.AppliancesPageModule)
+  },
+  {
+    path: 'electrical',
+    loadChildren: () => import('../../pages/category/electrical/electrical.module').then( m => m.ElectricalPageModule)
+  },
 ];
 
 @NgModule({

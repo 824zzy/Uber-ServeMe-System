@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: ServiceListsPage
-  }
+  },
+  {
+    path: 'service-confirm',
+    loadChildren: () => import('../service-confirm/service-confirm.module').then( m => m.ServiceConfirmPageModule)
+  },
+  {
+    path: 'service-confirm/:id',
+    loadChildren: () => import('../service-confirm/service-confirm.module').then( m => m.ServiceConfirmPageModule)
+  },
 ];
 
 @NgModule({

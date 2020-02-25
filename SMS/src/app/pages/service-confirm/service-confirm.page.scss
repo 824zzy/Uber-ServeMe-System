@@ -1,0 +1,130 @@
+  #circle{
+    width: 40px;
+    height: 40px;
+    background: white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin: 9% 0% 0% 6%;
+    box-shadow: 0px 0px 10px #b3b3b3;
+    div{
+      margin: 0px auto;
+      .blank{  
+        font-size: 19pt;
+        z-index: 999;
+        padding: 0px;
+        margin: 18% 0% 0% 16%;
+      }
+    }
+  }
+ 
+  .search{
+    position: absolute;
+    width: 100%;
+    ion-searchbar {
+      --background: #fff;
+      padding: 0% 5% 0% 5%;
+      margin-top: 7%;
+      --box-shadow: 0%;
+      --placeholder-font-size: 9pt;
+    }
+    .searchres{
+      margin: 2% 5% 0% 5%;
+      background-color: #fff;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+  
+  }
+
+
+  // .request-car {
+  //   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  // }
+  
+  .request-car {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    background-color: none; 
+    margin-bottom: 5%;
+  }
+  
+
+  ion-card{
+    background-color: white;
+    width: 94%;
+    padding: 4% 2% 5% 2%;
+    margin-bottom: 5%;
+
+    .avatar{
+      max-width: 30%;
+      padding-top: 2%;
+    }
+    
+    .f-row{
+      margin-bottom: 2%;
+    }
+
+    .title{
+      width: 100%;
+      .v{
+        float: left;
+      }
+      .t{
+        font-size: 13pt;
+        font-weight: bold;
+        color: rgb(22, 22, 22);
+      }
+      .distance{
+        float: right;
+        ion-text{
+          font-size: 10pt;
+        }
+      }
+    }
+      
+    .eval{
+      margin-top: 10%;
+      margin-left: -2px;
+      color: rgb(252, 179, 21);
+      font-size: 14pt; 
+    }
+    .skill{
+      padding-left: 5px;
+      width: 100%;
+      .first{
+        --background: rgb(36, 131, 255);
+        ion-label{
+          color: white;
+        }
+      }
+      ion-chip{
+        padding: 4px 8px 3px 8px;
+        margin: 1px 5px 0px 0px;
+        height: 25px;
+        display: inline-block;
+        ion-label{
+          // font-weight: bold;
+          font-size: 9pt;
+        }
+      }
+    }
+    .price{
+      padding-right: 5px;
+      float: right;
+      ion-text{
+        font-size: 16pt;
+        font-weight: bold;
+        color: rgb(36, 36, 36);
+      }
+    }
+    
+  }
+
+  ion-button{
+    --border-radius: 3px;
+    width: 94%;
+    margin: 0px auto;
+  }
