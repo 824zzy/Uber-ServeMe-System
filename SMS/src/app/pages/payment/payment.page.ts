@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-payment',
@@ -7,27 +8,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./payment.page.scss'],
 })
 export class PaymentPage implements OnInit {
-  private homeServiceId: string = null
+  private homeService: any
   
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private userService: UserService
   ) {
     this.route.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state) {
-        this.homeServiceId = this.router.getCurrentNavigation().extras.state.id
+        this.homeService = this.router.getCurrentNavigation().extras.state.homeService
       }
     })
-    
-    console.log(this.homeServiceId)
    }
 
   ngOnInit() {
   }
 
   pay(){
-    console.log("pay successful")
+    console.log("After pay successful")
+    this.userService.addOrder(this.homeService)
   }
 
 }

@@ -47,7 +47,8 @@ export class PlaceRequestPage implements OnInit {
     await this.presentLoading()
     let navigationExtras: NavigationExtras = {
       state: {
-        id: this.homeSeviceId
+        homeServiceId: this.homeSeviceId,
+        homeService: this.homeService
       }
     };
     this.router.navigate(['/home/me/payment'], navigationExtras)

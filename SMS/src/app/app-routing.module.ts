@@ -52,6 +52,10 @@ const routes: Routes = [
     path: 'place-request/:id',
     loadChildren: () => import('./pages/place-request/place-request.module').then( m => m.PlaceRequestPageModule)
   },
+  {
+    path: 'review',
+    loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
+  },
 ];
 @NgModule({
   imports: [
