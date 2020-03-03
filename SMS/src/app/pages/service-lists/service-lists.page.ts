@@ -39,9 +39,6 @@ export class ServiceListsPage implements OnInit {
     //   console.log("service1:", this.service)
     // })
 
-    setTimeout(() => {
-      this.showSkele = true;
-    }, 2500);
   }
 
   async ngOnInit() {
@@ -50,6 +47,9 @@ export class ServiceListsPage implements OnInit {
       this.vendorList = vendorList;
       this.loadVendor = vendorList;
     })
+    setTimeout(() => {
+      this.showSkele = true;
+    }, 1000);
   }
 
   async presentModal() {
