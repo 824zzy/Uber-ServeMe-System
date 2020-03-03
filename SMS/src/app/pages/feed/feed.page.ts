@@ -47,7 +47,7 @@ export class FeedPage implements OnInit {
     this.keyboard.hide();
     const modal = await this.modalCtrl.create({
       component: SearchDisplayPage,
-      mode: "ios",      
+      // mode: "ios",      
     });
     return await modal.present();
   }

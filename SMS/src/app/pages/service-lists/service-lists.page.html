@@ -2,76 +2,62 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/home/feed">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="presentModal()">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon name="map"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <spinner [hidden]="!showSpinner"></spinner>
-
-  <div #mapElement id='map_canvas'>
-    <ion-icon class='blank' name='is-arrow-back'></ion-icon>
-    <div class="search">
-      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)" [(ngModel)]="message"></ion-searchbar>
-      <ion-list class="searchres" [hidden]="!flag">
-        <ion-item (click)="navToConfirmPage(vendor)" *ngFor='let vendor of vendorList'>
+  <div class="list">
+      <ion-card id="1" *ngFor="let vendor of vendorList">
+        <div class="avatar">
           <ion-avatar>
-            <img src="{{vendor.picture}}" alt="" srcset="">
-          </ion-avatar>
-          <ion-label>
-            <ion-note style="font-weight: bold;">
-              {{vendor.name}}
-            </ion-note>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </div>
-
-  </div>
-
-  <div class="vendorInfo" [hidden]="!showInfo" *ngIf="destination">
-
-    <ion-card id="1">
-      <ion-grid>
-        <ion-row class="f-row">
-          <ion-col width-25 class="avatar">
-          <ion-avatar >
             <img src="assets/image/avatar.png">
           </ion-avatar>
-          </ion-col>
-          <ion-col>
-            <div class="title">
-              <div class="v">
-                <ion-text></ion-text>
-              </div>
-              <ion-text class="t ion-text-capitalize">{{destination.name}}</ion-text>
-              <div class="distance">
-                <ion-text>12 mi</ion-text>
-              </div>
+        </div>
+        <div class="vinfo">
+          <div class="title">
+            <div class="v">
+              <ion-text></ion-text>
             </div>
-            <div class="eval">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
+            <ion-text class="t">{{vendor.name}}</ion-text>
+            <div class="distance">
+              <ion-text>10.5mi</ion-text>
             </div>
-          </ion-col>
-        </ion-row>
-          <ion-row>
-            <div class="skill">
-              <ion-chip class="first">
-                <ion-label>{{destination.category}}</ion-label>
-              </ion-chip>
-              <ion-chip color="primary">
-                <ion-label>Tutor</ion-label>
-              </ion-chip>
-              <div class="price">
-                <ion-text>$ {{destination.price}}/h</ion-text>
-              </div>
+          </div>
+          <div class="eval">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-half"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+          <div class="skill">
+            <ion-chip class="first">
+              <ion-label>{{vendor.category}}</ion-label>
+            </ion-chip>
+            <ion-chip color="primary">
+              <ion-label>Tutor</ion-label>
+            </ion-chip>
+            <div class="price">
+              <ion-text>$ {{vendor.price}}/h</ion-text>
             </div>
-          </ion-row>
+          </div>
+        </div>
+      </ion-card>
 
-      </ion-grid>
-    </ion-card>
-  </div>
+    </div>
+
+  
 
 </ion-content>

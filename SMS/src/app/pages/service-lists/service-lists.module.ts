@@ -8,6 +8,8 @@ import { ServiceListsPageRoutingModule } from './service-lists-routing.module';
 
 import { ServiceListsPage } from './service-lists.page';
 import { ComponentsModule } from '../../components/components.module'
+import { ServiceMapPageModule } from '../../modal/service-map/service-map.module';
+
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { ComponentsModule } from '../../components/components.module'
     IonicModule,
     ComponentsModule,
     ServiceListsPageRoutingModule,
+    ServiceMapPageModule,
   ],
   declarations: [
     ServiceListsPage,
