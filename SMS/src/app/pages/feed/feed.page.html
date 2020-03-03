@@ -1,43 +1,59 @@
-<ion-header>
+<ion-header  [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   
+  <ion-toolbar class="maintoolbar">
+
+    <div class="recword">
+      <ion-text>Keep your kitchen running smoothly</ion-text>
+      <ion-button fill="outline">
+        <ion-icon name="search" slot="start"></ion-icon>
+        <ion-text class="ion-text-capitalize">kitchme</ion-text>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+
+  <ion-toolbar class="searchbar">
+    <ion-searchbar (click)="presentModal()"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
-  <div class="recommand">
-    <ion-img src="assets/image/backrecommand.jpg"></ion-img>
-  </div>
 
-  <div class="recword">
-    <ion-text>Keep your kitchen running smoothly</ion-text>
-    <ion-button fill="outline">
-      <ion-icon name="search" slot="start"></ion-icon>
-      <ion-text class="ion-text-capitalize">kitchme</ion-text>
-    </ion-button>
-  </div>
+<ion-content #pageContent fullscreen scrollEvents="true">
+  
 
-  <ion-searchbar placeholder="Search for home services on Uber SMS" showCancelButton (ionInput)="filterService($event)"></ion-searchbar>
-  <ion-list class="ion-margin-horizontal" [hidden]="!flag">
-    <ion-item-sliding *ngFor="let item of goalService">
-      <ion-item button [routerLink]="['/place-request', item.id]">
-        <ion-avatar>
-          <!-- TODO: -->
-          <img src="assets/image/avatar.png">
-        </ion-avatar>
-        <ion-label> {{ item.name }} </ion-label>
-        <ion-chip class="first">
-          <ion-label>Plumbing</ion-label>
-        </ion-chip>
-        <br>
-        <ion-text>10.5mi</ion-text>
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list>
+      <!-- <ion-item button [routerLink]="['/place-request', item.id]"> -->
+       
 
-  <!-- user for refresher -->
-  <ion-content>
+  <!-- refresher -->
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="" refreshingSpinner="dots"></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- categories -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'appliance'}" src="assets/icon/categories/appliance.png">
+        <ion-card-title>Appliances</ion-card-title>
+      </ion-col>
+      <ion-col>
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'electrical'}" src="assets/icon/categories/electrical.png">
+        <ion-card-title>Electrical</ion-card-title>
+      </ion-col>
+      <ion-col>
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'plumbing'}" src="assets/icon/categories/plumbing.png">
+        <ion-card-title>Plumbling</ion-card-title>
+      </ion-col>
+      <ion-col>
+        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'cleaning'}" src="assets/icon/categories/homecleaning.png">
+        <ion-card-title>Home Cleaning</ion-card-title>
+      </ion-col>
+    </ion-row>
+  
     <!-- refresher -->
 
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">

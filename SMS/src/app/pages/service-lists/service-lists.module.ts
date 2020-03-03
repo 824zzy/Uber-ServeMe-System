@@ -7,19 +7,21 @@ import { IonicModule } from '@ionic/angular';
 import { ServiceListsPageRoutingModule } from './service-lists-routing.module';
 
 import { ServiceListsPage } from './service-lists.page';
+import { ComponentsModule } from '../../components/components.module'
+import { ServiceMapPageModule } from '../../modal/service-map/service-map.module';
 
-import { SpinnerComponent } from '../../components/spinner/spinner.component'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     ServiceListsPageRoutingModule,
+    ServiceMapPageModule,
   ],
   declarations: [
     ServiceListsPage,
-    SpinnerComponent
   ],
 })
 export class ServiceListsPageModule {}

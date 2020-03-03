@@ -5,15 +5,21 @@ import { IonicModule } from '@ionic/angular';
 import { FeedPageRoutingModule } from './feed-routing.module';
 import { FeedPage } from './feed.page';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { SearchDisplayPageModule } from '../../modal/search-display/search-display.module'
+import { ExpandableHeaderDirective } from '../../directives/expandable-header.directive'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FeedPageRoutingModule
+    FeedPageRoutingModule,
+    SearchDisplayPageModule
   ],
-  declarations: [FeedPage],
+  declarations: [
+    FeedPage,
+    ExpandableHeaderDirective,
+  ],
   providers: [Geolocation]
 })
 export class FeedPageModule {}

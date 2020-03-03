@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
-import { ServiceConfirmPageRoutingModule } from './service-confirm-routing.module';
-
-import { ServiceConfirmPage } from './service-confirm.page';
-
+import { ServiceMapPageRoutingModule } from './service-map-routing.module';
 import { ComponentsModule } from '../../components/components.module'
+import { ServiceMapPage } from './service-map.page';
 
 @NgModule({
   imports: [
@@ -16,10 +13,8 @@ import { ComponentsModule } from '../../components/components.module'
     FormsModule,
     IonicModule,
     ComponentsModule,
-    ServiceConfirmPageRoutingModule
+    ServiceMapPageRoutingModule
   ],
-  declarations: [
-    ServiceConfirmPage,
-  ]
+  declarations: [ServiceMapPage]
 })
-export class ServiceConfirmPageModule {}
+export class ServiceMapPageModule {}

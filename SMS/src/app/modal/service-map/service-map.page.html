@@ -1,23 +1,33 @@
+<ion-header>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+</ion-header>
 
 <ion-content>
-
-  <div id='circle' (click)="navToDiffPage()">
-    <div>
-    <ion-icon class='blank' name='ios-arrow-back'></ion-icon>
-    </div>
-  </div>
-
   <spinner [hidden]="!showSpinner"></spinner>
 
   <div #mapElement id='map_canvas'>
-    
-    <!-- <div class="search">
-      <ion-searchbar searchIcon="ios-arrow-back" ></ion-searchbar>
-    </div> -->
+    <ion-icon class='blank' name='is-arrow-back'></ion-icon>
+    <div class="search">
+      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)" [(ngModel)]="message"></ion-searchbar>
+      <ion-list class="searchres" [hidden]="!flag">
+        <ion-item (click)="navToConfirmPage(vendor)" *ngFor='let vendor of vendorList'>
+          <ion-avatar>
+            <img src="{{vendor.picture}}" alt="" srcset="">
+          </ion-avatar>
+          <ion-label>
+            <ion-note style="font-weight: bold;">
+              {{vendor.name}}
+            </ion-note>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
 
   </div>
 
-  <div class="request-car ion-padding">
+  <div class="vendorInfo" [hidden]="!showInfo" *ngIf="destination">
 
     <ion-card id="1">
       <ion-grid>
@@ -32,9 +42,9 @@
               <div class="v">
                 <ion-text></ion-text>
               </div>
-              <ion-text class="t ion-text-capitalize">{{data.name}}</ion-text>
+              <ion-text class="t ion-text-capitalize">{{destination.name}}</ion-text>
               <div class="distance">
-                <ion-text>{{distance}} mi</ion-text>
+                <ion-text>12 mi</ion-text>
               </div>
             </div>
             <div class="eval">
@@ -49,24 +59,19 @@
           <ion-row>
             <div class="skill">
               <ion-chip class="first">
-                <ion-label>{{ data.category }}</ion-label>
+                <ion-label>{{destination.category}}</ion-label>
               </ion-chip>
               <ion-chip color="primary">
                 <ion-label>Tutor</ion-label>
               </ion-chip>
               <div class="price">
-                <ion-text>${{ data.price }}/h</ion-text>
+                <ion-text>$ {{destination.price}}/h</ion-text>
               </div>
             </div>
           </ion-row>
 
       </ion-grid>
     </ion-card>
-
-
-    <ion-button color="dark" expand="block">
-      Confirm Vendor
-    </ion-button>
   </div>
 
 </ion-content>

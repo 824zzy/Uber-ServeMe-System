@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { ToastController } from '@ionic/angular';
+import { ToastController, IonInput } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Keyboard } from '@ionic-native/keyboard/ngx'
 
 @Component({
   selector: 'app-update-email',
@@ -11,6 +12,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./update-email.page.scss'],
 })
 export class UpdateEmailPage implements OnInit {
+
+  @ViewChild('myInput', {static: true}) myInput: IonInput;
 
   sub
   mainuser: AngularFirestoreDocument
@@ -24,19 +27,24 @@ export class UpdateEmailPage implements OnInit {
     private afs: AngularFirestore,
     public user: UserService,
     public afAuth: AngularFireAuth,
+    public keboard: Keyboard,
   ) { 
     this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.email = event.email
-		})   
+    });
   }
 
   ngOnInit() {
+    this.keboard.show();
+    setTimeout(() => {
+      this.myInput.setFocus();
+    }, 200)
   }
 
-  ngOnDestroy() {
-		this.sub.unsubscribe()
-  }
+  // ngOnDestroy() {
+	// 	this.sub.unsubscribe()
+  // }
   
   async presentAlert(content: string) {
 		const alert = await this.toastController.create({

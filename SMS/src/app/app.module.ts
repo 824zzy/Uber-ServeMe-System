@@ -16,19 +16,16 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { UserService } from './services/user.service';
 import { AngularFirestore } from '@angular/fire/firestore'
 
-import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx'
-
 // photo upload
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { HttpModule } from '@angular/http'
 
-// import { customAlertEnter } from './customAlertEnter'
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GoogleMaps } from '@ionic-native/google-maps';
-// import { Geolocation } from "@ionic-native/geolocation";
+import { Keyboard } from '@ionic-native/keyboard/ngx'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -63,7 +60,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -80,12 +79,12 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
   ],
   providers: [
+    Keyboard,
     GoogleMaps,
     NativeStorage,
     GooglePlus,
     StatusBar,
     SplashScreen,
-    NativePageTransitions,
     UserService,
     AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
