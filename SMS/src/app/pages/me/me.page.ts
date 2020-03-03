@@ -19,7 +19,7 @@ export class MePage implements OnInit {
   constructor(
     public user: UserService,
     public afs: AngularFirestore,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
     ) { 
     this.mainuser = afs.doc(`users/${afAuth.auth.currentUser.uid}`)
     this.sub = this.mainuser.valueChanges().subscribe(event => {

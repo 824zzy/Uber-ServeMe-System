@@ -29,17 +29,17 @@ export class ServiceConfirmPage implements OnInit {
   hide: boolean = false;
   distance: any;
   data: any;  
+  showSpinner: boolean = true;
+
+  back: string;
 
   constructor(
     public toastCtrl: ToastController,
     private platform: Platform,
     private loadingCtrl: LoadingController,
-    private ngZone: NgZone,
     public route: Router,
     public activateRoute: ActivatedRoute,
     public nav: NavController,
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
     public firestore: AngularFirestore,
   ) { 
     this.activateRoute.queryParams.subscribe(params => {
@@ -47,22 +47,15 @@ export class ServiceConfirmPage implements OnInit {
       if (params && params.vendor) {
         this.data = JSON.parse(params.vendor);
       }
-      console.log('params: ', this.data.category);
+      if (params && params.back) {
+        this.back = params.back;
+      }
+      console.log('params: ', this.back);
     })
 
   }
 
   ngOnInit() {
-
-
-    let searchIcon = this.elementRef.nativeElement.querySelector('.blank');
-    // console.log('searchCSS:',searchIcon)
-      if(searchIcon != null) {
-        this.renderer.listen(searchIcon, 'click' , () => {
-          // console.log('gooo')
-          this.route.navigate(['home/feed/service-lists'])
-        });
-      }
     
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
@@ -200,6 +193,8 @@ export class ServiceConfirmPage implements OnInit {
       })
      this.map.panBy(0, 0)
     })
+    // loading already complete
+    this.showSpinner=false;
   }
 
 
@@ -220,4 +215,12 @@ export class ServiceConfirmPage implements OnInit {
     return deg * (Math.PI/180) / 1.6
   }
   
+
+  navToDiffPage(){
+    console.log(this.back)
+    if (this.back == "home")
+      this.route.navigate(['home/feed'])
+    else
+      this.route.navigate(['home/feed/service-lists'])
+  }
 }

@@ -1,17 +1,13 @@
 import { Component, OnInit, ElementRef, Renderer2, ViewChild, NgZone, DoBootstrap } from '@angular/core';
-import { ToastController, Platform, LoadingController, NavController } from '@ionic/angular';
+import { ToastController, Platform, LoadingController, NavController, ModalController } from '@ionic/angular';
 import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, GoogleMapsAnimation, MyLocation, Environment, GoogleMapOptions, Geocoder, ILatLng } from '@ionic-native/google-maps';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 
 declare var google: any
  
-@Component({
-  selector: 'app-service-lists',
-  templateUrl: './service-lists.page.html',
-  styleUrls: ['./service-lists.page.scss'],
-})
-export class ServiceListsPage implements OnInit {
+export class ServiceMapPage implements OnInit {
+
   @ViewChild('mapElement', {static: true}) mapElement: any
   private loading: any
   private map: GoogleMap
@@ -39,6 +35,7 @@ export class ServiceListsPage implements OnInit {
     private elementRef: ElementRef,
     private renderer: Renderer2,
     public firestore: AngularFirestore,
+    public modalCtrl: ModalController,
   ) { 
     // console.log('declared var:', google)
 
@@ -52,9 +49,13 @@ export class ServiceListsPage implements OnInit {
   async ngOnInit() {
 
     let searchIcon = this.elementRef.nativeElement.querySelector('.blank');
+    // console.log('searchCSS:',searchIcon)
       if(searchIcon != null) {
         this.renderer.listen(searchIcon, 'click' , () => {
-          this.route.navigate(['home/feed'])
+          this.route.navigate(['home/feed/service-lists']);
+          this.modalCtrl.dismiss({
+            'dismissed': true
+          })
         });
       }
     // this.firestore.collection('HomeServices', ref => ref.where('category', "==", this.service)).valueChanges().subscribe( vendorList => {
@@ -63,6 +64,7 @@ export class ServiceListsPage implements OnInit {
       this.loadVendor = vendorList;
     })
 
+    console.log("service:", this.service)
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
@@ -75,6 +77,7 @@ export class ServiceListsPage implements OnInit {
     this.vendorList = this.loadVendor;
     this.flag = true;
   }
+
 
   async loadMap() {
     this.loading = await this.loadingCtrl.create()
@@ -130,10 +133,13 @@ export class ServiceListsPage implements OnInit {
           })
         }
       )
+
     }
+    
     // loading already complete
     this.showSpinner=false;
   }
+
 
   async addOriginMarker() {
     try {
@@ -167,8 +173,11 @@ export class ServiceListsPage implements OnInit {
         if (currentVendor.name.toLowerCase().indexOf(searchVendor.toLowerCase()) > -1) {
           return true;
         } 
+        // do not show empty list
+        // this.flag = false;
         return false;
       } 
+      // this.flag = false;
     })
     console.log(this.vendorList);
   }
@@ -186,5 +195,4 @@ export class ServiceListsPage implements OnInit {
     
 
   }
-  
 }

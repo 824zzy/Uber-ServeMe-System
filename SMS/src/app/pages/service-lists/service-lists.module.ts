@@ -7,19 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { ServiceListsPageRoutingModule } from './service-lists-routing.module';
 
 import { ServiceListsPage } from './service-lists.page';
-
-import { SpinnerComponent } from '../../components/spinner/spinner.component'
+import { ComponentsModule } from '../../components/components.module'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     ServiceListsPageRoutingModule,
   ],
   declarations: [
     ServiceListsPage,
-    SpinnerComponent
   ],
 })
 export class ServiceListsPageModule {}

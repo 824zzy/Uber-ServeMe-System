@@ -8,13 +8,18 @@ import { ServiceConfirmPageRoutingModule } from './service-confirm-routing.modul
 
 import { ServiceConfirmPage } from './service-confirm.page';
 
+import { ComponentsModule } from '../../components/components.module'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     ServiceConfirmPageRoutingModule
   ],
-  declarations: [ServiceConfirmPage]
+  declarations: [
+    ServiceConfirmPage,
+  ]
 })
 export class ServiceConfirmPageModule {}

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="go-back">
+      <ion-text class="cancel" (click)="dismiss()">Cancel</ion-text>
+      <ion-text class="search">Search</ion-text>
+    </div>
+    <div class="searchbar">
+      <ion-searchbar placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="searchres" [hidden]="!flag">
+    <ion-item (click)="navToConfirmPage(vendor)" *ngFor='let vendor of vendorList'>
+      <ion-avatar>
+        <img src="{{vendor.picture}}" alt="" srcset="">
+      </ion-avatar>
+      <ion-label>
+        <ion-note style="font-weight: bold;">
+          {{vendor.name}}
+        </ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

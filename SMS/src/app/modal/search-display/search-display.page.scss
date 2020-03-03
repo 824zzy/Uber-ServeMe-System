@@ -1,0 +1,22 @@
+ion-toolbar{
+    color: white;
+    --background: rgb(27, 27, 27);
+}
+.go-back{
+    .cancel{
+        float: left;
+        padding: 4% 0% 3% 4%;
+    }
+    .search{
+        float: right;
+        padding: 4% 4% 3% 0%;
+    }
+}
+.searchbar{
+    ion-searchbar{
+        margin: 0px auto;
+        width: 96%;
+
+    }
+    margin-bottom: 1.5%;
+}

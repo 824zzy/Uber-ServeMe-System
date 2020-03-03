@@ -56,6 +56,18 @@ const routes: Routes = [
     path: 'review',
     loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
   },
+  {
+    path: 'search-display',
+    loadChildren: () => import('./modal/search-display/search-display.module').then( m => m.SearchDisplayPageModule)
+  },
+  {
+    path: 'search-display',
+    loadChildren: () => import('./modal/search-display/search-display.module').then( m => m.SearchDisplayPageModule)
+  },
+  {
+    path: 'service-map',
+    loadChildren: () => import('./modal/service-map/service-map.module').then( m => m.ServiceMapPageModule)
+  },
 ];
 @NgModule({
   imports: [
