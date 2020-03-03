@@ -62,10 +62,11 @@
 
   </div>
 
+
   <!-- skeleton text -->
 
   <!-- Skeleton screen -->
-<div *ngIf="!showSkele" class="skele">
+  <div *ngIf="!showSkele" class="skele">
 
     <ion-item *ngFor="let vendor of vendorList">
       <ion-avatar slot="start">
@@ -82,8 +83,6 @@
           <ion-skeleton-text animated style="width: 65%"></ion-skeleton-text>
         </p>
       </ion-label>
-    </ion-item>
-    
-</div>
-
+    </ion-item>  
+  </div>
 </ion-content>

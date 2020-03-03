@@ -59,7 +59,5 @@ export class ServiceListsPage implements OnInit {
     // });
     // return await modal.present();
     this.route.navigate(['home/feed/service-map'])
-  }
-
-  
+  }  
 }

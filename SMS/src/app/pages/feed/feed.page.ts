@@ -1,5 +1,5 @@
-import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { ToastController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -14,7 +14,6 @@ import { Keyboard } from '@ionic-native/keyboard/ngx'
   styleUrls: ['./feed.page.scss'],
 })
 export class FeedPage implements OnInit {
-
   vendorList: any[];
   loadVendor: any[];
   
@@ -51,5 +50,4 @@ export class FeedPage implements OnInit {
     });
     return await modal.present();
   }
-
 }
