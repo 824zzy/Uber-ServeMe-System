@@ -11,53 +11,79 @@
     </ion-buttons>
     <ion-buttons slot="end" (click)="presentModal()">
       <ion-button class="ion-text-capitalize">
-        <ion-icon name="map"></ion-icon>
+        <ion-icon class="map" name="map"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="list">
-      <ion-card id="1" *ngFor="let vendor of vendorList">
-        <div class="avatar">
-          <ion-avatar>
-            <img src="assets/image/avatar.png">
-          </ion-avatar>
-        </div>
-        <div class="vinfo">
-          <div class="title">
-            <div class="v">
-              <ion-text></ion-text>
-            </div>
-            <ion-text class="t">{{vendor.name}}</ion-text>
-            <div class="distance">
-              <ion-text>10.5mi</ion-text>
-            </div>
+
+  <!-- vendor list -->
+
+  <div class="list" *ngIf="showSkele">
+
+    <ion-card id="1" *ngFor="let vendor of vendorList">
+      <div class="avatar">
+        <ion-avatar>
+          <img src="assets/image/avatar.png">
+        </ion-avatar>
+      </div>
+      <div class="vinfo">
+        <div class="title">
+          <div class="v">
+            <ion-text></ion-text>
           </div>
-          <div class="eval">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star-half"></ion-icon>
-            <ion-icon name="star-outline"></ion-icon>
-          </div>
-          <div class="skill">
-            <ion-chip class="first">
-              <ion-label>{{vendor.category}}</ion-label>
-            </ion-chip>
-            <ion-chip color="primary">
-              <ion-label>Tutor</ion-label>
-            </ion-chip>
-            <div class="price">
-              <ion-text>$ {{vendor.price}}/h</ion-text>
-            </div>
+          <ion-text class="t">{{vendor.name}}</ion-text>
+          <div class="distance">
+            <ion-text>10.5mi</ion-text>
           </div>
         </div>
-      </ion-card>
+        <div class="eval">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-half"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="skill">
+          <ion-chip class="first">
+            <ion-label>{{vendor.category}}</ion-label>
+          </ion-chip>
+          <ion-chip color="primary">
+            <ion-label>Tutor</ion-label>
+          </ion-chip>
+          <div class="price">
+            <ion-text>$ {{vendor.price}}/h</ion-text>
+          </div>
+        </div>
+      </div>
+    </ion-card>
 
-    </div>
+  </div>
 
-  
+  <!-- skeleton text -->
+
+  <!-- Skeleton screen -->
+<div *ngIf="!showSkele" class="skele">
+
+    <ion-item *ngFor="let vendor of vendorList">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 65%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    
+</div>
 
 </ion-content>

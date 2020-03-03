@@ -1,70 +1,87 @@
+.map{
+  font-size: 22px;
+}
 .list{
-    padding-top: 1%;
-    display: block;
-    margin: 2%;
-    ion-card{
-      width: 95%;
-      padding: 5% 2% 5% 6%;
-      margin-bottom: 5%;
-
-      .avatar{
-        float: left;
-        padding-top: 3%;
-      }
-      .vinfo{
-        padding-left: 24%;
-        padding-right: 5%;
-        .title{
-          width: 100%;
-          .v{
-            float: left;
-          }
-          .t{
-            font-size: 13pt;
-            font-weight: bold;
-            color: rgb(22, 22, 22);
-          }
-          .distance{
-            float: right;
-            ion-text{
-              font-size: 9pt;
-            }
-          }
+  padding-top: 1%;
+  display: block;
+  margin: 2%;
+  ion-card{
+    width: 95%;
+    padding: 5% 2% 5% 6%;
+    .avatar{
+      float: left;
+      padding-top: 3%;
+    }
+    .vinfo{
+      padding-left: 24%;
+      padding-right: 5%;
+      .title{
+        width: 100%;
+        .v{
+          float: left;
         }
-        .eval{
-          margin-top: 5%;
-          color: rgb(252, 179, 21);
-          font-size: 14pt;  
+        .t{
+          font-size: 13pt;
+          font-weight: bold;
+          color: rgb(22, 22, 22);
         }
-        .skill{
-          width: 100%;
-          .first{
-            --background: rgb(36, 131, 255);
-            ion-label{
-              color: white;
-            }
-          }
-          ion-chip{
-            padding: 4px 8px 3px 8px;
-            margin: 5px 5px 0px 0px;
-            height: 25px;
-            display: inline-block;
-            ion-label{
-              // font-weight: bold;
-              font-size: 9pt;
-            }
-          }
-          
-        }
-        .price{
+        .distance{
           float: right;
           ion-text{
-            font-size: 16pt;
-            font-weight: bold;
-            color: rgb(36, 36, 36);
+            font-size: 9pt;
           }
-
         }
       }
+      .eval{
+        margin-top: 5%;
+        color: rgb(252, 179, 21);
+        font-size: 14pt;  
+      }
+      .skill{
+        width: 100%;
+        .first{
+          --background: rgb(36, 131, 255);
+          ion-label{
+            color: white;
+          }
+        }
+        ion-chip{
+          padding: 4px 8px 3px 8px;
+          margin: 5px 5px 0px 0px;
+          height: 25px;
+          display: inline-block;
+          ion-label{
+            // font-weight: bold;
+            font-size: 9pt;
+          }
+        }
+        
+      }
+      .price{
+        float: right;
+        ion-text{
+          font-size: 16pt;
+          font-weight: bold;
+          color: rgb(36, 36, 36);
+        }
+
+      }
     }
+  }
+}
+.skele{
+  margin-top: 2%;
+  ion-item{
+    width: 90%; 
+    margin: 0px auto;
+  }
+  ion-avatar{
+    width: 50px;
+    height: 50px;
+  }
+}
+
+ion-skeleton-text {
+  line-height: 11px;
+  margin-bottom: 7px;
 }

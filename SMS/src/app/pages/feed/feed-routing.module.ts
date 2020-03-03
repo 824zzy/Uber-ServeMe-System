@@ -17,12 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('../../pages/service-lists/service-lists.module').then( m => m.ServiceListsPageModule)
   },
   {
-    path: 'appliances',
-    loadChildren: () => import('../../pages/category/appliances/appliances.module').then( m => m.AppliancesPageModule)
-  },
-  {
-    path: 'electrical',
-    loadChildren: () => import('../../pages/category/electrical/electrical.module').then( m => m.ElectricalPageModule)
+    path: 'service-map',
+    loadChildren: () => import('../../modal/service-map/service-map.module').then( m => m.ServiceMapPageModule)
   },
 ];
 

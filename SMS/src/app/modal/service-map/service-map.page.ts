@@ -22,10 +22,14 @@ export class ServiceMapPage implements OnInit {
   private originMarker: Marker
   public destination: any
   private googleDirectionService = new google.maps.DirectionsService()
+  
+  // public latitude: any
+  // public longtitude: any
 
   vendorList: any[];
   loadVendor: any[];
   flag: boolean = false;
+  hide: boolean = false;
   message: any;
   showSpinner: boolean = true;
   showInfo: boolean = false;
@@ -34,13 +38,15 @@ export class ServiceMapPage implements OnInit {
     public toastCtrl: ToastController,
     private platform: Platform,
     private loadingCtrl: LoadingController,
+    // private ngZone: NgZone,
     public route: Router,
     public activateRoute: ActivatedRoute,
     public nav: NavController,
     private elementRef: ElementRef,
     private renderer: Renderer2,
-    public firestore: AngularFirestore,
     public modalCtrl: ModalController,
+    public firestore: AngularFirestore,
+    // private dataService: DataService,
   ) { 
     // console.log('declared var:', google)
 
@@ -58,9 +64,9 @@ export class ServiceMapPage implements OnInit {
       if(searchIcon != null) {
         this.renderer.listen(searchIcon, 'click' , () => {
           this.route.navigate(['home/feed/service-lists']);
-          this.modalCtrl.dismiss({
-            'dismissed': true
-          })
+          // this.modalCtrl.dismiss({
+          //   'dismissed': true
+          // })
         });
       }
     // this.firestore.collection('HomeServices', ref => ref.where('category', "==", this.service)).valueChanges().subscribe( vendorList => {
@@ -194,10 +200,12 @@ export class ServiceMapPage implements OnInit {
       }
     }
     this.message = ""
-
     this.flag = false;
     this.route.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
-    
+    // this.modalCtrl.dismiss({
+    //   'dismissed': true
+    // })
 
   }
+
 }

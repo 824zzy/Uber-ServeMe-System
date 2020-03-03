@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastController, ModalController, NavController } from '@ionic/angular';
-import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 
 import { ServiceMapPage } from '../../modal/service-map/service-map.page';
@@ -21,8 +21,7 @@ export class ServiceListsPage implements OnInit {
   loadVendor: any[];
   flag: boolean = false;
   message: any;
-  showSpinner: boolean = true;
-  showInfo: boolean = false;
+  showSkele: boolean = false;
 
   constructor(
     public toastCtrl: ToastController,
@@ -39,6 +38,10 @@ export class ServiceListsPage implements OnInit {
     //   this.service = data.service
     //   console.log("service1:", this.service)
     // })
+
+    setTimeout(() => {
+      this.showSkele = true;
+    }, 2500);
   }
 
   async ngOnInit() {
@@ -50,11 +53,12 @@ export class ServiceListsPage implements OnInit {
   }
 
   async presentModal() {
-    const modal = await this.modalCtrl.create({
-      component: ServiceMapPage,
-      mode: "ios"
-    });
-    return await modal.present();
+    // const modal = await this.modalCtrl.create({
+    //   component: ServiceMapPage,
+    //   // mode: "ios"
+    // });
+    // return await modal.present();
+    this.route.navigate(['home/feed/service-map'])
   }
 
   
