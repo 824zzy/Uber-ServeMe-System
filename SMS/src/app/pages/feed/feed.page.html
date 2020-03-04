@@ -24,104 +24,107 @@
   
 
       <!-- <ion-item button [routerLink]="['/place-request', item.id]"> -->
-       
-
-  <!-- refresher -->
-
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="" refreshingSpinner="dots"></ion-refresher-content>
-  </ion-refresher>
-
-  <!-- categories -->
-
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'appliance'}" src="assets/icon/categories/appliance.png">
-        <ion-card-title>Appliances</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'electrical'}" src="assets/icon/categories/electrical.png">
-        <ion-card-title>Electrical</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'plumbing'}" src="assets/icon/categories/plumbing.png">
-        <ion-card-title>Plumbling</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'cleaning'}" src="assets/icon/categories/homecleaning.png">
-        <ion-card-title>Home Cleaning</ion-card-title>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'tutoring'}" src="assets/icon/categories/tutor.png">
-        <ion-card-title>Tutoring</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'moving'}" src="assets/icon/categories/move.png">
-        <ion-card-title>Packaging & Moving</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'repair'}" src="assets/icon/categories/monitor.png">
-        <ion-card-title>Computer Repair</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../allservices" src="assets/icon/categories/more.png">
-        <ion-card-title>More</ion-card-title>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-  <div class="break"></div>
-
-  <!-- recommand vendors -->
+      
   
-  <div class="vendor">
-    <div class="pfy"><ion-text>Picks for you</ion-text></div>
-    <ion-icon class="heart" src="assets/icon/heart.svg"></ion-icon>
+    <!-- refresher -->
 
-    <div class="list">
-      <ion-card id="1" *ngFor="let vendor of vendorList">
-        <div class="avatar">
-          <ion-avatar>
-            <img src="assets/image/avatar.png">
-          </ion-avatar>
-        </div>
-        <div class="vinfo">
-          <div class="title">
-            <div class="v">
-              <ion-text></ion-text>
-            </div>
-            <ion-text class="t">{{vendor.name}}</ion-text>
-            <div class="distance">
-              <ion-text>10.5mi</ion-text>
-            </div>
-          </div>
-          <div class="eval">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star-half"></ion-icon>
-            <ion-icon name="star-outline"></ion-icon>
-          </div>
-          <div class="skill">
-            <ion-chip class="first">
-              <ion-label>{{vendor.category}}</ion-label>
-            </ion-chip>
-            <ion-chip color="primary">
-              <ion-label>Tutor</ion-label>
-            </ion-chip>
-            <div class="price">
-              <ion-text>$ {{vendor.price}}/h</ion-text>
-            </div>
-          </div>
-        </div>
-      </ion-card>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="" refreshingSpinner="dots"></ion-refresher-content>
+    </ion-refresher>
 
+    <!-- categories -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/appliance.svg"></ion-icon>
+          <ion-card-title>Appliances</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/electrical.svg"></ion-icon>
+          <ion-card-title>Electrical</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <!-- <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'plumbing'}" src="assets/icon/categories/plumbing.png"> -->
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/plumbing.svg"></ion-icon>
+          <ion-card-title>Plumbling</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <!-- <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'cleaning'}" src="assets/icon/categories/homecleaning.png"> -->
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/cleaning.svg"></ion-icon>
+          <ion-card-title>Home Cleaning</ion-card-title>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/tutorial.svg"></ion-icon>
+          <ion-card-title>Tutoring</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/moving.svg"></ion-icon>
+          <ion-card-title>Packaging & Moving</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/computer.svg"></ion-icon>
+          <ion-card-title>Computer Repair</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/more.svg"></ion-icon>
+          <ion-card-title>More</ion-card-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <div class="break"></div>
+
+    <!-- recommand vendors -->
+    
+    <div class="vendor">
+      <div class="pfy"><ion-text>Picks for you</ion-text></div>
+      <ion-icon class="heart" src="assets/icon/heart.svg"></ion-icon>
+
+      <div class="list">
+        <ion-card id="1" *ngFor="let vendor of vendorList">
+          <div class="avatar">
+            <ion-avatar>
+              <img src="assets/image/avatar.png">
+            </ion-avatar>
+          </div>
+          <div class="vinfo">
+            <div class="title">
+              <div class="v">
+                <ion-text></ion-text>
+              </div>
+              <ion-text class="t">{{vendor.name}}</ion-text>
+              <div class="distance">
+                <ion-text>10.5mi</ion-text>
+              </div>
+            </div>
+            <div class="eval">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-half"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+            <div class="skill">
+              <ion-chip class="first">
+                <ion-label>{{vendor.category}}</ion-label>
+              </ion-chip>
+              <ion-chip color="primary">
+                <ion-label>Tutor</ion-label>
+              </ion-chip>
+              <div class="price">
+                <ion-text>$ {{vendor.price}}/h</ion-text>
+              </div>
+            </div>
+          </div>
+        </ion-card>
+
+      </div>
     </div>
-  </div>
+
 
 </ion-content>
