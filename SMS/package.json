@@ -60,6 +60,7 @@
     "firebase-admin": "^8.9.2",
     "firebaseui": "^4.4.0",
     "firebaseui-angular": "^4.0.1",
+    "ionic4-hidenav": "^1.0.0",
     "ionic4-star-rating": "^1.1.1",
     "native-run": "^0.3.0",
     "rxjs": "~6.5.1",

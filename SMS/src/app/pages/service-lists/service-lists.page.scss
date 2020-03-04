@@ -1,3 +1,28 @@
+ion-toolbar{
+  box-shadow: 1;
+}
+.mapicon{
+  font-size: 24px;
+}
+.pricesort{
+  color: rgb(31, 31, 31);
+  height: 25px;
+  ion-icon{
+    color: rgb(36, 36, 36);
+  }
+  .lefticon{
+    font-size: 16px;
+    margin-right: 2px;
+  }
+  .righticon{
+    font-size: 14px;
+    margin-left: 2px;
+  }
+  ion-label{
+    padding-bottom: 2px;
+  }
+}
+
 .map{
   font-size: 22px;
 }
