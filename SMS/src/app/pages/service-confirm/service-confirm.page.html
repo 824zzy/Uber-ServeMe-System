@@ -10,21 +10,15 @@
   <spinner [hidden]="!showSpinner"></spinner>
 
   <div #mapElement id='map_canvas'>
-    
-    <!-- <div class="search">
-      <ion-searchbar searchIcon="ios-arrow-back" ></ion-searchbar>
-    </div> -->
-
   </div>
 
   <div class="request-car ion-padding">
-
     <ion-card id="1">
       <ion-grid>
         <ion-row class="f-row">
           <ion-col width-25 class="avatar">
           <ion-avatar >
-            <img src="assets/image/avatar.png">
+            <img src={{data.picture}}>
           </ion-avatar>
           </ion-col>
           <ion-col>

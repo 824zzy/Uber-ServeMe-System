@@ -1,16 +1,14 @@
 <ion-header>
-
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
 </ion-header>
 
 <ion-content>
   <spinner [hidden]="!showSpinner"></spinner>
 
   <div #mapElement id='map_canvas'>
-    <ion-icon class='blank' name='is-arrow-back'></ion-icon>
+    <ion-icon class='blank' name='ios-arrow-back' (click)="navBack()"></ion-icon>
     <div class="search">
-      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)" [(ngModel)]="message"></ion-searchbar>
+      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)"></ion-searchbar>      
       <ion-list class="searchres" [hidden]="!flag">
         <ion-item (click)="navToConfirmPage(vendor)" *ngFor='let vendor of vendorList'>
           <ion-avatar>
@@ -34,7 +32,7 @@
         <ion-row class="f-row">
           <ion-col width-25 class="avatar">
           <ion-avatar >
-            <img src="assets/image/avatar.png">
+            <img src="{{destination.picture}}" alt="" srcset="">
           </ion-avatar>
           </ion-col>
           <ion-col>

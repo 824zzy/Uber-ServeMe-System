@@ -17,7 +17,7 @@ export class ServiceMapPage implements OnInit {
   private loading: any
   private map: GoogleMap
   public search: string=''
-  public service: any
+  public service: string=''
   public searchResults = new Array<any>()
   private originMarker: Marker
   public destination: any
@@ -30,7 +30,6 @@ export class ServiceMapPage implements OnInit {
   public loadVendor = new Array<any>()
   flag: boolean = false;
   hide: boolean = false;
-  message: any;
   showSpinner: boolean = true;
   showInfo: boolean = false;
 
@@ -46,6 +45,7 @@ export class ServiceMapPage implements OnInit {
     private renderer: Renderer2,
     public modalCtrl: ModalController,
     public firestore: AngularFirestore,
+    public navCtrl: NavController,
     // private dataService: DataService,
   ) { 
     // console.log('declared var:', google)
@@ -59,6 +59,7 @@ export class ServiceMapPage implements OnInit {
 
   async ngOnInit() {
     this.service = this.activatedRoute.snapshot.params['service'];
+    console.log('service map', this.service)
     let searchIcon = this.elementRef.nativeElement.querySelector('.blank');
     // console.log('searchCSS:',searchIcon)
       if(searchIcon != null) {
@@ -86,7 +87,6 @@ export class ServiceMapPage implements OnInit {
         console.log("Error getting documents: ", err)
       })
 
-    console.log("service:", this.service)
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
@@ -127,7 +127,6 @@ export class ServiceMapPage implements OnInit {
 
     for ( const i in this.vendorList ) {
       this.destination = this.vendorList[i]
-      
       this.map.addMarker({
         icon: { 
           url: "../assets/icon/setting-marker.svg", 
@@ -210,13 +209,16 @@ export class ServiceMapPage implements OnInit {
         vendor: JSON.stringify(vendor)
       }
     }
-    this.message = ""
     this.flag = false;
     this.route.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
     // this.modalCtrl.dismiss({
     //   'dismissed': true
     // })
+  }
 
+  navBack() {
+    // this.route.navigateByUrl("['/home/feed/service-lists', service]")
+    this.navCtrl.back()
   }
 
 }
