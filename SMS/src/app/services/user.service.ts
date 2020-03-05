@@ -47,17 +47,13 @@ export class UserService {
 		this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).update({password: newpassword});
 	}
 
-	updateLocation(newLocation: any) {
-		this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).update({location: newLocation});
-	}
-
 	getAuth() {
 		return this.afAuth.auth
 	}
 
 	addOrder(orderData: any) {
 		this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).collection('orders').add(orderData)
-		console.log("order ssuccessful written")
+		console.log("order successful written")
 	}
 
 	getOrders() {

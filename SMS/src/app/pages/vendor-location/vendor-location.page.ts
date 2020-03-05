@@ -4,6 +4,7 @@ import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, GoogleMapsAnimation, My
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { HomeServiceService } from 'src/app/services/home-service.service';
 
 declare var google: any
 
@@ -35,6 +36,7 @@ export class VendorLocationPage implements OnInit {
     public activateRoute: ActivatedRoute,
     public nav: NavController,
     public user: UserService,
+    public homeService: HomeServiceService,
     public afstore: AngularFirestore,
     public toast: ToastController,
     public router: Router,
@@ -42,7 +44,6 @@ export class VendorLocationPage implements OnInit {
   }
 
   async ngOnInit() {
-    console.log("service:", this.service)
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
@@ -83,7 +84,7 @@ export class VendorLocationPage implements OnInit {
       })
       this.originMarker = this.map.addMarkerSync({
         title: 'Your current location',
-        icon: "#000",
+        icon: "blue",
         animation: GoogleMapsAnimation.DROP,
         position: myLocation.latLng,
       })
@@ -122,7 +123,7 @@ export class VendorLocationPage implements OnInit {
 
   async saveLocation() {
     try {
-      this.user.updateLocation(this.position)
+      this.homeService.updateLocation(this.position)
       this.presentAlert("Successfully update you Location!")
       this.router.navigate(['/vendor'])
     } catch(error) {

@@ -56,13 +56,11 @@ export class ServiceConfirmPage implements OnInit {
   }
 
   ngOnInit() {
-    
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
     this.mapElement.style.height = '100%'
 
-    // put calcRoute in ngOnInit
     this.calcRoute(this.data)
     
   }

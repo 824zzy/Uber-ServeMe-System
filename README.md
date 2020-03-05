@@ -23,16 +23,16 @@ $ ionic run cordova browser
 ## Components
 
 - [x] Login & Registration
-- [x] Setup
-- [x] Service Categories
+- [x] Setup:
+- [x] Service Categories: Appliances, Electrical, Plumbing, Home Cleaning, Tutoring, Packaging and Moving, Computer Repair, Home Repair and Painting, Pest Control.
 - [x] Register to become an approved vendor
-- [x] Place a Service Request (by Customers)
-- [ ] Cancellation and Change
-- [ ] Accept a Service Request (by service provider))
-- [ ] Payments
-- [ ] Review and Rating (by customers)
-- [x] Order History
-- [x] Search
+- [x] Place a Service Request (by Customers): Select a Service category and place an order soliciting for bid by the service providers. Finalize your selection after reviewing all bids.
+- [ ] Cancellation and Change: Allow customers to cancel or change service dates. You can specify in setup that you lose points if you cancel within the last x (e.g. 24) hours
+- [ ] Accept a Service Request (by service provider)): Provide bids for Requested services to customers.
+- [ ] Payments: Handle money paid by the customers, received by the service provider. You, the owner of app, will receive a commission (e.g. 20%) of the service fee.
+- [ ] Review and Rating (by customers): Use Stars (one to five stars) to rate the service received, and allow to enter for a short comment to help future users
+- [x] Order History: Display the history of service requested for a given customer.
+- [x] Search: Ability to search by for a service provider by address, name, star rating, etc.
 
 ## Project Structure
 

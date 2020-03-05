@@ -52,9 +52,8 @@ export class ServiceDetailPage implements OnInit {
       try {
         await this.homeServiceService.updateService(this.homeSeviceId, this.homeService);
         await this.loading.dismiss();
-        console.log('update services')
-        // TODO:
-        // this.navCtrl.navigateBack('/home');
+        this.presentToast('Successful update old service');
+        this.navCtrl.navigateBack('/home/me');
       } catch (error) {
         this.presentToast('Error when trying to save');
         this.loading.dismiss();
@@ -64,9 +63,8 @@ export class ServiceDetailPage implements OnInit {
       try {
         await this.homeServiceService.addService(this.homeService);
         await this.loading.dismiss();
-        console.log("save success:", this.homeService)
-        // TODO:
-        // this.navCtrl.navigateBack('/home');
+        this.presentToast('Successful add new service');
+        this.navCtrl.navigateBack('/home/me');
       } catch (error) {
         this.presentToast('Error when trying to save');
         this.loading.dismiss();

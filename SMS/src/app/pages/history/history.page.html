@@ -6,22 +6,7 @@
 
 <ion-content>
   <ion-list *ngIf="!orders.length">
-    <ion-item *ngFor="let item of [0, 1, 2]">
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
+    <ion-label>Your order history is empty!</ion-label>
   </ion-list>
 
   <ion-list>
@@ -42,7 +27,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="warning" (click)="reviewOrder(order.id)">
+        <ion-item-option color="warning" (click)="navToReview(order)">
           <ion-icon slot="top" name="trash"></ion-icon>
           Review
         </ion-item-option>

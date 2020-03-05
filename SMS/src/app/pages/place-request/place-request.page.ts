@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild, NgZone } from '@angular/core';
 // import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { HomeService } from 'src/app/interfaces/home-service';
@@ -6,6 +6,7 @@ import { NavController, LoadingController, ToastController } from '@ionic/angula
 import { UserService } from 'src/app/services/user.service';
 import { Subscription } from 'rxjs';
 import { HomeServiceService } from 'src/app/services/home-service.service';
+
 
 @Component({
   selector: 'app-place-request',

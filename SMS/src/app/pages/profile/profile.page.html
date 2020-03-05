@@ -3,8 +3,11 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    <ion-buttons slot="start" routerLink="/home/me">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        Back
+      </ion-button>
     </ion-buttons>
     <ion-title>Profile</ion-title>
   </ion-toolbar>
@@ -19,7 +22,7 @@
       <ion-avatar>
         <input type="file" #fileBtn class="filebtn" (change)="uploadPic($event)" />
 
-        <ion-img class="profile-pic" (click)="updateProfilePic()" src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/150x150/center/"></ion-img>
+        <ion-img class="profile-pic" (click)="updateProfilePic()" src="https://ucarecdn.com/{{ image }}/-/scale_crop/150x150/center/"></ion-img>
         
       </ion-avatar>
       </div>

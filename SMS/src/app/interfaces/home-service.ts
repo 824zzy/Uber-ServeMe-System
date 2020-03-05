@@ -9,4 +9,5 @@ export interface HomeService {
     category?: string
     position?: string
     available?: boolean
+    rate?: number
 }

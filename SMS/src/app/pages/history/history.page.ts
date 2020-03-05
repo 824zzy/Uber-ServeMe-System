@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -17,6 +18,7 @@ export class HistoryPage implements OnInit {
     private userService: UserService,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
+    private router: Router,
   ) {
     this.orderSubscription = this.userService.getOrders().subscribe(data => {
       this.orders = data
@@ -46,6 +48,18 @@ export class HistoryPage implements OnInit {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({ message, duration: 2000 });
     toast.present();
+  }
+  
+  async navToReview(order: any) {
+    console.log(order)
+    await this.presentLoading()
+    let navigationExtras: NavigationExtras = {
+      state: {
+        orderDetail: order
+      }
+    }
+    this.router.navigate(['/review'], navigationExtras)
+    this.loading.dismiss()
   }
 
 }
