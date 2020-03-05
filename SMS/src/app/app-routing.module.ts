@@ -60,7 +60,10 @@ const routes: Routes = [
     path: 'search-display',
     loadChildren: () => import('./modal/search-display/search-display.module').then( m => m.SearchDisplayPageModule)
   },
-  
+  {
+    path: 'review/:id',
+    loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
+  },
 ];
 @NgModule({
   imports: [

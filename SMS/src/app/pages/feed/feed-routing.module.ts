@@ -17,7 +17,15 @@ const routes: Routes = [
     loadChildren: () => import('../../pages/service-lists/service-lists.module').then( m => m.ServiceListsPageModule)
   },
   {
+    path: 'service-lists/:service',
+    loadChildren: () => import('../../pages/service-lists/service-lists.module').then( m => m.ServiceListsPageModule)
+  },
+  {
     path: 'service-map',
+    loadChildren: () => import('../../modal/service-map/service-map.module').then( m => m.ServiceMapPageModule)
+  },
+  {
+    path: 'service-map/:service',
     loadChildren: () => import('../../modal/service-map/service-map.module').then( m => m.ServiceMapPageModule)
   },
 ];

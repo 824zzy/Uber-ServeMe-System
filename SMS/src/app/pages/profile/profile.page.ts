@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
   email: string;
   lastname: string;
   firstname: string;
-  profilePic: string;
+  image: string;
 
   @ViewChild('fileBtn', {static: false}) fileBtn: {
 		nativeElement: HTMLInputElement
@@ -39,7 +39,7 @@ export class ProfilePage implements OnInit {
 			this.lastname = event.lastname
 			this.email = event.email
       this.firstname = event.firstname
-      this.profilePic = event.profilePic
+      this.image = event.image
 		})   
   }
 
@@ -62,7 +62,7 @@ export class ProfilePage implements OnInit {
 		.subscribe(event => {
 			const uuid = event.json().file
 			this.mainuser.update({
-				profilePic: uuid
+				image: uuid
 			})
 		})
 	}

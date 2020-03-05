@@ -14,7 +14,7 @@ export class MePage implements OnInit {
   mainuser: AngularFirestoreDocument
   lastname: string;
   firstname: string;
-  profilePic: string;
+  image: string;
 
   constructor(
     public user: UserService,
@@ -25,7 +25,7 @@ export class MePage implements OnInit {
     this.sub = this.mainuser.valueChanges().subscribe(event => {
 			this.lastname = event.lastname
       this.firstname = event.firstname
-      this.profilePic = event.profilePic
+      this.image = event.image
 		})   
   }
 

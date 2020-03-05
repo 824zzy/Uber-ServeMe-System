@@ -22,11 +22,6 @@
 
 
 <ion-content #pageContent fullscreen scrollEvents="true">
-  
-
-      <!-- <ion-item button [routerLink]="['/place-request', item.id]"> -->
-      
-  
     <!-- refresher -->
 
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
@@ -38,36 +33,36 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/appliance.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'appliance']" src="assets/icon/categories/appliance.svg"></ion-icon>
           <ion-card-title>Appliances</ion-card-title>
         </ion-col>
         <ion-col>
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/electrical.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'electrical']" src="assets/icon/categories/electrical.svg"></ion-icon>
           <ion-card-title>Electrical</ion-card-title>
         </ion-col>
         <ion-col>
           <!-- <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'plumbing'}" src="assets/icon/categories/plumbing.png"> -->
-          <ion-icon class="cgicon" style="font-size: 36px; padding-top: 2px;" routerLink="../service-lists" src="assets/icon/categories/plumbing.svg"></ion-icon>
+          <ion-icon class="cgicon" style="font-size: 36px; padding-top: 2px;" [routerLink]="['/home/feed/service-lists', 'plumbing']" src="assets/icon/categories/plumbing.svg"></ion-icon>
           <ion-card-title>Plumbling</ion-card-title>
         </ion-col>
         <ion-col>
           <!-- <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'cleaning'}" src="assets/icon/categories/homecleaning.png"> -->
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/cleaning.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'cleaning']" src="assets/icon/categories/cleaning.svg"></ion-icon>
           <ion-card-title>Home Cleaning</ion-card-title>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/tutorial.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'tutoring']" src="assets/icon/categories/tutorial.svg"></ion-icon>
           <ion-card-title>Tutoring</ion-card-title>
         </ion-col>
         <ion-col>
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/moving.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'moving']" src="assets/icon/categories/moving.svg"></ion-icon>
           <ion-card-title>Packaging & Moving</ion-card-title>
         </ion-col>
         <ion-col>
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/computer.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'repair']" src="assets/icon/categories/computer.svg"></ion-icon>
           <ion-card-title>Computer Repair</ion-card-title>
         </ion-col>
         <ion-col>
@@ -77,55 +72,52 @@
       </ion-row>
     </ion-grid>
 
+  <div class="break"></div>
 
-    <div class="break"></div>
+  <!-- recommand vendors -->
+  
+  <div class="vendor">
+    <div class="pfy"><ion-text>Picks for you</ion-text></div>
+    <ion-icon class="heart" src="assets/icon/heart.svg"></ion-icon>
 
-    <!-- recommand vendors -->
-    
-    <div class="vendor">
-      <div class="pfy"><ion-text>Picks for you</ion-text></div>
-      <ion-icon class="heart" src="assets/icon/heart.svg"></ion-icon>
-
-      <div class="list">
-        <ion-card id="1" *ngFor="let vendor of vendorList">
-          <div class="avatar">
-            <ion-avatar>
-              <img src="assets/image/avatar.png">
-            </ion-avatar>
-          </div>
-          <div class="vinfo">
-            <div class="title">
-              <div class="v">
-                <ion-text></ion-text>
-              </div>
-              <ion-text class="t">{{vendor.name}}</ion-text>
-              <div class="distance">
-                <ion-text>10.5mi</ion-text>
-              </div>
+    <div class="list">
+      <ion-card id="1" *ngFor="let vendor of vendorList">
+        <div class="avatar">
+          <ion-avatar>
+            <img src={{vendor.picture}}>
+          </ion-avatar>
+        </div>
+        <div class="vinfo">
+        <div class="title">
+            <div class="v">
+              <ion-text></ion-text>
             </div>
-            <div class="eval">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-              <ion-icon name="star-outline"></ion-icon>
-            </div>
-            <div class="skill">
-              <ion-chip class="first">
-                <ion-label>{{vendor.category}}</ion-label>
-              </ion-chip>
-              <ion-chip color="primary">
-                <ion-label>Tutor</ion-label>
-              </ion-chip>
-              <div class="price">
-                <ion-text>$ {{vendor.price}}/h</ion-text>
-              </div>
+            <ion-text class="t">{{vendor.name}}</ion-text>
+            <div class="distance">
+              <ion-text>10.5 km</ion-text>
+              <!-- TODO:<ion-text>{{calcRoute(vendor.location.lat, vendor.location.lng)}}</ion-text> -->
             </div>
           </div>
-        </ion-card>
-
-      </div>
+          <div class="eval">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-half"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+          <div class="skill">
+            <ion-chip class="first">
+              <ion-label>{{vendor.category}}</ion-label>
+            </ion-chip>
+            <ion-chip color="primary">
+              <ion-label>Tutor</ion-label>
+            </ion-chip>
+            <div class="price">
+              <ion-text>$ {{vendor.price}}/h</ion-text>
+            </div>
+          </div>
+        </div>
+      </ion-card>
     </div>
-
-
+  </div>
 </ion-content>

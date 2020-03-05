@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastController, ModalController, NavController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
+
 import { AngularFirestore } from '@angular/fire/firestore'
 
 import { ServiceMapPage } from '../../modal/service-map/service-map.page';
@@ -13,12 +14,12 @@ import { ServiceMapPage } from '../../modal/service-map/service-map.page';
 export class ServiceListsPage implements OnInit {
   @ViewChild('mapElement', {static: true}) mapElement: any
   public search: string=''
-  public service: any
+  public service: string=''
   public searchResults = new Array<any>()
   public destination: any
 
-  vendorList: any[];
-  loadVendor: any[];
+  public vendorList = new Array<any>()
+  public loadVendor = new Array<any>()
   flag: boolean = false;
   message: any;
   showSkele: boolean = false;
@@ -26,27 +27,33 @@ export class ServiceListsPage implements OnInit {
   constructor(
     public toastCtrl: ToastController,
     public route: Router,
-    public activateRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute,
     public nav: NavController,
     public firestore: AngularFirestore,
     public modalCtrl: ModalController,
   ) { 
-    // console.log('declared var:', google)
-
-    // this.activateRoute.queryParams.subscribe((data: any) => {
-    //   console.log("data.service:", data.service)
-    //   this.service = data.service
-    //   console.log("service1:", this.service)
-    // })
-
   }
 
   async ngOnInit() {
-    // this.firestore.collection('HomeServices', ref => ref.where('category', "==", this.service)).valueChanges().subscribe( vendorList => {
-    this.firestore.collection('HomeServices').valueChanges().subscribe( vendorList => {
-      this.vendorList = vendorList;
-      this.loadVendor = vendorList;
-    })
+    // pass category through router
+    this.service = this.activatedRoute.snapshot.params['service'];
+    console.log("dada", this.service)
+    this.firestore.collection('HomeServices', ref => ref.where("category", "==", this.service)).get().toPromise()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          console.log('No matching documents.');
+          return;
+        }  
+        snapshot.forEach(doc => {
+          console.log("didi", doc.id, '=>', doc.data());
+          this.vendorList.push(doc.data())
+          this.loadVendor.push(doc.data())
+        })
+      })
+      .catch(err => {
+        console.log("Error getting documents: ", err)
+      })
+
     setTimeout(() => {
       this.showSkele = true;
     }, 1000);
@@ -58,6 +65,6 @@ export class ServiceListsPage implements OnInit {
     //   // mode: "ios"
     // });
     // return await modal.present();
-    this.route.navigate(['home/feed/service-map'])
+    this.route.navigate(['home/feed/service-map', this.service])
   }  
 }

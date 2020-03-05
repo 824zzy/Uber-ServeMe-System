@@ -26,8 +26,8 @@ export class ServiceMapPage implements OnInit {
   // public latitude: any
   // public longtitude: any
 
-  vendorList: any[];
-  loadVendor: any[];
+  public vendorList = new Array<any>()
+  public loadVendor = new Array<any>()
   flag: boolean = false;
   hide: boolean = false;
   message: any;
@@ -40,7 +40,7 @@ export class ServiceMapPage implements OnInit {
     private loadingCtrl: LoadingController,
     // private ngZone: NgZone,
     public route: Router,
-    public activateRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute,
     public nav: NavController,
     private elementRef: ElementRef,
     private renderer: Renderer2,
@@ -58,7 +58,7 @@ export class ServiceMapPage implements OnInit {
   }
 
   async ngOnInit() {
-
+    this.service = this.activatedRoute.snapshot.params['service'];
     let searchIcon = this.elementRef.nativeElement.querySelector('.blank');
     // console.log('searchCSS:',searchIcon)
       if(searchIcon != null) {
@@ -70,10 +70,21 @@ export class ServiceMapPage implements OnInit {
         });
       }
     // this.firestore.collection('HomeServices', ref => ref.where('category', "==", this.service)).valueChanges().subscribe( vendorList => {
-    this.firestore.collection('HomeServices').valueChanges().subscribe( vendorList => {
-      this.vendorList = vendorList;
-      this.loadVendor = vendorList;
-    })
+      this.firestore.collection('HomeServices', ref => ref.where("category", "==", this.service)).get().toPromise()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          console.log('No matching documents.');
+          return;
+        }  
+        snapshot.forEach(doc => {
+          console.log("didi", doc.id, '=>', doc.data());
+          this.vendorList.push(doc.data())
+          this.loadVendor.push(doc.data())
+        })
+      })
+      .catch(err => {
+        console.log("Error getting documents: ", err)
+      })
 
     console.log("service:", this.service)
     this.platform.ready();
@@ -160,7 +171,7 @@ export class ServiceMapPage implements OnInit {
         zoom: 12,
       })
       this.originMarker = this.map.addMarkerSync({
-        icon: "#000",
+        icon: "blue",
         animation: GoogleMapsAnimation.BOUNCE,
         position: myLocation.latLng,
       })

@@ -1,27 +1,18 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/home/me">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
     <ion-title>Your Home Services</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="!homeServices.length">
-    <ion-item *ngFor="let item of [0, 1, 2]">
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
+    You don't have any home services now!
   </ion-list>
 
   <ion-list>

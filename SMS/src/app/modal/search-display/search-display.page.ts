@@ -69,7 +69,6 @@ export class SearchDisplayPage implements OnInit {
       }
     }
     this.message = ""
-
     this.flag = false;
     this.router.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
     
