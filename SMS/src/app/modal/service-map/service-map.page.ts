@@ -30,7 +30,6 @@ export class ServiceMapPage implements OnInit {
   public loadVendor = new Array<any>()
   flag: boolean = false;
   hide: boolean = false;
-  message: any;
   showSpinner: boolean = true;
   showInfo: boolean = false;
 
@@ -86,7 +85,6 @@ export class ServiceMapPage implements OnInit {
         console.log("Error getting documents: ", err)
       })
 
-    console.log("service:", this.service)
     this.platform.ready();
     this.mapElement = this.mapElement.nativeElement
     this.mapElement.style.width = this.platform.width()+'px'
@@ -127,7 +125,6 @@ export class ServiceMapPage implements OnInit {
 
     for ( const i in this.vendorList ) {
       this.destination = this.vendorList[i]
-      
       this.map.addMarker({
         icon: { 
           url: "../assets/icon/setting-marker.svg", 
@@ -210,7 +207,6 @@ export class ServiceMapPage implements OnInit {
         vendor: JSON.stringify(vendor)
       }
     }
-    this.message = ""
     this.flag = false;
     this.route.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
     // this.modalCtrl.dismiss({

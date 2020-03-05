@@ -6,9 +6,9 @@
   <spinner [hidden]="!showSpinner"></spinner>
 
   <div #mapElement id='map_canvas'>
-    <ion-icon class='blank' name='is-arrow-back' [routerLink]="['/home/feed/service-lists']"></ion-icon>
+    <ion-icon class='blank' name='ios-arrow-back' [routerLink]="['/home/feed/service-lists', service]"></ion-icon>
     <div class="search">
-      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)" [(ngModel)]="message"></ion-searchbar>
+      <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)"></ion-searchbar>      
       <ion-list class="searchres" [hidden]="!flag">
         <ion-item (click)="navToConfirmPage(vendor)" *ngFor='let vendor of vendorList'>
           <ion-avatar>
@@ -32,7 +32,7 @@
         <ion-row class="f-row">
           <ion-col width-25 class="avatar">
           <ion-avatar >
-            <img src="assets/image/avatar.png">
+            <img src="{{destination.picture}}" alt="" srcset="">
           </ion-avatar>
           </ion-col>
           <ion-col>

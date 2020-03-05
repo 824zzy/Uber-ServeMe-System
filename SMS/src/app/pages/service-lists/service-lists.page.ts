@@ -36,7 +36,9 @@ export class ServiceListsPage implements OnInit {
 
   async ngOnInit() {
     // pass category through router
-    this.service = this.activatedRoute.snapshot.params['service'];
+    if(!this.service){
+      this.service = this.activatedRoute.snapshot.params['service'];
+    }
     console.log("dada", this.service)
     this.firestore.collection('HomeServices', ref => ref.where("category", "==", this.service)).get().toPromise()
       .then(snapshot => {
