@@ -218,8 +218,10 @@ export class ServiceConfirmPage implements OnInit {
     console.log(this.back)
     if (this.back == "home")
       this.route.navigate(['home/feed'])
-    else
+    else {
       // this.route.navigate(['home/feed/service-map', this.service])
-      this.route.navigate(['home/feed/service-map'])
+      // this.route.navigate(['home/feed/service-map'])
+      this.nav.back()
+    } 
   }
 }
