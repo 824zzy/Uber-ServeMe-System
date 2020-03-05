@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
-import { ToastController, ModalController } from '@ionic/angular';
+import { ToastController, ModalController, IonContent } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -7,6 +7,7 @@ import { SearchDisplayPage } from '../../modal/search-display/search-display.pag
 import { ScrollHideConfig } from '../../directives/expandable-header.directive';
 
 import { Keyboard } from '@ionic-native/keyboard/ngx'
+
 
 @Component({
   selector: 'app-feed',

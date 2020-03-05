@@ -17,58 +17,60 @@
     <ion-searchbar (click)="presentModal()"></ion-searchbar>
   </ion-toolbar>
 
+  
 </ion-header>
 
 
 <ion-content #pageContent fullscreen scrollEvents="true">
-  <!-- refresher -->
+    <!-- refresher -->
 
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="" refreshingSpinner="dots"></ion-refresher-content>
-  </ion-refresher>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="" refreshingSpinner="dots"></ion-refresher-content>
+    </ion-refresher>
 
-  <!-- categories -->
+    <!-- categories -->
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'appliance']" src="assets/icon/categories/appliance.png">
-        <ion-card-title>Appliance</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'electrical']" src="assets/icon/categories/electrical.png">
-        <ion-card-title>Electrical</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'plumbing']" src="assets/icon/categories/plumbing.png">
-        <ion-card-title>Plumbling</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'cleaning']" src="assets/icon/categories/homecleaning.png">
-        <ion-card-title>Home Cleaning</ion-card-title>
-      </ion-col>
-    </ion-row>
-  
-    <ion-row>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'tutoring']" [queryParams]="{service: 'tutoring'}" src="assets/icon/categories/tutor.png">
-        <ion-card-title>Tutoring</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'moving']" [queryParams]="{service: 'moving'}" src="assets/icon/categories/move.png">
-        <ion-card-title>Packaging & Moving</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" [routerLink]="['/home/feed/service-lists', 'repair']" [queryParams]="{service: 'repair'}" src="assets/icon/categories/monitor.png">
-        <ion-card-title>Computer Repair</ion-card-title>
-      </ion-col>
-      <ion-col>
-        <img class="cgicon" routerLink="../allservices" src="assets/icon/categories/more.png">
-        <ion-card-title>More</ion-card-title>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'appliance']" src="assets/icon/categories/appliance.svg"></ion-icon>
+          <ion-card-title>Appliances</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'electrical']" src="assets/icon/categories/electrical.svg"></ion-icon>
+          <ion-card-title>Electrical</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <!-- <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'plumbing'}" src="assets/icon/categories/plumbing.png"> -->
+          <ion-icon class="cgicon" style="font-size: 36px; padding-top: 2px;" [routerLink]="['/home/feed/service-lists', 'plumbing']" src="assets/icon/categories/plumbing.svg"></ion-icon>
+          <ion-card-title>Plumbling</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <!-- <img class="cgicon" routerLink="../service-lists" [queryParams]="{service: 'cleaning'}" src="assets/icon/categories/homecleaning.png"> -->
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'cleaning']" src="assets/icon/categories/cleaning.svg"></ion-icon>
+          <ion-card-title>Home Cleaning</ion-card-title>
+        </ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'tutoring']" src="assets/icon/categories/tutorial.svg"></ion-icon>
+          <ion-card-title>Tutoring</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'moving']" src="assets/icon/categories/moving.svg"></ion-icon>
+          <ion-card-title>Packaging & Moving</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'repair']" src="assets/icon/categories/computer.svg"></ion-icon>
+          <ion-card-title>Computer Repair</ion-card-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/more.svg"></ion-icon>
+          <ion-card-title>More</ion-card-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
   <div class="break"></div>
 
@@ -118,8 +120,4 @@
       </ion-card>
     </div>
   </div>
-
-  <!-- user for refresher -->
-  <!-- </ion-content> -->
-
 </ion-content>

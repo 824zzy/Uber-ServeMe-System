@@ -63,11 +63,6 @@ ion-content{
   background-color: white;
 }
 
-.cgicon{
-  width: 60%;
-  outline: none;
-}
-
 ion-refresher{
   z-index: 999;
   ion-icon{
@@ -78,10 +73,15 @@ ion-refresher{
 ion-grid{
   // padding-top: 2%;
   margin-bottom: 2%;
+  ion-icon{
+    font-size: 38px;
+    margin: 0px 0px 5px 0px;
+    outline: none;
+  }
   ion-col{
     text-align: center;
     ion-card-title{
-      font-size: 8.5pt;
+      font-size: 8pt;
     }
   }
   
