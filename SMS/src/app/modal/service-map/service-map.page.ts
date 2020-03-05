@@ -17,7 +17,7 @@ export class ServiceMapPage implements OnInit {
   private loading: any
   private map: GoogleMap
   public search: string=''
-  public service: any
+  public service: string=''
   public searchResults = new Array<any>()
   private originMarker: Marker
   public destination: any
@@ -45,6 +45,7 @@ export class ServiceMapPage implements OnInit {
     private renderer: Renderer2,
     public modalCtrl: ModalController,
     public firestore: AngularFirestore,
+    public navCtrl: NavController,
     // private dataService: DataService,
   ) { 
     // console.log('declared var:', google)
@@ -58,6 +59,7 @@ export class ServiceMapPage implements OnInit {
 
   async ngOnInit() {
     this.service = this.activatedRoute.snapshot.params['service'];
+    console.log('service map', this.service)
     let searchIcon = this.elementRef.nativeElement.querySelector('.blank');
     // console.log('searchCSS:',searchIcon)
       if(searchIcon != null) {
@@ -212,7 +214,11 @@ export class ServiceMapPage implements OnInit {
     // this.modalCtrl.dismiss({
     //   'dismissed': true
     // })
+  }
 
+  navBack() {
+    // this.route.navigateByUrl("['/home/feed/service-lists', service]")
+    this.navCtrl.back()
   }
 
 }
