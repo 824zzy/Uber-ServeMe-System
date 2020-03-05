@@ -1,0 +1,29 @@
+ion-toolbar{
+    color: white;
+    --background: rgb(27, 27, 27);
+}
+.go-back{
+    .cancel{
+        float: left;
+        padding: 4% 0% 3% 4%;
+    }
+    .reset{
+        float: right;
+        padding: 4% 4% 3% 0%;
+    }
+}
+
+ion-list-header{
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ion-title{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+ion-range{
+    padding-top: 2px;
+}

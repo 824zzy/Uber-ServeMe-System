@@ -25,7 +25,7 @@ import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GoogleMaps } from '@ionic-native/google-maps';
-import { Keyboard } from '@ionic-native/keyboard/ngx'
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
