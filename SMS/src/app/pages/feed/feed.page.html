@@ -6,7 +6,7 @@
 
     <div class="recword">
       <ion-text>Keep your kitchen running smoothly</ion-text>
-      <ion-button fill="outline">
+      <ion-button [routerLink]="['/home/feed/service-lists', 'cleaning']" fill="outline">
         <ion-icon name="search" slot="start"></ion-icon>
         <ion-text class="ion-text-capitalize">kitchme</ion-text>
       </ion-button>
@@ -33,7 +33,7 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'appliance']" src="assets/icon/categories/appliance.svg"></ion-icon>
+          <ion-icon class="cgicon" [routerLink]="['/home/feed/service-lists', 'appliances']" src="assets/icon/categories/appliance.svg"></ion-icon>
           <ion-card-title>Appliances</ion-card-title>
         </ion-col>
         <ion-col>

@@ -1,14 +1,12 @@
 <ion-header>
-
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
 </ion-header>
 
 <ion-content>
   <spinner [hidden]="!showSpinner"></spinner>
 
   <div #mapElement id='map_canvas'>
-    <ion-icon class='blank' name='is-arrow-back'></ion-icon>
+    <ion-icon class='blank' name='is-arrow-back' [routerLink]="['/home/feed/service-lists']"></ion-icon>
     <div class="search">
       <ion-searchbar searchIcon="ios-arrow-back" placeholder="Cleaners, movers, delivery, etc" (ionInput)="searchChanged($event)" [(ngModel)]="message"></ion-searchbar>
       <ion-list class="searchres" [hidden]="!flag">
