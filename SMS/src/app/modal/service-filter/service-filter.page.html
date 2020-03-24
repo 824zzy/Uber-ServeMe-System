@@ -2,7 +2,7 @@
   <ion-toolbar>
     <div class="go-back">
       <ion-text class="cancel" (click)="dismiss()">Cancel</ion-text>
-      <ion-text class="reset">Reset</ion-text>
+      <ion-text class="reset" (click)="dismiss()">Reset</ion-text>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -42,4 +42,9 @@
     </ion-item>
   </div>
 
+  <div style="width: 100%; padding-bottom: 5%; position: fixed; bottom: 0; text-align: center;">
+    <ion-button (click)="dismiss()" color="dark" style=" width: 80%;">
+      Apply
+    </ion-button>
+  </div>
 </ion-content>

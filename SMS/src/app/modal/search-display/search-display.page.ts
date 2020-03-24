@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalController, IonInput } from '@ionic/angular';
 import { NavigationExtras, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -9,6 +9,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./search-display.page.scss'],
 })
 export class SearchDisplayPage implements OnInit {
+
+  @ViewChild('myInput', {static: true}) myInput: IonInput;
 
   vendorList: any[];
   loadVendor: any[];
@@ -22,6 +24,9 @@ export class SearchDisplayPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.myInput.setFocus();
+    }, 200)
     this.firestore.collection('HomeServices').valueChanges().subscribe( vendorList => {
       this.vendorList = vendorList;
       this.loadVendor = vendorList;

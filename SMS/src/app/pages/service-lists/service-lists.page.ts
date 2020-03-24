@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastController, ModalController, NavController, IonContent } from '@ionic/angular';
-import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
+import { Router, ActivatedRoute, Params, RoutesRecognized, NavigationExtras } from '@angular/router';
 
 import { AngularFirestore } from '@angular/fire/firestore'
 
@@ -71,4 +71,18 @@ export class ServiceListsPage implements OnInit {
   async goMap() {
     this.route.navigate(['home/feed/service-map', this.service])
   }  
+
+  navBack() {
+    this.nav.back();
+  }
+
+  async toConfirm(v) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        vendor: JSON.stringify(v),
+        back: "home"
+      }
+    }
+    this.route.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
+  }
 }

@@ -148,7 +148,7 @@ export class ServiceMapPage implements OnInit {
               console.log('destination: ', this.destination)
               this.map.moveCamera({
                 target: this.destination.location,
-                zoom: 12,
+                zoom: 15,
               })
               this.showInfo = true;
           })
@@ -167,7 +167,7 @@ export class ServiceMapPage implements OnInit {
       const myLocation: MyLocation = await this.map.getMyLocation()
       await this.map.moveCamera({
         target: myLocation.latLng,
-        zoom: 12,
+        zoom: 15,
       })
       this.originMarker = this.map.addMarkerSync({
         icon: "blue",

@@ -1,8 +1,8 @@
-<ion-header absolute-drag>
+<ion-header>
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <ion-toolbar>
-    <ion-buttons slot="start" routerLink="/home/feed">
+    <ion-buttons slot="start" (click)="navBack()">
       <ion-button class="ion-text-capitalize">
         <ion-icon name="ios-arrow-back"></ion-icon>
         Back
@@ -60,7 +60,7 @@
 
   <div class="list" *ngIf="showSkele">
 
-    <ion-card id="1" *ngFor="let vendor of vendorList">
+    <ion-card (click)="toConfirm(vendor)" *ngFor="let vendor of vendorList">
       <div class="avatar">
         <ion-avatar>
           <img src={{vendor.picture}}>
