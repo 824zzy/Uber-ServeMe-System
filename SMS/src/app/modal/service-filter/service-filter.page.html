@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="go-back">
+      <ion-text class="cancel" (click)="dismiss()">Cancel</ion-text>
+      <ion-text class="reset" (click)="dismiss()">Reset</ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+    <ion-radio-group allow-empty-selection value="default">
+      <ion-list-header>
+        <ion-label>Sort</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Default</ion-label>
+        <ion-radio slot="end" color="dark" value="default"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Rating</ion-label>
+        <ion-radio slot="end" color="dark" value="rating"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Distance</ion-label>
+        <ion-radio slot="end" color="dark" value="distance"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </div>
+
+  <div>
+    <ion-title style="text-align: center;">Price range</ion-title>
+    <ion-item>
+      <ion-range min="1" max="120" step="30" value="60" snaps color="dark">
+        <ion-icon slot="start" size="small" name="logo-usd"></ion-icon>
+        <ion-icon slot="end" name="logo-usd"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </div>
+
+  <div style="width: 100%; padding-bottom: 5%; position: fixed; bottom: 0; text-align: center;">
+    <ion-button (click)="dismiss()" color="dark" style=" width: 80%;">
+      Apply
+    </ion-button>
+  </div>
+</ion-content>

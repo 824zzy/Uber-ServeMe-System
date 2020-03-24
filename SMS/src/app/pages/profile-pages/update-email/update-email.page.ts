@@ -36,7 +36,6 @@ export class UpdateEmailPage implements OnInit {
   }
 
   ngOnInit() {
-    this.keboard.show();
     setTimeout(() => {
       this.myInput.setFocus();
     }, 200)

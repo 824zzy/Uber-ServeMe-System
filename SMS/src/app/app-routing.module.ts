@@ -64,6 +64,10 @@ const routes: Routes = [
     path: 'review/:id',
     loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
   },
+  {
+    path: 'service-filter',
+    loadChildren: () => import('./modal/service-filter/service-filter.module').then( m => m.ServiceFilterPageModule)
+  },
 ];
 @NgModule({
   imports: [

@@ -5,7 +5,7 @@
   <ion-toolbar class="maintoolbar">
 
     <div class="recword">
-      <ion-text>Keep your kitchen running smoothly</ion-text>
+      <ion-text [routerLink]="['/home/feed/review']">Keep your kitchen running smoothly</ion-text>
       <ion-button [routerLink]="['/home/feed/service-lists', 'cleaning']" fill="outline">
         <ion-icon name="search" slot="start"></ion-icon>
         <ion-text class="ion-text-capitalize">kitchme</ion-text>
@@ -66,7 +66,7 @@
           <ion-card-title>Computer Repair</ion-card-title>
         </ion-col>
         <ion-col>
-          <ion-icon class="cgicon" routerLink="../service-lists" src="assets/icon/categories/more.svg"></ion-icon>
+          <ion-icon class="cgicon" routerLink="/home/feed/allservices" src="assets/icon/categories/more.svg"></ion-icon>
           <ion-card-title>More</ion-card-title>
         </ion-col>
       </ion-row>
@@ -81,7 +81,7 @@
     <ion-icon class="heart" src="assets/icon/heart.svg"></ion-icon>
 
     <div class="list">
-      <ion-card id="1" *ngFor="let vendor of vendorList">
+      <ion-card (click)="toConfirm(vendor)" *ngFor="let vendor of vendorList">
         <div class="avatar">
           <ion-avatar>
             <img src={{vendor.picture}}>

@@ -1,9 +1,21 @@
 <ion-header>
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="navBack()">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="presentModal()">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon src="assets/icon/filter.svg" class="filtericon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>  
 
-
-<hidenav-stretchheader no-border="false" header-height="75" opacity-factor="16" opacity-color="white" init-expanded="true" blur-factor="0">
+<!-- <hidenav-stretchheader no-border="false" header-height="75" opacity-factor="16" opacity-color="white" init-expanded="true" blur-factor="0">
   <div #static style="width: 100%;">
     <ion-toolbar style="border-bottom: 1px solid rgb(233, 233, 233);">
       <ion-buttons slot="start" routerLink="/home/feed">
@@ -38,17 +50,17 @@
       </ion-chip> 
     </div>
   </div>
-</hidenav-stretchheader>
+</hidenav-stretchheader> -->
 
 </ion-header>
 
-<ion-content hidenav-sh-content>
+<ion-content fullscreen>
 
   <!-- vendor list -->
 
   <div class="list" *ngIf="showSkele">
 
-    <ion-card id="1" *ngFor="let vendor of vendorList">
+    <ion-card (click)="toConfirm(vendor)" *ngFor="let vendor of vendorList">
       <div class="avatar">
         <ion-avatar>
           <img src={{vendor.picture}}>
@@ -110,4 +122,10 @@
       </ion-label>
     </ion-item>  
   </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="map" (click)="goMap()">
+      <ion-icon src="../../../assets/icon/map.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

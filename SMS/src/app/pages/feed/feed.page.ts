@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { ToastController, ModalController, IonContent } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { SearchDisplayPage } from '../../modal/search-display/search-display.page';
@@ -50,5 +50,15 @@ export class FeedPage implements OnInit {
       // mode: "ios",      
     });
     return await modal.present();
+  }
+
+  async toConfirm(v) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        vendor: JSON.stringify(v),
+        back: "home"
+      }
+    }
+    this.router.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
   }
 }

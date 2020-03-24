@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ToastController, ModalController, NavController } from '@ionic/angular';
-import { Router, ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
+import { ToastController, ModalController, NavController, IonContent } from '@ionic/angular';
+import { Router, ActivatedRoute, Params, RoutesRecognized, NavigationExtras } from '@angular/router';
 
 import { AngularFirestore } from '@angular/fire/firestore'
 
-import { ServiceMapPage } from '../../modal/service-map/service-map.page';
+import { ServiceFilterPage } from '../../modal/service-filter/service-filter.page';
 
 @Component({
   selector: 'app-service-lists',
@@ -12,6 +12,7 @@ import { ServiceMapPage } from '../../modal/service-map/service-map.page';
   styleUrls: ['./service-lists.page.scss'],
 })
 export class ServiceListsPage implements OnInit {
+
   @ViewChild('mapElement', {static: true}) mapElement: any
   public search: string=''
   public service: string=''
@@ -60,11 +61,28 @@ export class ServiceListsPage implements OnInit {
   }
 
   async presentModal() {
-    // const modal = await this.modalCtrl.create({
-    //   component: ServiceMapPage,
-    //   // mode: "ios"
-    // });
-    // return await modal.present();
+    const modal = await this.modalCtrl.create({
+      component: ServiceFilterPage,
+      // mode: "ios"
+    });
+    return await modal.present();
+  }  
+
+  async goMap() {
     this.route.navigate(['home/feed/service-map', this.service])
   }  
+
+  navBack() {
+    this.nav.back();
+  }
+
+  async toConfirm(v) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        vendor: JSON.stringify(v),
+        back: "home"
+      }
+    }
+    this.route.navigate(['home/feed/service-lists/service-confirm'], navigationExtras)
+  }
 }

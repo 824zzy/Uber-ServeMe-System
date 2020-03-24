@@ -2,14 +2,51 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+   <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/home/feed">
+      <ion-button class="ion-text-capitalize">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        Back
+      </ion-button>
     </ion-buttons>
-    <ion-title>More Categories</ion-title>
-  </ion-toolbar>
+    <ion-label>
+    </ion-label>
+  </ion-toolbar>  
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'appliances']">
+      <ion-icon slot="start" src="assets/icon/categories/appliance.svg"></ion-icon>
+      Appliances
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'electrical']">
+      <ion-icon slot="start" src="assets/icon/categories/electrical.svg"></ion-icon>
+      Electrical
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'plumbing']">
+      <ion-icon slot="start" src="assets/icon/categories/plumbing.svg"></ion-icon>
+      Plumbing
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'cleaning']">
+      <ion-icon slot="start" src="assets/icon/categories/cleaning.svg"></ion-icon>
+      Home Cleaning
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'tutoring']">
+      <ion-icon slot="start" src="assets/icon/categories/tutorial.svg"></ion-icon>
+      Tutoring
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'moving']">
+      <ion-icon slot="start" src="assets/icon/categories/moving.svg"></ion-icon>
+      Packaging & Moving
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'repair']">
+      <ion-icon slot="start" src="assets/icon/categories/computer.svg"></ion-icon>
+      Computer Repair
+    </ion-item>
+    <ion-item detail [routerLink]="['/home/feed/service-lists', 'pest']">
+      <ion-icon slot="start" src="assets/icon/categories/pest.svg"></ion-icon>
+      Pest Control
+    </ion-item>
+  </ion-list>
 </ion-content>
