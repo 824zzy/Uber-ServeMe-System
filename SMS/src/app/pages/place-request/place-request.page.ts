@@ -6,6 +6,8 @@ import { NavController, LoadingController, ToastController } from '@ionic/angula
 import { UserService } from 'src/app/services/user.service';
 import { Subscription } from 'rxjs';
 import { HomeServiceService } from 'src/app/services/home-service.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -18,6 +20,9 @@ export class PlaceRequestPage implements OnInit {
   public homeService: HomeService = {}
   private loading: any;
   private homeServiceSubscription: Subscription;
+  public request_details: any
+  public data: any
+  public back: string
 
   constructor(
     private homeServiceService: HomeServiceService,
@@ -27,9 +32,24 @@ export class PlaceRequestPage implements OnInit {
     private userService: UserService,
     private toastCtrl: ToastController,
     private router: Router,
+    public activateRoute: ActivatedRoute,
+    public afstore: AngularFirestore,
+    public afAuth: AngularFireAuth,
   ) {
     this.homeSeviceId = this.activatedRoute.snapshot.params['id'];
+    console.log('placerequest id', this.homeSeviceId)
     if (this.homeSeviceId) this.loadProduct();
+
+    this.activateRoute.queryParams.subscribe(params => {
+      console.log('params: ', params);
+      if (params && params.vendor) {
+        this.data = JSON.parse(params.vendor);
+      }
+      if (params && params.back) {
+        this.back = params.back;
+      }
+      console.log('params: ', this.back);
+    })
   }
 
   ngOnInit() { }
@@ -52,35 +72,14 @@ export class PlaceRequestPage implements OnInit {
         homeService: this.homeService
       }
     };
+    // add request to vendor current request
+    let vendorId =  this.homeService.vendorId
+    this.data['userId'] = this.afAuth.auth.currentUser.uid
+    console.log(this.data)
+    // this.userService.addCurrentOrder(vendorId, this.afAuth.auth.currentUser.uid, this.data)
+
     this.router.navigate(['/home/me/payment'], navigationExtras)
     this.loading.dismiss()
-
-    // this.homeService.userId = this.userService.getAuth().currentUser.uid;
-    // console.log(this.homeService.userId)
-    // if (this.homeSeviceId) {
-    //   try {
-    //     await this.homeServiceService.updateService(this.homeSeviceId, this.homeService);
-    //     await this.loading.dismiss();
-    //     console.log('update services')
-    //     // TODO:
-    //     // this.navCtrl.navigateBack('/home');
-    //   } catch (error) {
-    //     this.presentToast('Error when trying to save');
-    //     this.loading.dismiss();
-    //   }
-    // } else {
-    //   this.homeService.createdAt = new Date().getTime();
-    //   try {
-    //     await this.homeServiceService.addService(this.homeService);
-    //     await this.loading.dismiss();
-    //     console.log("save success:", this.homeService)
-    //     // TODO:
-    //     // this.navCtrl.navigateBack('/home');
-    //   } catch (error) {
-    //     this.presentToast('Error when trying to save');
-    //     this.loading.dismiss();
-    //   }
-    // }
   }
 
   async presentLoading() {
