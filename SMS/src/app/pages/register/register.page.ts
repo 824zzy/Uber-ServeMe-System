@@ -19,6 +19,7 @@ export class RegisterPage implements OnInit {
   lastname: string = ""
   firstname: string = ""
   image: string = "https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+  balance: number = 0
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -32,7 +33,7 @@ export class RegisterPage implements OnInit {
   }
 
   async register() {
-    const { lastname, firstname, email, password, cpassword, image } = this
+    const { lastname, firstname, email, password, cpassword, image, balance } = this
     if (password !== cpassword) {
       this.presentRegAlert("Password doesn't match, please try again")
       return console.error("Password doesn't match")
@@ -46,6 +47,7 @@ export class RegisterPage implements OnInit {
         lastname,
         firstname,
         image,
+        balance,
       })
       this.presentRegAlert("Welcome UberService!")
       this.router.navigate(['/home/feed'])

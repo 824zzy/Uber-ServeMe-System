@@ -59,7 +59,7 @@ export class ServiceListsPage implements OnInit {
         }  
         snapshot.forEach(doc => {
           // console.log("didi", doc.id, '=>', doc.data());
-          this.vendorList.push(doc.data())
+          thiList.push(doc.data())
           this.loadVendor.push(doc.data())
         })
       })
@@ -155,7 +155,7 @@ export class ServiceListsPage implements OnInit {
       } 
       console.log(this.filter);
     });
-
+    
     return await modal.present();
   }  
 
