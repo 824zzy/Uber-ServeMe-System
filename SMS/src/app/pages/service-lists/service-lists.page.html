@@ -60,7 +60,7 @@
 
   <div class="list" *ngIf="showSkele">
 
-    <ion-card (click)="toConfirm(vendor)" *ngFor="let vendor of vendorList">
+    <ion-card (click)="toConfirm(vendor)" *ngFor="let vendor of vendors">
       <div class="avatar">
         <ion-avatar>
           <img src={{vendor.picture}}>
@@ -73,7 +73,7 @@
           </div>
           <ion-text class="t">{{vendor.name}}</ion-text>
           <div class="distance">
-            <ion-text>10.5mi</ion-text>
+            <ion-text>{{vendor.distance}} mi</ion-text>
           </div>
         </div>
         <div class="eval">
