@@ -59,7 +59,7 @@ export class ServiceListsPage implements OnInit {
         }  
         snapshot.forEach(doc => {
           // console.log("didi", doc.id, '=>', doc.data());
-          thiList.push(doc.data())
+          this.vendorList.push(doc.data())
           this.loadVendor.push(doc.data())
         })
       })
