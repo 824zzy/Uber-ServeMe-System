@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <div class="go-back">
-      <ion-text class="cancel" (click)="dismiss()">Cancel</ion-text>
-      <ion-text class="reset" (click)="dismiss()">Reset</ion-text>
+      <ion-text class="cancel" (click)="cancelDismiss()">Cancel</ion-text>
+      <ion-text class="reset" (click)="resetDismiss()">Reset</ion-text>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -10,23 +10,23 @@
 <ion-content>
 
   <div>
-    <ion-radio-group allow-empty-selection value="default">
+    <ion-radio-group value={{val}}>
       <ion-list-header>
         <ion-label>Sort</ion-label>
       </ion-list-header>
       <ion-item>
         <ion-label>Default</ion-label>
-        <ion-radio slot="end" color="dark" value="default"></ion-radio>
+        <ion-radio slot="end" color="dark" value="default" (click)="select($event)"></ion-radio>
       </ion-item>
 
       <ion-item>
         <ion-label>Rating</ion-label>
-        <ion-radio slot="end" color="dark" value="rating"></ion-radio>
+        <ion-radio slot="end" color="dark" value="rating"  (click)="select($event)"></ion-radio>
       </ion-item>
 
       <ion-item>
         <ion-label>Distance</ion-label>
-        <ion-radio slot="end" color="dark" value="distance"></ion-radio>
+        <ion-radio slot="end" color="dark" value="distance"  (click)="select($event)"></ion-radio>
       </ion-item>
 
     </ion-radio-group>
@@ -43,7 +43,7 @@
   </div>
 
   <div style="width: 100%; padding-bottom: 5%; position: fixed; bottom: 0; text-align: center;">
-    <ion-button (click)="dismiss()" color="dark" style=" width: 80%;">
+    <ion-button (click)="applyDismiss()" color="dark" style=" width: 80%;">
       Apply
     </ion-button>
   </div>
