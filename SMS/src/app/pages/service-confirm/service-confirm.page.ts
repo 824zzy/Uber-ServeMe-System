@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, Renderer2, ViewChild, NgZone } from '@angular/core';
 import { ToastController, Platform, LoadingController, NavController } from '@ionic/angular';
 import { GoogleMap, GoogleMaps, GoogleMapsEvent, Marker, GoogleMapsAnimation, MyLocation, Environment, GoogleMapOptions, Geocoder, ILatLng } from '@ionic-native/google-maps';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 
 declare var google: any
@@ -34,6 +34,7 @@ export class ServiceConfirmPage implements OnInit {
   back: string;
 
   constructor(
+    public router: Router,
     public toastCtrl: ToastController,
     private platform: Platform,
     private loadingCtrl: LoadingController,
@@ -88,29 +89,6 @@ export class ServiceConfirmPage implements OnInit {
       this.loading.dismiss()
     }
   }
-
-
-  // async addOriginMarker() {
-  //   try {
-  //     const myLocation: MyLocation = await this.map.getMyLocation()
-  //     await this.map.moveCamera({
-  //       target: myLocation.latLng,
-  //       zoom: 18
-  //     })
-  //     this.originMarker = this.map.addMarkerSync({
-  //       title: 'origin',
-  //       icon: "#000",
-  //       animation: GoogleMapsAnimation.DROP,
-  //       position: myLocation.latLng,
-  //     })
-  //     console.log('this.origin', this.originMarker)
-  //   } catch (error) {
-  //     console.log(error)
-  //   } finally {
-  //     this.loading.dismiss()
-  //   }
-  // }
-
 
   async calcRoute(vendor) {
     // should have load Map in function
@@ -214,7 +192,7 @@ export class ServiceConfirmPage implements OnInit {
   }
   
 
-  navToDiffPage(){
+  navToDiffPage() {
     console.log(this.back)
     if (this.back == "home")
       this.route.navigate(['home/feed'])
@@ -223,5 +201,15 @@ export class ServiceConfirmPage implements OnInit {
       // this.route.navigate(['home/feed/service-map'])
       this.nav.back()
     } 
+  }
+
+  async navPlaceOrder(v) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        vendor: JSON.stringify(v),
+        back: "home"
+      }
+    }
+    this.router.navigate(['/place-request'], navigationExtras)
   }
 }

@@ -155,7 +155,6 @@ export class ServiceListsPage implements OnInit {
       } 
       console.log(this.filter);
     });
-
     return await modal.present();
   }  
 

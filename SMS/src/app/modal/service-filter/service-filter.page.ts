@@ -9,7 +9,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./service-filter.page.scss'],
 })
 export class ServiceFilterPage implements OnInit {
-
   public val: string = "default";
   public filter: string;
   public origin: string;

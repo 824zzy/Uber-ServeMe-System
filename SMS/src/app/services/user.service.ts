@@ -51,6 +51,12 @@ export class UserService {
 		return this.afAuth.auth
 	}
 
+	addCurrentOrder(vendorID: any, orderData: any) {
+		// , serviceDate: any
+		this.firestore.doc(`users/${vendorID}`).collection('currentOrders').add(orderData)
+		console.log("Current order successful written")
+	}
+
 	addOrder(orderData: any) {
 		this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).collection('orders').add(orderData)
 		console.log("order successful written")
