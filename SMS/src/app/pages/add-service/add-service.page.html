@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons slot="start" (click)="back()">
+      <ion-button style="font-size: 15px;" class="ion-text-capitalize">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        Back
+      </ion-button>
     </ion-buttons>
 
     <ion-title>Add home service as a Vendor</ion-title>

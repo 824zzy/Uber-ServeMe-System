@@ -66,3 +66,13 @@ ion-grid{
     --background: rgb(54, 54, 54);
     --background-hover: rgb(95, 95, 95);
 }
+
+ion-fab-list{
+    ion-fab-buttom{
+        width: 45px;
+        height: 45px;
+    }
+    ion-icon{
+        font-size: 24px;
+    }
+}

@@ -96,4 +96,8 @@ export class AddServicePage implements OnInit {
     const toast = await this.toastCtrl.create({ message, duration: 2000 });
     toast.present();
   }
+
+  back(){
+    this.navCtrl.back();
+  }
 }
