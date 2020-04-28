@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { VendorPageRoutingModule } from './vendor-routing.module';
 
 import { VendorPage } from './vendor.page';
+import { ComponentsModule } from '../../components/components.module'
+import { VendorhomePopoverComponent } from '../../components/vendorhome-popover/vendorhome-popover.component'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VendorPageRoutingModule
+    VendorPageRoutingModule,
+    ComponentsModule,
   ],
-  declarations: [VendorPage]
+  declarations: [VendorPage],
+  entryComponents: [
+    VendorhomePopoverComponent,
+  ]
 })
 export class VendorPageModule {}

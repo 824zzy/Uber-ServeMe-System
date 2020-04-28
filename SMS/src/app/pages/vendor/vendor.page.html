@@ -1,34 +1,52 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" routerLink="/home/me">
-      <ion-button class="ion-text-capitalize">
+      <ion-button style="font-size: 15px;" class="ion-text-capitalize">
         <ion-icon name="ios-arrow-back"></ion-icon>
         Back
       </ion-button>
     </ion-buttons>
-    <ion-title>Your Home Services</ion-title>
+    <ion-buttons slot="end" (click)="presentPopover($event)">
+      <ion-button>
+        <ion-icon style="font-size: 27px;" name="md-more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
+  <!-- user info -->
+  <div class="userinfo" *ngIf="userData">
+    <span>
+      <ion-avatar slot="start" class="user-avatar">
+        <img src="https://ucarecdn.com/{{ userData.image }}/-/scale_crop/150x150/center/">
+      </ion-avatar>
+    </span>
+    <span class="name">
+      <ion-label>
+        <ion-text class="username">
+          {{userData.firstname}} {{userData.lastname}}
+        </ion-text>
+      </ion-label>
+    </span>
+  </div>
+
+  <div class="list_title">
+    <ion-label>Service</ion-label>
+  </div>
+
 </ion-header>
 
+
 <ion-content>
-  <ion-list *ngIf="!homeServices.length">
-    You don't have any home services now!
-  </ion-list>
 
   <ion-list>
+
     <ion-item-sliding *ngFor="let service of homeServices">
-      <ion-item button [routerLink]="['/service-detail', service.id]">
+      <ion-item detail [routerLink]="['/service-detail', service.id]">
         <ion-avatar slot="start">
           <img [src]="service.picture">
         </ion-avatar>
-
-        <ion-label>
-          {{ service.name }}
-          <p>{{ service.description }}</p>
-          <p>{{ service.createdAt | date: 'short' }}</p>
-        </ion-label>
-
-        <ion-note color="primary" slot="end" *ngIf="service.price">{{ service.price | currency: 'BRL' }}</ion-note>
+        {{ service.name }}
+        <!-- <ion-note color="primary" slot="end" *ngIf="service.price">{{ service.price | currency: 'BRL' }}</ion-note> -->
       </ion-item>
 
       <ion-item-options side="end">
@@ -41,7 +59,7 @@
   </ion-list>
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar>
     <ion-grid>
       <ion-row>
@@ -59,4 +77,4 @@
       </ion-row>
     </ion-grid>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->
