@@ -13,6 +13,7 @@ export class HistoryPage implements OnInit {
   private loading: any
   private orders = new Array<any>()
   private orderSubscription: Subscription;
+  private visiable = true;
 
   constructor(
     private userService: UserService,
@@ -60,6 +61,10 @@ export class HistoryPage implements OnInit {
     }
     this.router.navigate(['/review'], navigationExtras)
     this.loading.dismiss()
+  }
+
+  async deleteOrder(order:any) {
+    this.visiable = false
   }
 
 }

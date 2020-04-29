@@ -14,11 +14,16 @@
     <ion-label>NO ORDERS</ion-label>
     <ion-text>Your don't have any orders in your history!</ion-text>
   </div>
-
+  <ion-item-divider>
+    <ion-label>
+      Paid Order
+    </ion-label>
+  </ion-item-divider>
+  
   <ion-list>
     <ion-item-sliding *ngFor="let order of orders">
       <!-- <ion-item button [routerLink]="['/service-detail', service.id]"> -->
-      <ion-item button >
+      <ion-item button *ngIf="visiable">
         <ion-avatar slot="start">
           <img [src]="order.picture">
         </ion-avatar>
@@ -34,10 +39,39 @@
 
       <ion-item-options side="end">
         <ion-item-option color="warning" (click)="navToReview(order)">
-          <ion-icon slot="top" name="trash"></ion-icon>
+          <ion-icon slot="top" name="reader-outline"></ion-icon>
           Review
         </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteOrder(order)">
+          <ion-icon slot="top" name="trash"></ion-icon>
+          Delete
+        </ion-item-option>
       </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-item-divider>
+    <ion-label>
+      Unpaid Order
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let order of orders">
+      <!-- <ion-item button [routerLink]="['/service-detail', service.id]"> -->
+      <ion-item button>
+        <ion-avatar slot="start">
+          <img [src]="order.picture">
+        </ion-avatar>
+
+        <ion-label>
+          {{ order.name }}
+          <p>{{ order.description }}</p>
+          <p>{{ order.createdAt | date: 'short' }}</p>
+        </ion-label>
+
+        <ion-note color="primary" slot="end" *ngIf="order.price">{{ order.price | currency: 'BRL' }}</ion-note>
+      </ion-item>
     </ion-item-sliding>
   </ion-list>
 </ion-content>
