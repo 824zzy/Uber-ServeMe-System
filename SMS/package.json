@@ -57,7 +57,7 @@
     "cordova-universal-links-plugin-fix": "1.2.1",
     "core-js": "^2.5.4",
     "firebase": "^7.8.2",
-    "firebase-admin": "^8.9.2",
+    "firebase-admin": "^11.8.0",
     "firebaseui": "^4.4.0",
     "firebaseui-angular": "^4.0.1",
     "ionic4-hidenav": "^1.0.0",
